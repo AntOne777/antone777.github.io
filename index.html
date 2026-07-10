@@ -12,17 +12,16 @@
         .card { position: relative; background: #1e1e1e; border-radius: 8px; overflow: hidden; cursor: pointer; }
         .card img { width: 100%; height: 220px; object-fit: cover; opacity: 0; transition: opacity 0.3s; display: block; }
         .card img.loaded { opacity: 1; }
-        
         .card-overlay { position: absolute; top:0; left:0; width:100%; height:100%; z-index:10; }
         
         .card-info { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 40px 15px 15px; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
         .card:hover .card-info { opacity: 1; }
         .card-title { font-size: 13px; font-weight: 300; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: uppercase; }
-        .card-date, .card-markets { font-size: 10px; color: #aaa; text-transform: uppercase; }
+        .card-date { font-size: 10px; color: #aaa; text-transform: uppercase; }
 
         .lightbox { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
         .lightbox.active { display: flex; flex-direction: column; }
-        .lightbox-img { max-width: 95%; max-height: 80%; opacity: 0; transition: opacity 0.3s; }
+        .lightbox-img { max-width: 95%; max-height: 80%; opacity: 0; transition: opacity 0.3s; object-fit: contain; background: transparent; }
         .lightbox-img.loaded { opacity: 1; }
         
         .close-btn { position: absolute; top: 25px; right: 35px; background: none; border: none; color: white; font-size: 40px; cursor: pointer; z-index: 1001; }
@@ -49,9 +48,6 @@
               dlBtn = document.getElementById('download-btn'), lbl = document.getElementById('file-label');
         let currentBlobUrl = null;
 
-        // Фикс появления картинки в лайтбоксе
-        lbImg.onload = () => lbImg.classList.add('loaded');
-
         const close = () => { lb.classList.remove('active'); lbImg.src=""; lbImg.classList.remove('loaded'); if(currentBlobUrl){ URL.revokeObjectURL(currentBlobUrl); currentBlobUrl=null; } };
 
         fetch('data.json?t=' + Date.now())
@@ -60,30 +56,32 @@
                 Object.values(data).forEach(item => {
                     const card = document.createElement('div');
                     card.className = 'card';
-                    const title = item.title || "";
-                    const date = item.date || "";
-                    const markets = (item.markets || []).join(' • ');
-
-                    card.innerHTML = `<img src="${item.preview}" loading="lazy" decoding="async">
-                                     <div class="card-overlay"></div>
-                                     <div class="card-info">
-                                         ${title ? `<div class="card-title">${title}</div>` : ''}
-                                         <div class="card-date">${date} ${markets}</div>
-                                     </div>`;
                     
-                    const img = card.querySelector('img');
+                    const img = document.createElement('img');
+                    img.src = item.preview; img.loading = "lazy"; img.decoding = "async";
                     img.onload = () => img.classList.add('loaded');
                     if(img.complete) img.classList.add('loaded');
                     
-                    card.querySelector('.card-overlay').onclick = (e) => {
+                    const overlay = document.createElement('div'); overlay.className = 'card-overlay';
+                    const info = document.createElement('div'); info.className = 'card-info';
+                    if(item.title) info.innerHTML = `<div class="card-title">${item.title}</div>`;
+                    info.innerHTML += `<div class="card-date">${item.date || ""} ${(item.markets || []).join(' • ')}</div>`;
+                    
+                    card.append(img, overlay, info);
+                    
+                    overlay.onclick = (e) => {
                         e.preventDefault();
                         lbImg.classList.remove('loaded');
-                        lbImg.src = "";
                         lbl.textContent = `${item.img_id}.jpg`;
-                        lb.classList.add('active');
                         
-                        // Задержка для плавной анимации смены src
-                        setTimeout(() => { lbImg.src = item.url; }, 50);
+                        const preload = new Image();
+                        preload.onload = () => {
+                            lbImg.src = item.url;
+                            lb.classList.add('active');
+                            lbImg.classList.add('loaded');
+                        };
+                        preload.onerror = () => { lbImg.src = item.url; lb.classList.add('active'); };
+                        preload.src = item.url;
                         
                         dlBtn.onclick = async () => {
                             dlBtn.textContent = "Загрузка...";
