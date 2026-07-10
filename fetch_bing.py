@@ -34,31 +34,39 @@ def fetch_wallpapers():
                     else:
                         raw_id = urlbase.split('/')[-1]
                     
-                    # Отрезаем ВСЁ лишнее после названия картинки (коды стран, цифры)
-                    # Из 'VictoriaBeach_EN-US7607379912' получаем чистый 'VictoriaBeach'
+                    # Получаем чистый ID (например, VictoriaBeach)
                     clean_id = raw_id.split('_')[0]
                     
-                    # Жесткий уникальный ключ: Дата + Чистое Название
-                    key = f"{date}_{clean_id}"
+                    # Ультимативный ключ — только имя картинки! Больше никаких повторов из-за дат
+                    key = clean_id
                     
                     if key not in db:
                         base_url = "https://www.bing.com" + urlbase + "_UHD.jpg"
                         
                         db[key] = {
+                            "sort_key": f"{date}_{clean_id}", # Нужно для правильной сортировки новинок
                             "date": f"{date[:4]}-{date[4:6]}-{date[6:]}",
                             "url": base_url,
                             "img_id": clean_id
                         }
                         updated = True
+                    else:
+                        # Если картинка уже есть, но мы нашли её с более свежей датой — обновляем дату
+                        current_sort = db[key].get("sort_key", "")
+                        new_sort = f"{date}_{clean_id}"
+                        if new_sort > current_sort:
+                            db[key]["date"] = f"{date[:4]}-{date[4:6]}-{date[6:]}"
+                            db[key]["sort_key"] = new_sort
+                            updated = True
         except Exception as e:
             print(f"Ошибка {mkt}: {e}")
 
     if updated or not db:
-        # Сортируем базу по дате, чтобы новые обои всегда шли первыми
-        db = dict(sorted(db.items(), key=lambda item: item[0], reverse=True))
+        # Сортируем базу так, чтобы самые свежие по дате картинки всегда были вверху
+        db = dict(sorted(db.items(), key=lambda item: item[1].get("sort_key", ""), reverse=True))
         with open('data.json', 'w', encoding='utf-8') as f:
             json.dump(db, f, ensure_ascii=False, indent=4)
-        print("База очищена от абсолютно всех скрытых дубликатов!")
+        print("База полностью перестроена. Межсуточные дубликаты уничтожены!")
 
 if __name__ == "__main__":
     fetch_wallpapers()
