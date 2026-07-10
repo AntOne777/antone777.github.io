@@ -19,6 +19,8 @@ def fetch_wallpapers():
             if r.status_code == 200:
                 for img in r.json().get('images', []):
                     date, urlbase = img.get('startdate'), img.get('urlbase', '')
+                    if not urlbase: continue
+                    
                     raw_id = urlbase.split('?id=OHR.')[-1] if '?id=OHR.' in urlbase else urlbase.split('/')[-1]
                     clean_id = raw_id.split('_')[0]
                     
@@ -35,8 +37,8 @@ def fetch_wallpapers():
                         }
                         updated = True
                     else:
-                        # Миграция старых записей
                         item = db[clean_id]
+                        # Обновление статистики и миграция полей
                         if mkt not in item.get("markets", []):
                             item.setdefault("markets", []).append(mkt)
                             updated = True
@@ -44,7 +46,14 @@ def fetch_wallpapers():
                             if field not in item:
                                 item[field] = img.get(field, '') if field != "preview" else f"https://www.bing.com{urlbase}_1920x1080.jpg"
                                 updated = True
-        except: pass
+                        
+                        new_sort = f"{date}_{clean_id}"
+                        if new_sort > item.get("sort_key", ""):
+                            item["sort_key"] = new_sort
+                            item["date"] = f"{date[:4]}-{date[4:6]}-{date[6:]}"
+                            updated = True
+        except Exception as e:
+            print(f"Ошибка в {mkt}: {e}")
 
     if updated:
         db = dict(sorted(db.items(), key=lambda i: i[1].get("sort_key", ""), reverse=True))
