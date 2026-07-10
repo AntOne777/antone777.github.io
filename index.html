@@ -2,146 +2,126 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Личный архив Bing Wallpaper в UHD">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Личный архив Bing Wallpaper UHD">
     <meta name="theme-color" content="#121212">
-    <title>Горизонт | Архивы Bing</title>
+    <title>Горизонт | Bing Archive</title>
+
     <style>
-        body { font-family: -apple-system, sans-serif; background: #121212; color: #fff; margin: 0; padding: 20px; }
-        h1 { text-align: center; margin: 60px 0; font-family: 'Segoe UI', sans-serif; font-weight: 200; letter-spacing: 0.5em; text-transform: uppercase; color: #ffffff; font-size: 32px; }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 20px; background: #121212; color: white; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        h1 { text-align: center; margin: 60px 0; font-weight: 200; letter-spacing: .5em; text-transform: uppercase; font-size: 32px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-        
-        .card { position: relative; background: #1e1e1e; border-radius: 8px; overflow: hidden; cursor: pointer; }
-        .card img { width: 100%; height: 220px; object-fit: cover; opacity: 0; transition: opacity 0.3s; display: block; }
+        .card { position: relative; overflow: hidden; border-radius: 8px; background: #1e1e1e; cursor: pointer; }
+        .card img { width: 100%; height: 220px; object-fit: cover; opacity: 0; transition: .3s; }
         .card img.loaded { opacity: 1; }
-        .card-overlay { position: absolute; top:0; left:0; width:100%; height:100%; z-index:10; }
-        
-        .card-info { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 40px 15px 15px; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
-        .card:hover .card-info { opacity: 1; }
-        .card-title { font-size: 13px; font-weight: 300; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: uppercase; }
-        .card-date { font-size: 10px; color: #aaa; text-transform: uppercase; }
+        .overlay { position: absolute; inset: 0; z-index: 10; }
+        .info { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 15px 15px; background: linear-gradient(transparent, rgba(0,0,0,.9)); opacity: 0; transition: .3s; pointer-events: none; }
+        .card:hover .info { opacity: 1; }
+        .title { font-size: 13px; text-transform: uppercase; }
+        .date { font-size: 10px; color: #aaa; margin-top: 5px; }
 
-        .lightbox { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
-        .lightbox.active { display: flex; flex-direction: column; }
-        .lightbox-img { max-width: 95%; max-height: 80%; opacity: 0; transition: opacity 0.3s; object-fit: contain; background: transparent; cursor: context-menu; }
-        .lightbox-img.loaded { opacity: 1; }
-        
-        .close-btn { position: absolute; top: 25px; right: 35px; background: none; border: none; color: white; font-size: 40px; cursor: pointer; z-index: 1001; }
-        .lightbox-controls { margin-top: 20px; display: flex; gap: 20px; align-items: center; }
-        .btn-download { cursor: pointer; background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 10px 20px; border-radius: 4px; font-size: 12px; text-transform: uppercase; transition: 0.3s; }
-        .btn-download:hover { background: rgba(0, 120, 212, 0.8); }
+        .lightbox { position: fixed; inset: 0; display: none; background: rgba(0,0,0,.95); justify-content: center; align-items: center; flex-direction: column; z-index: 1000; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 95%; max-height: 80%; user-select: none; -webkit-user-drag: none; -webkit-touch-callout: none; pointer-events: auto; }
+        .close { position: absolute; right: 35px; top: 25px; font-size: 40px; background: none; border: 0; color: white; cursor: pointer; }
+        .controls { margin-top: 20px; }
+        button { background: #222; color: white; border: 0; padding: 10px 20px; cursor: pointer; }
+        button:hover { background: #0078d4; }
 
-        .context-menu { display: none; position: fixed; z-index: 2000; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; padding: 6px 0; min-width: 160px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-family: sans-serif; }
-        .context-menu.active { display: block; }
-        .context-item { padding: 10px 15px; color: white; font-size: 13px; cursor: pointer; }
-        .context-item:hover { background: #0078d4; }
+        .menu { position: fixed; display: none; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; padding: 5px; z-index: 2000; }
+        .menu.active { display: block; }
+        .menu div { padding: 10px 20px; cursor: pointer; }
+        .menu div:hover { background: #0078d4; }
     </style>
 </head>
 <body>
+
     <h1>Горизонт</h1>
     <div class="grid" id="gallery"></div>
-    
-    <div id="lightbox" class="lightbox">
-        <button class="close-btn" id="close-btn" title="Закрыть">×</button>
-        <img class="lightbox-img" id="lightbox-img">
-        <div class="lightbox-controls">
-            <div id="file-label" style="font-size: 10px; opacity: 0.5; font-family: monospace;"></div>
-            <button class="btn-download" id="download-btn">Скачать UHD</button>
+
+    <div class="lightbox" id="viewer">
+        <button class="close" id="close">×</button>
+        <img id="bigImage">
+        <div class="controls">
+            <button id="download">Скачать UHD</button>
         </div>
     </div>
 
-    <div id="context-menu" class="context-menu">
-        <div class="context-item" id="context-download">Скачать UHD</div>
+    <div class="menu" id="menu">
+        <div id="menuDownload">Скачать UHD</div>
     </div>
 
     <script>
-        const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lightbox-img'),
-              dlBtn = document.getElementById('download-btn'), lbl = document.getElementById('file-label'),
-              contextMenu = document.getElementById('context-menu'), contextDownload = document.getElementById('context-download');
-        let currentBlobUrl = null, contextItem = null;
+        const gallery = document.getElementById("gallery");
+        const viewer = document.getElementById("viewer");
+        const bigImage = document.getElementById("bigImage");
+        const menu = document.getElementById("menu");
+        let current = null;
 
-        const downloadImage = async (item) => {
-            const btn = (item === contextItem) ? contextDownload : dlBtn;
-            const originalText = btn.textContent;
-            btn.textContent = "Загрузка...";
+        async function download(item) {
             try {
                 const r = await fetch(item.url);
-                if(!r.ok) throw new Error();
-                const b = await r.blob();
-                if(currentBlobUrl) URL.revokeObjectURL(currentBlobUrl);
-                currentBlobUrl = URL.createObjectURL(b);
-                const a = document.createElement('a');
-                a.href = currentBlobUrl; 
-                a.download = `${(item.title || "BingImage").replace(/[^a-zA-Z0-9а-яА-Я]/g, '') || "BingImage"}.jpg`;
+                const blob = await r.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `${item.id}_${item.date}.jpg`;
                 a.click();
-            } catch(e) { alert("Ошибка при загрузке"); }
-            finally { btn.textContent = originalText; }
-        };
+                setTimeout(() => URL.revokeObjectURL(url), 2000);
+            } catch { alert("Ошибка загрузки"); }
+        }
 
-        const close = () => { lb.classList.remove('active'); lbImg.src=""; lbImg.classList.remove('loaded'); if(currentBlobUrl){ URL.revokeObjectURL(currentBlobUrl); currentBlobUrl=null; } };
+        function openViewer(item) {
+            current = item;
+            bigImage.src = item.url;
+            viewer.classList.add("active");
+        }
 
-        fetch('data.json?t=' + Date.now())
-            .then(r => { if(!r.ok) throw new Error(); return r.json(); })
+        function closeViewer() {
+            viewer.classList.remove("active");
+            bigImage.src = "";
+        }
+
+        fetch("data.json?" + Date.now())
+            .then(r => r.json())
             .then(data => {
-                Object.values(data).forEach(item => {
-                    const card = document.createElement('div'); card.className = 'card';
-                    const img = document.createElement('img');
-                    img.src = item.preview; img.loading = "lazy"; img.decoding = "async";
-                    img.onload = () => img.classList.add('loaded');
-                    if(img.complete) img.classList.add('loaded');
+                Object.values(data).sort((a,b) => b.date.localeCompare(a.date)).forEach(item => {
+                    const card = document.createElement("div"); card.className = "card";
+                    const img = document.createElement("img"); img.src = item.preview; img.loading = "lazy";
+                    img.onload = () => img.classList.add("loaded");
                     
-                    const overlay = document.createElement('div'); overlay.className = 'card-overlay';
-                    const info = document.createElement('div'); info.className = 'card-info';
-                    if(item.title) {
-                        const t = document.createElement('div'); t.className = 'card-title'; t.textContent = item.title;
-                        info.append(t);
-                    }
-                    const d = document.createElement('div'); d.className = 'card-date'; 
-                    d.textContent = `${item.date || ""} ${(item.markets || []).join(' • ')}`;
-                    info.append(d);
+                    const overlay = document.createElement("div"); overlay.className = "overlay";
+                    const info = document.createElement("div"); info.className = "info";
+                    info.innerHTML = `<div class="title">${item.title || ""}</div><div class="date">${item.date || ""} ${(item.markets||[]).join(" • ")}</div>`;
                     
                     card.append(img, overlay, info);
-                    
-                    overlay.onclick = (e) => {
+                    overlay.onclick = () => openViewer(item);
+                    overlay.oncontextmenu = e => {
                         e.preventDefault();
-                        contextItem = item;
-                        lbImg.classList.remove('loaded');
-                        lbl.textContent = `${(item.title || "BingImage").replace(/[^a-zA-Z0-9а-яА-Я]/g, '') || "BingImage"}.jpg`;
-                        lb.classList.add('active'); 
-                        const preload = new Image();
-                        preload.onload = () => { lbImg.src = item.url; lbImg.classList.add('loaded'); };
-                        preload.src = item.url;
-                        dlBtn.onclick = () => downloadImage(item);
+                        current = item;
+                        menu.style.left = e.clientX + "px";
+                        menu.style.top = e.clientY + "px";
+                        menu.classList.add("active");
                     };
-
-                    overlay.addEventListener('contextmenu', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        contextItem = item;
-                        contextMenu.style.left = `${e.clientX}px`;
-                        contextMenu.style.top = `${e.clientY}px`;
-                        contextMenu.classList.add('active');
-                    });
-                    document.getElementById('gallery').append(card);
+                    gallery.append(card);
                 });
-            }).catch(() => { document.getElementById('gallery').innerHTML = "<p style='text-align:center'>Ошибка загрузки архива</p>"; });
+            });
 
-        lbImg.addEventListener('contextmenu', (e) => {
+        bigImage.oncontextmenu = e => {
             e.preventDefault();
-            e.stopPropagation();
-            if (contextItem) {
-                contextMenu.style.left = `${e.clientX}px`;
-                contextMenu.style.top = `${e.clientY}px`;
-                contextMenu.classList.add('active');
-            }
-        });
+            menu.style.left = e.clientX + "px";
+            menu.style.top = e.clientY + "px";
+            menu.classList.add("active");
+        };
 
-        contextDownload.onclick = () => { if(contextItem) downloadImage(contextItem); contextMenu.classList.remove('active'); };
-        document.addEventListener('click', () => { contextMenu.classList.remove('active'); });
-        document.addEventListener('contextmenu', (e) => { if(!e.target.closest('.card') && e.target !== lbImg) contextMenu.classList.remove('active'); });
-        
-        document.getElementById('close-btn').onclick = close;
-        lb.onclick = (e) => { if(e.target === lb) close(); };
-        document.onkeydown = (e) => { if(e.key === "Escape") close(); };
+        document.getElementById("download").onclick = () => download(current);
+        document.getElementById("menuDownload").onclick = () => { download(current); menu.classList.remove("active"); };
+        document.onclick = e => { if(!e.target.closest(".menu")) menu.classList.remove("active"); };
+        document.onkeydown = e => { if(e.key === "Escape") closeViewer(); };
+        document.getElementById("close").onclick = closeViewer;
+        viewer.onclick = e => { if(e.target === viewer) closeViewer(); };
+        window.onresize = window.onscroll = () => menu.classList.remove("active");
     </script>
 </body>
 </html>
