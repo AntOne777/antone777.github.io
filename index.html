@@ -50,32 +50,23 @@
         const downloadBtn = document.getElementById("download");
         let current = null;
 
-        // Блокировка ПКМ на картинке
         bigImage.addEventListener('contextmenu', (e) => e.preventDefault());
 
         async function download(item) {
             if (!item || !item.url) return;
-            
             const originalText = downloadBtn.textContent;
             try {
                 downloadBtn.textContent = "Загрузка...";
                 const r = await fetch(item.url);
                 const blob = await r.blob();
                 const url = URL.createObjectURL(blob);
-                
                 const a = document.createElement("a");
                 a.href = url;
-                // Принудительное использование ID или Title, чтобы избежать undefined
-                const safeName = (item.id || "bing_wallpaper") + "_" + (item.date || "unknown");
-                a.download = `${safeName}.jpg`;
-                
+                a.download = `${item.id || "bing_wallpaper"}.jpg`;
                 a.click();
                 setTimeout(() => URL.revokeObjectURL(url), 2000);
-            } catch { 
-                alert("Ошибка загрузки"); 
-            } finally { 
-                downloadBtn.textContent = originalText; 
-            }
+            } catch { alert("Ошибка загрузки"); }
+            finally { downloadBtn.textContent = originalText; }
         }
 
         function openViewer(item) {
@@ -87,7 +78,7 @@
         function closeViewer() {
             viewer.classList.remove("active");
             bigImage.src = "";
-            current = null; // Очищаем ссылку
+            current = null;
         }
 
         fetch("data.json?" + Date.now())
