@@ -29,6 +29,11 @@
         .lightbox-controls { margin-top: 20px; display: flex; gap: 20px; align-items: center; }
         .btn-download { cursor: pointer; background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 10px 20px; border-radius: 4px; font-size: 12px; text-transform: uppercase; transition: 0.3s; }
         .btn-download:hover { background: rgba(0, 120, 212, 0.8); }
+
+        .context-menu { display: none; position: fixed; z-index: 2000; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; padding: 6px 0; min-width: 160px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-family: sans-serif; }
+        .context-menu.active { display: block; }
+        .context-item { padding: 10px 15px; color: white; font-size: 13px; cursor: pointer; }
+        .context-item:hover { background: #0078d4; }
     </style>
 </head>
 <body>
@@ -44,10 +49,33 @@
         </div>
     </div>
 
+    <div id="context-menu" class="context-menu">
+        <div class="context-item" id="context-download">Скачать UHD</div>
+    </div>
+
     <script>
         const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lightbox-img'),
-              dlBtn = document.getElementById('download-btn'), lbl = document.getElementById('file-label');
-        let currentBlobUrl = null;
+              dlBtn = document.getElementById('download-btn'), lbl = document.getElementById('file-label'),
+              contextMenu = document.getElementById('context-menu'), contextDownload = document.getElementById('context-download');
+        let currentBlobUrl = null, contextItem = null;
+
+        const downloadImage = async (item) => {
+            const btn = (item === contextItem) ? contextDownload : dlBtn;
+            const originalText = btn.textContent;
+            btn.textContent = "Загрузка...";
+            try {
+                const r = await fetch(item.url);
+                if(!r.ok) throw new Error();
+                const b = await r.blob();
+                if(currentBlobUrl) URL.revokeObjectURL(currentBlobUrl);
+                currentBlobUrl = URL.createObjectURL(b);
+                const a = document.createElement('a');
+                a.href = currentBlobUrl; 
+                a.download = `${(item.title || "BingImage").replace(/[^a-zA-Z0-9а-яА-Я]/g, '') || "BingImage"}.jpg`;
+                a.click();
+            } catch(e) { alert("Ошибка при загрузке"); }
+            finally { btn.textContent = originalText; }
+        };
 
         const close = () => { lb.classList.remove('active'); lbImg.src=""; lbImg.classList.remove('loaded'); if(currentBlobUrl){ URL.revokeObjectURL(currentBlobUrl); currentBlobUrl=null; } };
 
@@ -55,9 +83,7 @@
             .then(r => { if(!r.ok) throw new Error(); return r.json(); })
             .then(data => {
                 Object.values(data).forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    
+                    const card = document.createElement('div'); card.className = 'card';
                     const img = document.createElement('img');
                     img.src = item.preview; img.loading = "lazy"; img.decoding = "async";
                     img.onload = () => img.classList.add('loaded');
@@ -78,33 +104,27 @@
                     overlay.onclick = (e) => {
                         e.preventDefault();
                         lbImg.classList.remove('loaded');
-                        const safeTitle = (item.title || "BingImage").replace(/[^a-zA-Z0-9а-яА-Я]/g, '');
-                        lbl.textContent = `${safeTitle}.jpg`;
-                        
-                        lb.classList.add('active'); // Открываем сразу
+                        lbl.textContent = `${(item.title || "BingImage").replace(/[^a-zA-Z0-9а-яА-Я]/g, '') || "BingImage"}.jpg`;
+                        lb.classList.add('active'); 
                         const preload = new Image();
                         preload.onload = () => { lbImg.src = item.url; lbImg.classList.add('loaded'); };
-                        preload.onerror = () => { lbImg.src = item.url; };
                         preload.src = item.url;
-                        
-                        dlBtn.onclick = async () => {
-                            dlBtn.textContent = "Загрузка...";
-                            try {
-                                const r = await fetch(item.url);
-                                if(!r.ok) throw new Error();
-                                const b = await r.blob();
-                                if(currentBlobUrl) URL.revokeObjectURL(currentBlobUrl);
-                                currentBlobUrl = URL.createObjectURL(b);
-                                const a = document.createElement('a');
-                                a.href = currentBlobUrl; a.download = lbl.textContent; a.click();
-                            } catch(e) { alert("Ошибка при загрузке"); }
-                            finally { dlBtn.textContent = "Скачать UHD"; }
-                        };
+                        dlBtn.onclick = () => downloadImage(item);
+                    };
+
+                    overlay.oncontextmenu = (e) => {
+                        e.preventDefault();
+                        contextItem = item;
+                        contextMenu.style.left = e.pageX + "px";
+                        contextMenu.style.top = e.pageY + "px";
+                        contextMenu.classList.add('active');
                     };
                     document.getElementById('gallery').append(card);
                 });
             }).catch(() => { document.getElementById('gallery').innerHTML = "<p style='text-align:center'>Ошибка загрузки архива</p>"; });
 
+        contextDownload.onclick = () => { if(contextItem) downloadImage(contextItem); contextMenu.classList.remove('active'); };
+        document.onclick = () => { contextMenu.classList.remove('active'); };
         document.getElementById('close-btn').onclick = close;
         lb.onclick = (e) => { if(e.target === lb) close(); };
         document.onkeydown = (e) => { if(e.key === "Escape") close(); };
