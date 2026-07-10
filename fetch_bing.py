@@ -2,7 +2,11 @@ import requests
 import json
 import os
 
-MARKETS = ['en-US', 'zh-CN', 'ja-JP', 'de-DE', 'fr-FR', 'ru-RU']
+# Полный список из 11 стран по вашему запросу
+MARKETS = [
+    'en-AU', 'en-CA', 'zh-CN', 'de-DE', 'es-ES', 
+    'fr-FR', 'it-IT', 'ja-JP', 'en-NZ', 'en-GB', 'en-US'
+]
 
 def fetch_wallpapers():
     if os.path.exists('data.json') and os.path.getsize('data.json') > 0:
@@ -28,7 +32,6 @@ def fetch_wallpapers():
                     key = f"{date}_{mkt}"
                     
                     if key not in db:
-                        # Собираем прямую официальную ссылку Microsoft на UHD 4K качество
                         base_url = "https://www.bing.com" + img['urlbase'] + "_UHD.jpg"
                         
                         db[key] = {
@@ -44,7 +47,7 @@ def fetch_wallpapers():
     if updated or not db:
         with open('data.json', 'w', encoding='utf-8') as f:
             json.dump(db, f, ensure_ascii=False, indent=4)
-        print("База успешно возвращена к официальным 4K-ссылкам!")
+        print("База успешно обновлена для 11 стран!")
 
 if __name__ == "__main__":
     fetch_wallpapers()
