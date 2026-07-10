@@ -52,7 +52,7 @@
         const close = () => { lb.classList.remove('active'); lbImg.src=""; lbImg.classList.remove('loaded'); if(currentBlobUrl){ URL.revokeObjectURL(currentBlobUrl); currentBlobUrl=null; } };
 
         fetch('data.json?t=' + Date.now())
-            .then(r => r.json())
+            .then(r => { if(!r.ok) throw new Error(); return r.json(); })
             .then(data => {
                 Object.values(data).forEach(item => {
                     const card = document.createElement('div');
@@ -65,7 +65,6 @@
                     
                     const overlay = document.createElement('div'); overlay.className = 'card-overlay';
                     const info = document.createElement('div'); info.className = 'card-info';
-                    
                     if(item.title) {
                         const t = document.createElement('div'); t.className = 'card-title'; t.textContent = item.title;
                         info.append(t);
@@ -79,22 +78,20 @@
                     overlay.onclick = (e) => {
                         e.preventDefault();
                         lbImg.classList.remove('loaded');
-                        const safeTitle = (item.title || "BingImage").replace(/\s+/g, '').replace(/[\\/:*?"<>|]/g, '');
+                        const safeTitle = (item.title || "BingImage").replace(/[^a-zA-Z0-9а-яА-Я]/g, '');
                         lbl.textContent = `${safeTitle}.jpg`;
                         
+                        lb.classList.add('active'); // Открываем сразу
                         const preload = new Image();
-                        preload.onload = () => {
-                            lbImg.src = item.url;
-                            lb.classList.add('active');
-                            lbImg.classList.add('loaded');
-                        };
-                        preload.onerror = () => { lbImg.src = item.url; lb.classList.add('active'); };
+                        preload.onload = () => { lbImg.src = item.url; lbImg.classList.add('loaded'); };
+                        preload.onerror = () => { lbImg.src = item.url; };
                         preload.src = item.url;
                         
                         dlBtn.onclick = async () => {
                             dlBtn.textContent = "Загрузка...";
                             try {
                                 const r = await fetch(item.url);
+                                if(!r.ok) throw new Error();
                                 const b = await r.blob();
                                 if(currentBlobUrl) URL.revokeObjectURL(currentBlobUrl);
                                 currentBlobUrl = URL.createObjectURL(b);
@@ -106,7 +103,7 @@
                     };
                     document.getElementById('gallery').append(card);
                 });
-            });
+            }).catch(() => { document.getElementById('gallery').innerHTML = "<p style='text-align:center'>Ошибка загрузки архива</p>"; });
 
         document.getElementById('close-btn').onclick = close;
         lb.onclick = (e) => { if(e.target === lb) close(); };
