@@ -69,7 +69,7 @@
                 
                 const a = document.createElement("a");
                 a.href = url;
-                a.download = `${item.id.match(/OHR\.([^_]+)/)?.[1] || "BING_IMAGE"}.jpg`;
+                a.download = `${item.img_id}.jpg`;
                 
                 document.body.appendChild(a);
                 a.click();
