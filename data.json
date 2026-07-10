@@ -178,5 +178,185 @@
         "market": "ru-RU",
         "url": "https://www.bing.com/th?id=OHR.SyracuseItaly_ROW8772538423_UHD.jpg",
         "copyright": "Syracuse at sunset, Sicily, Italy (© Balate Dorin/Getty Images)"
+    },
+    "20260710_en-AU": {
+        "date": "2026-07-10",
+        "market": "en-AU",
+        "url": "https://www.bing.com/th?id=OHR.LemonShark_ROW1540729665_UHD.jpg",
+        "copyright": "Lemon shark pup in mangrove forest, Eleuthera, Bahamas (© Shane Gross/Nature Picture Library)"
+    },
+    "20260709_en-AU": {
+        "date": "2026-07-09",
+        "market": "en-AU",
+        "url": "https://www.bing.com/th?id=OHR.SapaVietnam_ROW9241114244_UHD.jpg",
+        "copyright": "Rice fields at Sapa, Lào Cai, Vietnam (© Anujak Jaimook/Getty Images)"
+    },
+    "20260708_en-AU": {
+        "date": "2026-07-08",
+        "market": "en-AU",
+        "url": "https://www.bing.com/th?id=OHR.LakeAtitlan_ROW9281108051_UHD.jpg",
+        "copyright": "Sunrise at Lake Atitlán, Guatemala (© shayes17/Getty Images)"
+    },
+    "20260707_en-AU": {
+        "date": "2026-07-07",
+        "market": "en-AU",
+        "url": "https://www.bing.com/th?id=OHR.MountainToucanOrchids_ROW9033619580_UHD.jpg",
+        "copyright": "Plate-billed mountain toucan with orchids, Ecuador (© Murray Cooper/Minden Pictures)"
+    },
+    "20260706_en-AU": {
+        "date": "2026-07-06",
+        "market": "en-AU",
+        "url": "https://www.bing.com/th?id=OHR.SyracuseItaly_ROW8772538423_UHD.jpg",
+        "copyright": "Syracuse at sunset, Sicily, Italy (© Balate Dorin/Getty Images)"
+    },
+    "20260710_en-CA": {
+        "date": "2026-07-10",
+        "market": "en-CA",
+        "url": "https://www.bing.com/th?id=OHR.SummerBC_EN-CA3026184215_UHD.jpg",
+        "copyright": "Pink wildflowers by Emerald Lake in summer, Yoho National Park, British Columbia (© Olga Matveeva/Getty Images)"
+    },
+    "20260709_en-CA": {
+        "date": "2026-07-09",
+        "market": "en-CA",
+        "url": "https://www.bing.com/th?id=OHR.SapaVietnam_EN-CA1120759597_UHD.jpg",
+        "copyright": "Rice fields at Sapa, Lào Cai, Vietnam (© Anujak Jaimook/Getty Images)"
+    },
+    "20260708_en-CA": {
+        "date": "2026-07-08",
+        "market": "en-CA",
+        "url": "https://www.bing.com/th?id=OHR.LakeAtitlan_EN-CA6427862489_UHD.jpg",
+        "copyright": "Sunrise at Lake Atitlán, Guatemala (© shayes17/Getty Images)"
+    },
+    "20260707_en-CA": {
+        "date": "2026-07-07",
+        "market": "en-CA",
+        "url": "https://www.bing.com/th?id=OHR.MountainToucanOrchids_EN-CA5781848121_UHD.jpg",
+        "copyright": "Plate-billed mountain toucan with orchids, Ecuador (© Murray Cooper/Minden Pictures)"
+    },
+    "20260706_en-CA": {
+        "date": "2026-07-06",
+        "market": "en-CA",
+        "url": "https://www.bing.com/th?id=OHR.SyracuseItaly_EN-CA4724586582_UHD.jpg",
+        "copyright": "Syracuse at sunset, Sicily, Italy (© Balate Dorin/Getty Images)"
+    },
+    "20260709_es-ES": {
+        "date": "2026-07-09",
+        "market": "es-ES",
+        "url": "https://www.bing.com/th?id=OHR.VictoriaBeach_ES-ES0275659103_UHD.jpg",
+        "copyright": "Vista aérea de tierra y océano, Victoria, Australia (© Nearmap/Getty Images)"
+    },
+    "20260708_es-ES": {
+        "date": "2026-07-08",
+        "market": "es-ES",
+        "url": "https://www.bing.com/th?id=OHR.SapaVietnam_ES-ES9535992527_UHD.jpg",
+        "copyright": "Arrozales en Sapa, Lào Cai, Vietnam (© Anujak Jaimook/Getty Images)"
+    },
+    "20260707_es-ES": {
+        "date": "2026-07-07",
+        "market": "es-ES",
+        "url": "https://www.bing.com/th?id=OHR.LakeAtitlan_ES-ES9285347150_UHD.jpg",
+        "copyright": "Amanecer en el Lago de Atitlán, Guatemala (© shayes17/Getty Images)"
+    },
+    "20260706_es-ES": {
+        "date": "2026-07-06",
+        "market": "es-ES",
+        "url": "https://www.bing.com/th?id=OHR.GranCanaria_ES-ES7578658409_UHD.jpg",
+        "copyright": "Vista aérea del paisaje urbano y las dunas de arena en Maspalomas, Gran Canaria, España (© Marco Bottigelli/Getty Images)"
+    },
+    "20260705_es-ES": {
+        "date": "2026-07-05",
+        "market": "es-ES",
+        "url": "https://www.bing.com/th?id=OHR.SyracuseItaly_ES-ES6910557655_UHD.jpg",
+        "copyright": "Siracusa al atardecer, Sicilia, Italia (© Balate Dorin/Getty Images)"
+    },
+    "20260709_it-IT": {
+        "date": "2026-07-09",
+        "market": "it-IT",
+        "url": "https://www.bing.com/th?id=OHR.VictoriaBeach_IT-IT7530420052_UHD.jpg",
+        "copyright": "Veduta aerea di terra e oceano, Victoria, Australia (© Nearmap/Getty Images)"
+    },
+    "20260708_it-IT": {
+        "date": "2026-07-08",
+        "market": "it-IT",
+        "url": "https://www.bing.com/th?id=OHR.SapaVietnam_IT-IT8377161369_UHD.jpg",
+        "copyright": "Risaie a Sapa, Lào Cai, Vietnam (© Anujak Jaimook/Getty Images)"
+    },
+    "20260707_it-IT": {
+        "date": "2026-07-07",
+        "market": "it-IT",
+        "url": "https://www.bing.com/th?id=OHR.LakeAtitlan_IT-IT2695003451_UHD.jpg",
+        "copyright": "Lago Atitlán, Guatemala (© shayes17/Getty Images)"
+    },
+    "20260706_it-IT": {
+        "date": "2026-07-06",
+        "market": "it-IT",
+        "url": "https://www.bing.com/th?id=OHR.MountainToucanOrchids_IT-IT8965138427_UHD.jpg",
+        "copyright": "Tucano montano pettogrigio, Ecuador (© Murray Cooper/Minden Pictures)"
+    },
+    "20260705_it-IT": {
+        "date": "2026-07-05",
+        "market": "it-IT",
+        "url": "https://www.bing.com/th?id=OHR.SyracuseItaly_IT-IT1893295925_UHD.jpg",
+        "copyright": "Tramonto a Siracusa, Sicilia (© Balate Dorin/Getty Images)"
+    },
+    "20260710_en-NZ": {
+        "date": "2026-07-10",
+        "market": "en-NZ",
+        "url": "https://www.bing.com/th?id=OHR.LemonShark_ROW1540729665_UHD.jpg",
+        "copyright": "Lemon shark pup in mangrove forest, Eleuthera, Bahamas (© Shane Gross/Nature Picture Library)"
+    },
+    "20260709_en-NZ": {
+        "date": "2026-07-09",
+        "market": "en-NZ",
+        "url": "https://www.bing.com/th?id=OHR.SapaVietnam_ROW9241114244_UHD.jpg",
+        "copyright": "Rice fields at Sapa, Lào Cai, Vietnam (© Anujak Jaimook/Getty Images)"
+    },
+    "20260708_en-NZ": {
+        "date": "2026-07-08",
+        "market": "en-NZ",
+        "url": "https://www.bing.com/th?id=OHR.LakeAtitlan_ROW9281108051_UHD.jpg",
+        "copyright": "Sunrise at Lake Atitlán, Guatemala (© shayes17/Getty Images)"
+    },
+    "20260707_en-NZ": {
+        "date": "2026-07-07",
+        "market": "en-NZ",
+        "url": "https://www.bing.com/th?id=OHR.MountainToucanOrchids_ROW9033619580_UHD.jpg",
+        "copyright": "Plate-billed mountain toucan with orchids, Ecuador (© Murray Cooper/Minden Pictures)"
+    },
+    "20260706_en-NZ": {
+        "date": "2026-07-06",
+        "market": "en-NZ",
+        "url": "https://www.bing.com/th?id=OHR.SyracuseItaly_ROW8772538423_UHD.jpg",
+        "copyright": "Syracuse at sunset, Sicily, Italy (© Balate Dorin/Getty Images)"
+    },
+    "20260709_en-GB": {
+        "date": "2026-07-09",
+        "market": "en-GB",
+        "url": "https://www.bing.com/th?id=OHR.LlanthonyPriory2026_EN-GB5365093988_UHD.jpg",
+        "copyright": "Llanthony Priory, Black Mountains area, Monmouthshire, Wales (© Chris Griffiths/Moment/Getty Images)"
+    },
+    "20260708_en-GB": {
+        "date": "2026-07-08",
+        "market": "en-GB",
+        "url": "https://www.bing.com/th?id=OHR.SapaVietnam_EN-GB1434771886_UHD.jpg",
+        "copyright": "Rice fields at Sapa, Lào Cai, Vietnam (© Anujak Jaimook/Getty Images)"
+    },
+    "20260707_en-GB": {
+        "date": "2026-07-07",
+        "market": "en-GB",
+        "url": "https://www.bing.com/th?id=OHR.LakeAtitlan_EN-GB6255247922_UHD.jpg",
+        "copyright": "Lake Atitlán, Guatemala (© shayes17/Getty Images)"
+    },
+    "20260706_en-GB": {
+        "date": "2026-07-06",
+        "market": "en-GB",
+        "url": "https://www.bing.com/th?id=OHR.MountainToucanOrchids_EN-GB2911291133_UHD.jpg",
+        "copyright": "Plate-billed mountain toucan with orchids, Ecuador (© Murray Cooper/Minden Pictures)"
+    },
+    "20260705_en-GB": {
+        "date": "2026-07-05",
+        "market": "en-GB",
+        "url": "https://www.bing.com/th?id=OHR.SyracuseItaly_EN-GB9688094986_UHD.jpg",
+        "copyright": "Syracuse, Sicily, Italy (© Balate Dorin/Getty Images)"
     }
 }
