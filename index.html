@@ -49,6 +49,9 @@
               dlBtn = document.getElementById('download-btn'), lbl = document.getElementById('file-label');
         let currentBlobUrl = null;
 
+        // Фикс появления картинки в лайтбоксе
+        lbImg.onload = () => lbImg.classList.add('loaded');
+
         const close = () => { lb.classList.remove('active'); lbImg.src=""; lbImg.classList.remove('loaded'); if(currentBlobUrl){ URL.revokeObjectURL(currentBlobUrl); currentBlobUrl=null; } };
 
         fetch('data.json?t=' + Date.now())
@@ -57,7 +60,6 @@
                 Object.values(data).forEach(item => {
                     const card = document.createElement('div');
                     card.className = 'card';
-                    
                     const title = item.title || "";
                     const date = item.date || "";
                     const markets = (item.markets || []).join(' • ');
@@ -75,9 +77,13 @@
                     
                     card.querySelector('.card-overlay').onclick = (e) => {
                         e.preventDefault();
-                        lbImg.src = item.url;
+                        lbImg.classList.remove('loaded');
+                        lbImg.src = "";
                         lbl.textContent = `${item.img_id}.jpg`;
                         lb.classList.add('active');
+                        
+                        // Задержка для плавной анимации смены src
+                        setTimeout(() => { lbImg.src = item.url; }, 50);
                         
                         dlBtn.onclick = async () => {
                             dlBtn.textContent = "Загрузка...";
