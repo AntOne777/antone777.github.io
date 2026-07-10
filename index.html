@@ -51,41 +51,48 @@
         const viewer = document.getElementById("viewer");
         const bigImage = document.getElementById("bigImage");
         const downloadBtn = document.getElementById("download");
-        let current = null;
 
+        let current = null;
+        let blobURL = null;
+
+        // Блокировка ПКМ на оригинале
         document.addEventListener("contextmenu", e => {
             if (e.target === bigImage) e.preventDefault();
         });
 
         async function download(item) {
             if (!item || !item.url) return;
-            const originalText = downloadBtn.textContent;
             try {
                 downloadBtn.textContent = "Загрузка...";
-                const r = await fetch(item.url);
-                if (!r.ok) throw new Error();
-                const blob = await r.blob();
-                const url = URL.createObjectURL(blob);
+                const response = await fetch(item.url);
+                if (!response.ok) throw new Error();
+                const blob = await response.blob();
                 
+                if (blobURL) URL.revokeObjectURL(blobURL);
+                blobURL = URL.createObjectURL(blob);
+
                 const a = document.createElement("a");
-                a.href = url;
-                a.download = `${item.img_id}.jpg`;
-                
+                a.href = blobURL;
+                a.download = `${item.img_id || "BING_IMAGE"}.jpg`;
                 document.body.appendChild(a);
                 a.click();
                 a.remove();
-                
-                setTimeout(() => URL.revokeObjectURL(url), 2000);
-            } catch { 
-                alert("Ошибка загрузки"); 
-            } finally { 
-                downloadBtn.textContent = originalText; 
+            } catch {
+                alert("Ошибка загрузки");
+            } finally {
+                downloadBtn.textContent = "Скачать UHD";
             }
         }
 
         function openViewer(item) {
             current = item;
-            bigImage.src = item.url;
+            bigImage.style.opacity = 0;
+            const img = new Image();
+            img.onload = () => {
+                bigImage.src = item.url;
+                bigImage.style.opacity = 1;
+            };
+            img.src = item.url;
             viewer.classList.add("active");
         }
 
@@ -96,27 +103,34 @@
         }
 
         fetch("data.json?" + Date.now())
-            .then(r => r.json())
+            .then(r => { if (!r.ok) throw new Error(); return r.json(); })
             .then(data => {
                 Object.values(data).forEach(item => {
                     const card = document.createElement("div"); card.className = "card";
-                    const img = document.createElement("img"); img.src = item.preview; img.loading = "lazy";
+                    const img = document.createElement("img"); 
+                    img.src = item.preview; img.loading = "lazy";
                     img.onload = () => img.classList.add("loaded");
-                    
+
                     const overlay = document.createElement("div"); overlay.className = "overlay";
                     const info = document.createElement("div"); info.className = "info";
-                    info.innerHTML = `<div class="title">${item.title || ""}</div><div class="date">${item.date || ""} ${(item.markets||[]).join(" • ")}</div>`;
-                    
+                    const title = document.createElement("div"); title.className = "title";
+                    title.textContent = item.img_id || "";
+                    const date = document.createElement("div"); date.className = "date";
+                    date.textContent = item.date || "";
+                    info.append(title, date);
                     card.append(img, overlay, info);
                     overlay.onclick = () => openViewer(item);
                     gallery.append(card);
                 });
+            })
+            .catch(() => {
+                gallery.innerHTML = "<p style='text-align:center'>Ошибка загрузки архива</p>";
             });
 
         downloadBtn.onclick = () => download(current);
         document.getElementById("close").onclick = closeViewer;
-        viewer.onclick = e => { if(e.target === viewer) closeViewer(); };
-        document.onkeydown = e => { if(e.key === "Escape") closeViewer(); };
+        viewer.onclick = e => { if (e.target === viewer) closeViewer(); };
+        document.onkeydown = e => { if (e.key === "Escape") closeViewer(); };
     </script>
 </body>
 </html>
