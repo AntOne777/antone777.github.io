@@ -1,82 +1,124 @@
-У тебя сейчас всё правильно с названием, если в data.json есть id:
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Личный архив Bing Wallpaper UHD">
+    <meta name="theme-color" content="#121212">
+    <title>Горизонт | Bing Archive</title>
 
-a.download = `${item.id || "bing_wallpaper"}.jpg`;
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 20px; background: #121212; color: white; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        h1 { text-align: center; margin: 60px 0; font-weight: 200; letter-spacing: .5em; text-transform: uppercase; font-size: 32px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        .card { position: relative; overflow: hidden; border-radius: 8px; background: #1e1e1e; cursor: pointer; }
+        .card img { width: 100%; height: 220px; object-fit: cover; opacity: 0; transition: .3s; display: block; }
+        .card img.loaded { opacity: 1; }
+        .overlay { position: absolute; inset: 0; z-index: 10; }
+        .info { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 15px 15px; background: linear-gradient(transparent, rgba(0,0,0,.9)); opacity: 0; transition: .3s; pointer-events: none; }
+        .card:hover .info { opacity: 1; }
+        .title { font-size: 13px; text-transform: uppercase; }
+        .date { font-size: 10px; color: #aaa; margin-top: 5px; }
 
-Но если id отсутствует, все файлы будут:
+        .lightbox { position: fixed; inset: 0; display: none; background: rgba(0,0,0,.95); justify-content: center; align-items: center; flex-direction: column; z-index: 1000; }
+        .lightbox.active { display: flex; }
+        .lightbox img { 
+            max-width: 95%; max-height: 80%; object-fit: contain; 
+            user-select: none; -webkit-user-drag: none; -webkit-touch-callout: none; pointer-events: auto; 
+        }
+        .close { position: absolute; right: 35px; top: 25px; font-size: 40px; background: none; border: 0; color: white; cursor: pointer; }
+        .controls { margin-top: 20px; }
+        button { background: #222; color: white; border: 0; padding: 10px 20px; cursor: pointer; transition: .3s; }
+        button:hover { background: #0078d4; }
+    </style>
+</head>
+<body>
 
-bing_wallpaper.jpg
-bing_wallpaper.jpg
-bing_wallpaper.jpg
+    <h1>Горизонт</h1>
+    <div class="grid" id="gallery"></div>
 
-Браузер тогда сам начнёт добавлять:
+    <div class="lightbox" id="viewer">
+        <button class="close" id="close">×</button>
+        <img id="bigImage">
+        <div class="controls">
+            <button id="download">Скачать UHD</button>
+        </div>
+    </div>
 
-bing_wallpaper.jpg
-bing_wallpaper (1).jpg
-bing_wallpaper (2).jpg
+    <script>
+        const gallery = document.getElementById("gallery");
+        const viewer = document.getElementById("viewer");
+        const bigImage = document.getElementById("bigImage");
+        const downloadBtn = document.getElementById("download");
+        let current = null;
 
-Чтобы вообще убрать дату и при этом гарантировать уникальность, лучше использовать порядковый индекс при создании карточек.
+        // Жесткая блокировка ПКМ на картинке
+        document.addEventListener("contextmenu", e => {
+            if (e.target === bigImage) e.preventDefault();
+        });
 
-Замени:
+        async function download(item) {
+            if (!item || !item.url) return;
+            const originalText = downloadBtn.textContent;
+            try {
+                downloadBtn.textContent = "Загрузка...";
+                const r = await fetch(item.url);
+                if (!r.ok) throw new Error();
+                const blob = await r.blob();
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement("a");
+                a.href = url;
+                // Именование строго по ID
+                a.download = `${item.id || "BING_IMAGE"}.jpg`;
+                
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                
+                setTimeout(() => URL.revokeObjectURL(url), 2000);
+            } catch { 
+                alert("Ошибка загрузки"); 
+            } finally { 
+                downloadBtn.textContent = originalText; 
+            }
+        }
 
-Object.values(data).sort((a,b) => b.date.localeCompare(a.date)).forEach(item => {
+        function openViewer(item) {
+            current = item;
+            bigImage.src = item.url;
+            viewer.classList.add("active");
+        }
 
-на:
+        function closeViewer() {
+            viewer.classList.remove("active");
+            bigImage.src = "";
+            current = null;
+        }
 
-Object.values(data).forEach((item, index) => {
+        fetch("data.json?" + Date.now())
+            .then(r => r.json())
+            .then(data => {
+                Object.values(data).forEach(item => {
+                    const card = document.createElement("div"); card.className = "card";
+                    const img = document.createElement("img"); img.src = item.preview; img.loading = "lazy";
+                    img.onload = () => img.classList.add("loaded");
+                    
+                    const overlay = document.createElement("div"); overlay.className = "overlay";
+                    const info = document.createElement("div"); info.className = "info";
+                    info.innerHTML = `<div class="title">${item.title || ""}</div><div class="date">${item.date || ""} ${(item.markets||[]).join(" • ")}</div>`;
+                    
+                    card.append(img, overlay, info);
+                    overlay.onclick = () => openViewer(item);
+                    gallery.append(card);
+                });
+            });
 
-И замени функцию скачивания:
-
-async function download(item) {
-
-на:
-
-async function download(item) {
-    if (!item || !item.url) return;
-
-    const originalText = downloadBtn.textContent;
-
-    try {
-        downloadBtn.textContent = "Загрузка...";
-
-        const r = await fetch(item.url);
-        if (!r.ok) throw new Error();
-
-        const blob = await r.blob();
-        const url = URL.createObjectURL(blob);
-
-        const a = document.createElement("a");
-        a.href = url;
-
-        a.download = `${item.id || "bing_wallpaper"}.jpg`;
-
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-
-        setTimeout(() => URL.revokeObjectURL(url), 2000);
-
-    } catch {
-        alert("Ошибка загрузки");
-    } finally {
-        downloadBtn.textContent = originalText;
-    }
-}
-
-Но самый чистый вариант для твоего архива — оставить id в data.json:
-
-{
- "001": {
-   "id": "BING_001",
-   "title": "Mountain",
-   "url": "images/001.jpg",
-   "preview": "previews/001.jpg"
- }
-}
-
-Тогда скачивание всегда будет:
-
-BING_001.jpg
-BING_002.jpg
-BING_003.jpg
-
-Без даты, без мусора, идеально для долгого хранения.
+        downloadBtn.onclick = () => download(current);
+        document.getElementById("close").onclick = closeViewer;
+        viewer.onclick = e => { if(e.target === viewer) closeViewer(); };
+        document.onkeydown = e => { if(e.key === "Escape") closeViewer(); };
+    </script>
+</body>
+</html>
