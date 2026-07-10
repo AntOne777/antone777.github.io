@@ -53,7 +53,6 @@
         const downloadBtn = document.getElementById("download");
         let current = null;
 
-        // Жесткая блокировка ПКМ на картинке
         document.addEventListener("contextmenu", e => {
             if (e.target === bigImage) e.preventDefault();
         });
@@ -70,8 +69,7 @@
                 
                 const a = document.createElement("a");
                 a.href = url;
-                // Именование строго по ID
-                a.download = `${item.id || "BING_IMAGE"}.jpg`;
+                a.download = `${item.url.split('/').pop().replace(/\.[^/.]+$/, "")}.jpg`;
                 
                 document.body.appendChild(a);
                 a.click();
