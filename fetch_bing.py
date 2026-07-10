@@ -1,24 +1,9 @@
 import requests
 import json
 import os
+import base64
 
 MARKETS = ['en-US', 'zh-CN', 'ja-JP', 'de-DE', 'fr-FR', 'ru-RU']
-
-def get_english_meta(image_id):
-    """Специальный запрос к американскому API для получения английского названия и описания"""
-    try:
-        # Запрашиваем данные по конкретному ID картинки у рынка en-US
-        url = f"https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US"
-        response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=5)
-        if response.status_code == 200:
-            images = response.json().get('images', [])
-            for img in images:
-                # Если это та же самая картинка, забираем английский текст
-                if image_id in img.get('urlbase', ''):
-                    return img.get('title', 'Bing Wallpaper'), img.get('copyright', '')
-    except Exception:
-        pass
-    return None, None
 
 def fetch_wallpapers():
     if os.path.exists('data.json') and os.path.getsize('data.json') > 0:
@@ -44,30 +29,27 @@ def fetch_wallpapers():
                     key = f"{date}_{mkt}"
                     
                     if key not in db:
-                        base_url = "https://www.bing.com" + img['urlbase'] + "_UHD.jpg"
-                        
-                        # Выделяем уникальный ID картинки из urlbase (например, OHR.ImpalaOxpecker)
+                        # Получаем чистое имя файла из Microsoft (например, VictoriaBeach)
                         urlbase = img.get('urlbase', '')
-                        image_id = urlbase.split('?id=')[-1].split('_')[0] if '?id=' in urlbase else urlbase.split('/')[-1]
+                        img_name = urlbase.split('?id=OHR.')[-1].split('_')[0] if '?id=OHR.' in urlbase else 'Wallpaper'
                         
-                        # По умолчанию берем то, что дал текущий регион
-                        title = img.get('title', 'Bing Wallpaper')
-                        copyright_text = img.get('copyright', '')
+                        # Формируем дату для пути китайского сервера (ггггмм)
+                        folder_date = f"{date[:4]}{date[4:6]}"
                         
-                        # Если регион не американский и содержит иероглифы/заглушки, идем за английским аналогом
-                        if mkt != 'en-US' or title.lower() == 'info':
-                            en_title, en_copy = get_english_meta(image_id)
-                            if en_title:
-                                title = en_title
-                            if en_copy:
-                                copyright_text = en_copy
-
+                        # Собираем прямую ссылку на исходник, которую использует китайский сайт
+                        target_url = f"https://img.nanxiongnandi.com/{folder_date}/{img_name}.jpg"
+                        
+                        # Кодируем целевую ссылку в Base64 для imgproxy
+                        encoded_url = base64.urlsafe_b64encode(target_url.encode('utf-8')).decode('utf-8').rstrip('=')
+                        
+                        # Собираем финальную тяжелую ссылку на 10 МБ в максимальном качестве
+                        proxy_url = f"https://imgproxy.nanxiongnandi.com/2cHFkUCWFcv3j2aRgfTrrKkRYeLGsKfw3EPwDktoC0E/w:3840/q:100/att:1/{encoded_url}.jpg"
+                        
                         db[key] = {
                             "date": f"{date[:4]}-{date[4:6]}-{date[6:]}",
                             "market": mkt,
-                            "url": base_url,
-                            "title": title,
-                            "copyright": copyright_text
+                            "url": proxy_url,
+                            "copyright": img.get('copyright', '')
                         }
                         updated = True
         except Exception as e:
@@ -76,7 +58,7 @@ def fetch_wallpapers():
     if updated or not db:
         with open('data.json', 'w', encoding='utf-8') as f:
             json.dump(db, f, ensure_ascii=False, indent=4)
-        print("База успешно обновлена.")
+        print("База успешно переведена на супер-качество!")
 
 if __name__ == "__main__":
     fetch_wallpapers()
