@@ -2,112 +2,59 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сетка | Обои в 4K</title>
+    <title>Горизонт | Архивы Bing</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #121212; color: #fff; margin: 0; padding: 20px; }
-        h1 { text-align: center; margin-bottom: 40px; color: #f5f5f5; font-size: 28px; letter-spacing: 1px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; padding: 0 10px; }
-        
-        .card { position: relative; background: #1e1e1e; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 12px rgba(0,0,0,0.5); transition: transform 0.25s ease, box-shadow 0.25s ease; cursor: zoom-in; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,120,212,0.3); }
-        
-        /* Скелетон работает только пока нет класса .loaded */
-        .card img { width: 100%; height: 220px; object-fit: cover; display: block; background: linear-gradient(90deg, #1e1e1e 25%, #2a2a2a 50%, #1e1e1e 75%); background-size: 200% 100%; animation: loadingSkeleton 1.5s infinite; }
-        .card img.loaded { animation: none; background: none; }
-        @keyframes loadingSkeleton { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-        
-        /* Элегантная информационная плашка с градиентом */
-        .card-info { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.9) 40%); padding: 30px 15px 15px 15px; box-sizing: border-box; opacity: 0; transition: opacity 0.25s ease; pointer-events: none; }
+        body { font-family: -apple-system, sans-serif; background: #121212; color: #fff; margin: 0; padding: 20px; }
+        h1 { text-align: center; margin-bottom: 40px; color: #f5f5f5; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        .card { position: relative; background: #1e1e1e; border-radius: 8px; overflow: hidden; cursor: zoom-in; }
+        .card img { width: 100%; height: 220px; object-fit: cover; opacity: 0; transition: opacity 0.3s; background: #222; }
+        .card img.loaded { opacity: 1; }
+        .card-info { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 40px 15px 15px; opacity: 0; transition: 0.3s; }
         .card:hover .card-info { opacity: 1; }
-        .card-title { font-size: 13px; font-weight: bold; color: #fff; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .card-date { font-size: 11px; color: #aaa; }
-
-        #no-data { text-align: center; color: #888; font-size: 18px; margin-top: 5px; display: none; }
-
-        /* Полноэкранный режим просмотра (Чистый HTML без инлайн-кликов) */
-        .lightbox { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); opacity: 0; transition: opacity 0.3s ease; justify-content: center; align-items: center; }
-        .lightbox.active { display: flex; opacity: 1; }
-        .lightbox-img { max-width: 95%; max-height: 90%; object-fit: contain; border-radius: 4px; box-shadow: 0 0 20px rgba(0,0,0,0.8); transform: scale(0.95); transition: transform 0.3s ease; }
-        .lightbox.active .lightbox-img { transform: scale(1); }
-        .lightbox-close { position: absolute; top: 20px; right: 25px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; user-select: none; }
-        .lightbox-close:hover { color: #0078d4; }
+        .lightbox { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+        .lightbox.active { display: flex; }
+        .lightbox-img { max-width: 95%; max-height: 90%; opacity: 0.3; transition: opacity 0.3s; }
+        .lightbox-img.loaded { opacity: 1; }
     </style>
 </head>
 <body>
-
-    <h1>Сетка</h1>
-    
-    <div id="no-data">В архиве пока нет сохраненных обоев.</div>
+    <h1>Горизонт</h1>
     <div class="grid" id="gallery"></div>
-
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close" id="lightbox-close">&times;</span>
-        <img class="lightbox-img" id="lightbox-img" src="" alt="Полноэкранный просмотр в 4K">
-    </div>
+    <div id="lightbox" class="lightbox"><img class="lightbox-img" id="lightbox-img"></div>
 
     <script>
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxClose = document.getElementById('lightbox-close');
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
 
-        fetch('data.json?t=' + Date.now())
-            .then(res => res.json())
-            .then(data => {
-                const gallery = document.getElementById('gallery');
-                const noData = document.getElementById('no-data');
-                const keys = Object.keys(data);
-
-                if (keys.length === 0) {
-                    noData.style.display = 'block';
-                    return;
-                }
-
-                keys.forEach(key => {
-                    const item = data[key];
-                    if (!item) return;
-
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    
-                    // Безопасное присвоение события клика
-                    card.onclick = () => openLightbox(item.url);
-                    
-                    // Рендерим разметку с обработчиком onload для анимации и копирайтом
-                    card.innerHTML = `
-                        <img src="${item.preview || item.url}" alt="Bing Wallpaper" loading="lazy" onload="this.classList.add('loaded')">
-                        <div class="card-info">
-                            <div class="card-title" title="${item.copyright || ''}">${item.copyright || 'Bing Wallpaper'}</div>
-                            <div class="card-date">${item.date}</div>
-                        </div>
-                    `;
-                    gallery.appendChild(card);
-                });
-            })
-            .catch(err => {
-                console.error("Ошибка при чтении базы данных:", err);
+        fetch('data.json?t=' + Date.now()).then(r => r.json()).then(data => {
+            Object.values(data).forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                
+                const img = document.createElement('img');
+                img.src = item.preview;
+                img.onload = () => img.classList.add('loaded');
+                if(img.complete) img.classList.add('loaded');
+                
+                const info = document.createElement('div');
+                info.className = 'card-info';
+                info.innerHTML = `<div style="font-weight:bold">${item.title}</div><div style="font-size:11px; color:#aaa">${item.date}</div>`;
+                
+                card.appendChild(img);
+                card.appendChild(info);
+                card.onclick = () => {
+                    lbImg.classList.remove('loaded');
+                    lbImg.src = item.url;
+                    lb.classList.add('active');
+                };
+                document.getElementById('gallery').appendChild(card);
             });
-
-        function openLightbox(url) {
-            lightboxImg.src = url;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        # Изолированное закрытие лайтбокса (Правки GPT)
-        lightbox.onclick = (e) => {
-            if (e.target === lightbox) closeLightbox();
-        };
-        lightboxClose.onclick = closeLightbox;
-
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') closeLightbox();
         });
+
+        lbImg.onload = () => lbImg.classList.add('loaded');
+        lb.onclick = (e) => { if(e.target === lb) lb.classList.remove('active'); };
+        document.onkeydown = (e) => { if(e.key === 'Escape') lb.classList.remove('active'); };
     </script>
 </body>
 </html>
