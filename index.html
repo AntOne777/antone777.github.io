@@ -150,4 +150,8 @@
 
         downloadBtn.onclick = () => download(current);
         document.getElementById("close").onclick = closeViewer;
-        viewer.onclick = e => { if (
+        viewer.onclick = e => { if (e.target === viewer) closeViewer(); };
+        document.onkeydown = e => { if (e.key === "Escape") closeViewer(); };
+    </script>
+</body>
+</html>
