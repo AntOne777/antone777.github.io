@@ -5,7 +5,6 @@ import os
 MARKETS = ['en-US', 'en-AU', 'en-CA', 'zh-CN', 'de-DE', 'es-ES', 'fr-FR', 'it-IT', 'ja-JP', 'en-NZ', 'en-GB', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ko-KR', 'ru-RU']
 
 def fetch_wallpapers():
-    # Загружаем текущую базу
     db = {}
     if os.path.exists('data.json'):
         with open('data.json', 'r', encoding='utf-8') as f:
@@ -18,26 +17,23 @@ def fetch_wallpapers():
             r = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=10)
             if r.status_code == 200:
                 for img in r.json().get('images', []):
-                    # Ключ теперь строго дата + имя файла без лишнего
                     date = img.get('startdate')
                     urlbase = img.get('urlbase', '')
                     img_name = urlbase.split('/')[-1]
+                    # Уникальный ключ: Дата + Имя файла
                     key = f"{date}_{img_name}"
                     
-                    if key not in db:
-                        db[key] = {
-                            "sort_key": f"{date}_{img_name}",
-                            "date": f"{date[:4]}-{date[4:6]}-{date[6:]}",
-                            "url": f"https://www.bing.com{urlbase}_UHD.jpg",
-                            "preview": f"https://www.bing.com{urlbase}_1920x1080.jpg",
-                            "img_id": img_name,
-                            "title": img.get('title', 'Bing Wallpaper'),
-                            "copyright": img.get('copyright', ''),
-                            "markets": [mkt]
-                        }
-                    else:
-                        if mkt not in db[key].get("markets", []):
-                            db[key]["markets"].append(mkt)
+                    # Принудительная запись (даже если ключ существует)
+                    db[key] = {
+                        "sort_key": f"{date}_{img_name}",
+                        "date": f"{date[:4]}-{date[4:6]}-{date[6:]}",
+                        "url": f"https://www.bing.com{urlbase}_UHD.jpg",
+                        "preview": f"https://www.bing.com{urlbase}_1920x1080.jpg",
+                        "img_id": img_name,
+                        "title": img.get('title', 'Bing Wallpaper'),
+                        "copyright": img.get('copyright', ''),
+                        "markets": [mkt]
+                    }
         except Exception as e:
             print(f"Ошибка {mkt}: {e}")
 
