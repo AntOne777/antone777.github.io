@@ -1,26 +1,39 @@
 name: Bing Archive Auto-Update
+
 on:
   schedule:
-    - cron: "0 */2 * * *" # Запуск каждые 2 часа
-  workflow_dispatch:      # Кнопка ручного запуска
+    - cron: "0 */2 * * *"
+  workflow_dispatch:
+
 jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@v4
-        with: {python-version: '3.9'}
-      - run: pip install requests
-      - run: python fetch_bing.py
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch Bing wallpapers
+        run: python fetch_bing.py
+
       - name: Commit and push changes
         run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
           git add data.json
-          if ! git diff --quiet; then
-            git commit -m "Update bing archive"
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Update Bing archive"
             git push
           fi
