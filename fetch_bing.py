@@ -11,23 +11,14 @@ def fetch_wallpapers():
             try: db = json.load(f)
             except: db = {}
 
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36',
-        'Accept': 'application/json',
-        'Accept-Language': 'en-US,en;q=0.9'
-    }
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'}
 
     for mkt in MARKETS:
         try:
             url = f"https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=5&mkt={mkt}"
             r = requests.get(url, headers=headers, timeout=15)
-            
-            # ВЫВОДИМ В ЛОГ, ЧТО ПРИШЛО
-            print(f"DEBUG: Mkt {mkt} Status {r.status_code} | Body: {r.text[:100]}")
-            
             if r.status_code == 200:
-                data = r.json().get('images', [])
-                for img in data:
+                for img in r.json().get('images', []):
                     date = img.get('startdate')
                     urlbase = img.get('urlbase', '')
                     img_name = urlbase.split('/')[-1]
@@ -46,9 +37,10 @@ def fetch_wallpapers():
         except Exception as e:
             print(f"Ошибка {mkt}: {e}")
 
+    sorted_db = dict(sorted(db.items(), key=lambda i: i[1]["sort_key"], reverse=True))
     with open('data.json', 'w', encoding='utf-8') as f:
-        json.dump(db, f, ensure_ascii=False, indent=4)
-    print("Сохранено записей:", len(db))
+        json.dump(sorted_db, f, ensure_ascii=False, indent=4)
+    print("Архив обновлен.")
 
 if __name__ == "__main__":
     fetch_wallpapers()
