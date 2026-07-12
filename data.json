@@ -8,7 +8,10 @@
         "title": "为摇滚而生",
         "description": "羚羊峡谷，纳瓦霍族保留地，亚利桑那州，美国 (© Mark Skalny/Getty Images)",
         "copyright": "羚羊峡谷，纳瓦霍族保留地，亚利桑那州，美国 (© Mark Skalny/Getty Images)",
-        "markets": ["zh-CN", "ja-JP"]
+        "markets": [
+            "zh-CN",
+            "ja-JP"
+        ]
     },
     "KatahdinWWNM": {
         "sort_key": "20260711_KatahdinWWNM",
@@ -19,7 +22,25 @@
         "title": "缅因州的狂野一面",
         "description": "卡塔丁森林和水域国家纪念地，缅因州，美国 (© Cavan Images/Offset/Shutterstock)",
         "copyright": "卡塔丁森林和水域国家纪念地，缅因州，美国 (© Cavan Images/Offset/Shutterstock)",
-        "markets": ["zh-CN", "ja-JP", "de-DE", "es-ES", "fr-FR", "it-IT", "en-GB", "en-CA", "pt-BR", "en-US", "en-AU", "en-NZ", "nl-NL", "pl-PL", "pt-PT", "ko-KR", "ru-RU"]
+        "markets": [
+            "zh-CN",
+            "ja-JP",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "en-GB",
+            "en-CA",
+            "pt-BR",
+            "en-US",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
     },
     "CoralAwareness": {
         "sort_key": "20260711_CoralAwareness",
@@ -30,7 +51,15 @@
         "title": "Info",
         "description": "Coral reef and beach in Raja Ampat, Indonesia (© SergeUWPhoto/Shutterstock)",
         "copyright": "Coral reef and beach in Raja Ampat, Indonesia (© SergeUWPhoto/Shutterstock)",
-        "markets": ["en-AU", "en-NZ", "nl-NL", "pl-PL", "pt-PT", "ko-KR", "ru-RU"]
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
     },
     "BoneyardBeach": {
         "sort_key": "20260711_BoneyardBeach",
@@ -41,7 +70,9 @@
         "title": "The trees that lost ground",
         "description": "Driftwood on Boneyard Beach, Hunting Island, South Carolina (© Frances/Adobe Stock)",
         "copyright": "Driftwood on Boneyard Beach, Hunting Island, South Carolina (© Frances/Adobe Stock)",
-        "markets": ["en-CA"]
+        "markets": [
+            "en-CA"
+        ]
     },
     "AurayBrittany": {
         "sort_key": "20260711_AurayBrittany",
@@ -52,7 +83,16 @@
         "title": "Where Brittany meets the tide",
         "description": "Port de Saint-Goustan, Auray, Brittany, France (© Rolf E. Staerk/Shutterstock)",
         "copyright": "Port de Saint-Goustan, Auray, Brittany, France (© Rolf E. Staerk/Shutterstock)",
-        "markets": ["en-US", "zh-CN", "de-DE", "es-ES", "fr-FR", "ja-JP", "en-GB", "pt-BR"]
+        "markets": [
+            "en-US",
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "ja-JP",
+            "en-GB",
+            "pt-BR"
+        ]
     },
     "VictoriaBeach": {
         "sort_key": "20260710_VictoriaBeach",
@@ -63,7 +103,16 @@
         "title": "The land of moving shorelines",
         "description": "Aerial view of land and ocean, Victoria, Australia (© Nearmap/Getty Images)",
         "copyright": "Aerial view of land and ocean, Victoria, Australia (© Nearmap/Getty Images)",
-        "markets": ["en-US", "zh-CN", "de-DE", "es-ES", "fr-FR", "it-IT", "ja-JP", "pt-BR"]
+        "markets": [
+            "en-US",
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "ja-JP",
+            "pt-BR"
+        ]
     },
     "SummerBC": {
         "sort_key": "20260710_SummerBC",
@@ -74,7 +123,9 @@
         "title": "Nature's summer showcase",
         "description": "Pink wildflowers by Emerald Lake in summer, Yoho National Park, British Columbia (© Olga Matveeva/Getty Images)",
         "copyright": "Pink wildflowers by Emerald Lake in summer, Yoho National Park, British Columbia (© Olga Matveeva/Getty Images)",
-        "markets": ["en-CA"]
+        "markets": [
+            "en-CA"
+        ]
     },
     "LemonShark": {
         "sort_key": "20260710_LemonShark",
@@ -85,7 +136,15 @@
         "title": "Info",
         "description": "Lemon shark pup in mangrove forest, Eleuthera, Bahamas (© Shane Gross/Nature Picture Library)",
         "copyright": "Lemon shark pup in mangrove forest, Eleuthera, Bahamas (© Shane Gross/Nature Picture Library)",
-        "markets": ["en-AU", "en-NZ", "nl-NL", "pl-PL", "pt-PT", "ko-KR", "ru-RU"]
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
     },
     "IsolaBella": {
         "sort_key": "20260710_IsolaBella",
@@ -96,7 +155,9 @@
         "title": "Il luogo perfetto per riposarsi",
         "description": "Veduta aerea di Isola Bella a Taormina, Sicilia, Italia (© DaLiu/iStock/Getty Images)",
         "copyright": "Veduta aerea di Isola Bella a Taormina, Sicilia, Italia (© DaLiu/iStock/Getty Images)",
-        "markets": ["it-IT"]
+        "markets": [
+            "it-IT"
+        ]
     },
     "SapaVietnam": {
         "sort_key": "20260709_SapaVietnam",
@@ -107,7 +168,25 @@
         "title": "Tradition in every step",
         "description": "Rice fields at Sapa, Lào Cai, Vietnam (© Anujak Jaimook/Getty Images)",
         "copyright": "Rice fields at Sapa, Lào Cai, Vietnam (© Anujak Jaimook/Getty Images)",
-        "markets": ["en-US", "en-AU", "en-CA", "zh-CN", "de-DE", "es-ES", "fr-FR", "it-IT", "ja-JP", "en-NZ", "en-GB", "nl-NL", "pl-PL", "pt-BR", "pt-PT", "ko-KR", "ru-RU"]
+        "markets": [
+            "en-US",
+            "en-AU",
+            "en-CA",
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "ja-JP",
+            "en-NZ",
+            "en-GB",
+            "nl-NL",
+            "pl-PL",
+            "pt-BR",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
     },
     "LlanthonyPriory2026": {
         "sort_key": "20260709_LlanthonyPriory2026",
@@ -118,7 +197,9 @@
         "title": "A valley of ruins and legends",
         "description": "Llanthony Priory, Black Mountains area, Monmouthshire, Wales (© Chris Griffiths/Moment/Getty Images)",
         "copyright": "Llanthony Priory, Black Mountains area, Monmouthshire, Wales (© Chris Griffiths/Moment/Getty Images)",
-        "markets": ["en-GB"]
+        "markets": [
+            "en-GB"
+        ]
     },
     "LakeAtitlan": {
         "sort_key": "20260708_LakeAtitlan",
@@ -129,7 +210,25 @@
         "title": "Echoes of a volcanic past",
         "description": "Sunrise at Lake Atitlán, Guatemala (© shayes17/Getty Images)",
         "copyright": "Sunrise at Lake Atitlán, Guatemala (© shayes17/Getty Images)",
-        "markets": ["en-US", "en-AU", "en-CA", "zh-CN", "de-DE", "es-ES", "fr-FR", "it-IT", "ja-JP", "en-NZ", "en-GB", "nl-NL", "pl-PL", "pt-BR", "pt-PT", "ko-KR", "ru-RU"]
+        "markets": [
+            "en-US",
+            "en-AU",
+            "en-CA",
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "ja-JP",
+            "en-NZ",
+            "en-GB",
+            "nl-NL",
+            "pl-PL",
+            "pt-BR",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
     },
     "MountainToucanOrchids": {
         "sort_key": "20260707_MountainToucanOrchids",
@@ -140,7 +239,23 @@
         "title": "Color, craft, and canopy life",
         "description": "Plate-billed mountain toucan with orchids, Ecuador (© Murray Cooper/Minden Pictures)",
         "copyright": "Plate-billed mountain toucan with orchids, Ecuador (© Murray Cooper/Minden Pictures)",
-        "markets": ["en-US", "en-AU", "en-CA", "zh-CN", "de-DE", "fr-FR", "it-IT", "en-NZ", "en-GB", "nl-NL", "pl-PL", "pt-BR", "pt-PT", "ko-KR", "ru-RU"]
+        "markets": [
+            "en-US",
+            "en-AU",
+            "en-CA",
+            "zh-CN",
+            "de-DE",
+            "fr-FR",
+            "it-IT",
+            "en-NZ",
+            "en-GB",
+            "nl-NL",
+            "pl-PL",
+            "pt-BR",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
     },
     "Tanabata2026": {
         "sort_key": "20260706_Tanabata2026",
@@ -151,7 +266,9 @@
         "title": "七夕の伝統行事",
         "description": "七夕まつりの吹き流し, 宮城県 仙台市 (© kororokerokero/Getty Images)",
         "copyright": "七夕まつりの吹き流し, 宮城県 仙台市 (© kororokerokero/Getty Images)",
-        "markets": ["ja-JP"]
+        "markets": [
+            "ja-JP"
+        ]
     },
     "GranCanaria": {
         "sort_key": "20260706_GranCanaria",
@@ -162,6 +279,8 @@
         "title": "Dos épocas, mismo lugar",
         "description": "Vista aérea del paisaje urbano y las dunas de arena en Maspalomas, Gran Canaria, España (© Marco Bottigelli/Getty Images)",
         "copyright": "Vista aérea del paisaje urbano y las dunas de arena en Maspalomas, Gran Canaria, España (© Marco Bottigelli/Getty Images)",
-        "markets": ["es-ES"]
+        "markets": [
+            "es-ES"
+        ]
     }
 }
