@@ -2,56 +2,75 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Горизонт | Bing Archive</title>
     <style>
         * { box-sizing: border-box; }
         body { margin: 0; padding: 20px; background: #050505; color: white; font-family: sans-serif; }
+        
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
         
-        .card { position: relative; overflow: hidden; border-radius: 8px; background: #1e1e1e; cursor: pointer; }
-        .card img { width: 100%; height: 220px; object-fit: cover; display: block; }
-        
-        /* Слой для клика по картинке */
-        .overlay { position: absolute; inset: 0; z-index: 10; }
-        
-        /* Слой с текстом */
+        .card { 
+            position: relative; overflow: hidden; border-radius: 8px; 
+            background: #1e1e1e; height: 220px;
+        }
+
+        /* Картинка как фон, чтобы не мешала тексту */
+        .card-img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            cursor: pointer; transition: 0.3s;
+        }
+        .card:hover .card-img { transform: scale(1.05); }
+
+        /* Текстовый блок всегда сверху */
         .info { 
             position: absolute; bottom: 0; left: 0; width: 100%; 
-            padding: 40px 15px 15px; 
-            background: linear-gradient(transparent, rgba(0,0,0,0.9)); 
-            opacity: 0; transition: 0.3s; z-index: 11;
+            padding: 20px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); 
+            opacity: 0; transition: 0.3s;
         }
         .card:hover .info { opacity: 1; }
         
-        .title, .date, .desc-text { user-select: text !important; cursor: text; pointer-events: auto; }
-        .title { font-size: 13px; font-weight: bold; text-transform: uppercase; }
-        .desc-text { font-size: 11px; color: #bbb; margin-top: 6px; }
-        .date { font-size: 10px; color: #aaa; margin-top: 5px; }
+        /* ГЛАВНОЕ: разрешаем выделение */
+        .title, .desc-text, .date { 
+            user-select: text !important; 
+            cursor: text; 
+            pointer-events: auto; 
+        }
         
-        /* Остальные стили lightbox без изменений... */
-        .lightbox { position: fixed; inset: 0; display: none; background: rgba(0,0,0,.95); z-index: 1000; justify-content: center; align-items: center; }
+        .title { font-size: 13px; font-weight: bold; text-transform: uppercase; }
+        .desc-text { font-size: 11px; color: #ccc; margin: 5px 0; }
+        .date { font-size: 10px; color: #888; }
+
+        .lightbox { position: fixed; inset: 0; display: none; background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center; }
         .lightbox.active { display: flex; }
     </style>
 </head>
 <body>
+
     <div class="grid" id="gallery"></div>
     <div class="lightbox" id="viewer"><img id="bigImage"><button id="close">×</button></div>
 
     <script>
-        // ... (логика загрузки и download такая же) ...
+        // ... (логика fetch осталась прежней)
         // В цикле создания карточки:
         
-        const overlay = document.createElement("div"); overlay.className = "overlay";
+        const card = document.createElement("div"); card.className = "card";
+        const img = document.createElement("img"); 
+        img.className = "card-img";
+        img.src = item.preview;
+        
+        // Клик только по картинке открывает просмотр
+        img.onclick = () => openViewer(item);
+        
         const info = document.createElement("div"); info.className = "info";
+        info.innerHTML = `
+            <div class="title">${item.img_id || ""}</div>
+            <div class="desc-text">${item.description || ""}</div>
+            <div class="date">${item.date || ""}</div>
+        `;
         
-        // ... (добавляем title, desc, date в info) ...
-        
-        card.append(img, overlay, info); // Текст лежит в DOM поверх оверлея
-        
-        // Клик по оверлею открывает картинку
-        overlay.onclick = () => openViewer(item);
-        
-        // Текст сам по себе доступен для выделения, клик по нему не всплывает к оверлею
+        card.append(img, info);
+        gallery.append(card);
     </script>
 </body>
 </html>
