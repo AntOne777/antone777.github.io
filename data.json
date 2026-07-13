@@ -1,4 +1,17 @@
 {
+    "BastilleSacreCoeur": {
+        "sort_key": "20260713_BastilleSacreCoeur",
+        "date": "2026-07-13",
+        "url": "https://www.bing.com/th?id=OHR.BastilleSacreCoeur_FR-FR3878699722_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.BastilleSacreCoeur_FR-FR3878699722_1920x1080.jpg",
+        "img_id": "BastilleSacreCoeur",
+        "title": "Allons, enfants sur le parvis",
+        "description": "Feux d’artifice face à la basilique du Sacré-Cœur, Montmartre, Paris (© marc_land/Getty Images)",
+        "copyright": "Feux d’artifice face à la basilique du Sacré-Cœur, Montmartre, Paris (© marc_land/Getty Images)",
+        "markets": [
+            "fr-FR"
+        ]
+    },
     "NavajoSandstone": {
         "sort_key": "20260712_NavajoSandstone",
         "date": "2026-07-12",
@@ -172,7 +185,10 @@
             "ko-KR",
             "ru-RU",
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "de-DE",
+            "es-ES",
+            "it-IT"
         ]
     },
     "IsolaBella": {
