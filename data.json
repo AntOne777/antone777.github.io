@@ -151,7 +151,14 @@
             "fr-FR",
             "it-IT",
             "ja-JP",
-            "pt-BR"
+            "pt-BR",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "SummerBC": {
@@ -191,7 +198,8 @@
             "it-IT",
             "en-GB",
             "en-CA",
-            "pt-BR"
+            "pt-BR",
+            "en-US"
         ]
     },
     "IsolaBella": {
