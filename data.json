@@ -25,6 +25,19 @@
             "en-CA"
         ]
     },
+    "FestaVenezia": {
+        "sort_key": "20260717_FestaVenezia",
+        "date": "2026-07-17",
+        "url": "https://www.bing.com/th?id=OHR.FestaVenezia_IT-IT8709585056_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.FestaVenezia_IT-IT8709585056_1920x1080.jpg",
+        "img_id": "FestaVenezia",
+        "title": "L'isola colorata di Venezia",
+        "description": "Le case colorate di Burano, Venezia, Veneto, Italia (© Nick Brundle Photography/Getty Images)",
+        "copyright": "Le case colorate di Burano, Venezia, Veneto, Italia (© Nick Brundle Photography/Getty Images)",
+        "markets": [
+            "it-IT"
+        ]
+    },
     "DevilsBridge": {
         "sort_key": "20260717_DevilsBridge",
         "date": "2026-07-17",
@@ -36,7 +49,10 @@
         "copyright": "ラコツ橋, ドイツ (© Mike Mareen/Getty Images)",
         "markets": [
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR"
         ]
     },
     "VaiUmbrellas": {
