@@ -1,4 +1,30 @@
 {
+    "HirundoRustica": {
+        "sort_key": "20260717_HirundoRustica",
+        "date": "2026-07-17",
+        "url": "https://www.bing.com/th?id=OHR.HirundoRustica_PT-BR5068728715_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.HirundoRustica_PT-BR5068728715_1920x1080.jpg",
+        "img_id": "HirundoRustica",
+        "title": "Pequenas viajantes, grandes distâncias",
+        "description": "Andorinhas-das-chaminés de diferentes subespécies pousadas juntas (© Oscar Dominguez/Tandem Stills + Motion)",
+        "copyright": "Andorinhas-das-chaminés de diferentes subespécies pousadas juntas (© Oscar Dominguez/Tandem Stills + Motion)",
+        "markets": [
+            "pt-BR"
+        ]
+    },
+    "GrainSilosSK": {
+        "sort_key": "20260717_GrainSilosSK",
+        "date": "2026-07-17",
+        "url": "https://www.bing.com/th?id=OHR.GrainSilosSK_EN-CA7421778186_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.GrainSilosSK_EN-CA7421778186_1920x1080.jpg",
+        "img_id": "GrainSilosSK",
+        "title": "The breadbasket of Canada",
+        "description": "A prairie storm gathers over grain silos in Saskatchewan (© mysticenergy/Getty Images)",
+        "copyright": "A prairie storm gathers over grain silos in Saskatchewan (© mysticenergy/Getty Images)",
+        "markets": [
+            "en-CA"
+        ]
+    },
     "VaiUmbrellas": {
         "sort_key": "20260716_VaiUmbrellas",
         "date": "2026-07-16",
