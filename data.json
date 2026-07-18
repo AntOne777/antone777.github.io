@@ -11,7 +11,11 @@
         "markets": [
             "pt-BR",
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "GrainSilosSK": {
