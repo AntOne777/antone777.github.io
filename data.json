@@ -9,7 +9,10 @@
         "description": "圣卡塔琳娜拱门，安提瓜，危地马拉 (© Filippo Maria Bianchi/Getty Images)",
         "copyright": "圣卡塔琳娜拱门，安提瓜，危地马拉 (© Filippo Maria Bianchi/Getty Images)",
         "markets": [
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "Kawagoe2026": {
@@ -23,6 +26,19 @@
         "copyright": "川越氷川神社, 埼玉県 川越市 (© kudosstudio/Adobe)",
         "markets": [
             "ja-JP"
+        ]
+    },
+    "IslaCristina": {
+        "sort_key": "20260720_IslaCristina",
+        "date": "2026-07-20",
+        "url": "https://www.bing.com/th?id=OHR.IslaCristina_ES-ES8480409312_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.IslaCristina_ES-ES8480409312_1920x1080.jpg",
+        "img_id": "IslaCristina",
+        "title": "Arena, sol y gambas",
+        "description": "Vista aérea de Isla Cristina en Huelva, Andalucía, España (© MEDITERRANEAN/Getty Images)",
+        "copyright": "Vista aérea de Isla Cristina en Huelva, Andalucía, España (© MEDITERRANEAN/Getty Images)",
+        "markets": [
+            "es-ES"
         ]
     },
     "SoccerDay": {
