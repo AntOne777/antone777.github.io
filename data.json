@@ -1,4 +1,17 @@
 {
+    "EibseeSummer": {
+        "sort_key": "20260721_EibseeSummer",
+        "date": "2026-07-21",
+        "url": "https://www.bing.com/th?id=OHR.EibseeSummer_DE-DE7644945564_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.EibseeSummer_DE-DE7644945564_1920x1080.jpg",
+        "img_id": "EibseeSummer",
+        "title": "Wo Berg und See verschmelzen",
+        "description": "Sommer am Eibsee bei Garmisch-Partenkirchen mit Blick auf die Zugspitze, Bayern (© DieterMeyrl/Getty Images)",
+        "copyright": "Sommer am Eibsee bei Garmisch-Partenkirchen mit Blick auf die Zugspitze, Bayern (© DieterMeyrl/Getty Images)",
+        "markets": [
+            "de-DE"
+        ]
+    },
     "SantaCatalina": {
         "sort_key": "20260720_SantaCatalina",
         "date": "2026-07-20",
@@ -409,7 +422,10 @@
             "ko-KR",
             "ru-RU",
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "es-ES",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "BoneyardBeach": {
