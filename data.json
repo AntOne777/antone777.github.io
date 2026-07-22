@@ -428,7 +428,8 @@
             "it-IT",
             "en-GB",
             "en-CA",
-            "pt-BR"
+            "pt-BR",
+            "en-US"
         ]
     },
     "BoneyardBeach": {
@@ -461,7 +462,14 @@
             "fr-FR",
             "ja-JP",
             "en-GB",
-            "pt-BR"
+            "pt-BR",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "VictoriaBeach": {
