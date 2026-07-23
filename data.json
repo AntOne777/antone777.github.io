@@ -10,7 +10,23 @@
         "copyright": "ベニイロフラミンゴ, エクアドル (© Tui De Roy/Nature Picture Library)",
         "markets": [
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "fr-FR",
+            "it-IT"
+        ]
+    },
+    "ChicagoTiffany": {
+        "sort_key": "20260723_ChicagoTiffany",
+        "date": "2026-07-23",
+        "url": "https://www.bing.com/th?id=OHR.ChicagoTiffany_ES-ES2128020420_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.ChicagoTiffany_ES-ES2128020420_1920x1080.jpg",
+        "img_id": "ChicagoTiffany",
+        "title": "¡Chicago, mira hacia arriba!",
+        "description": "Tiffany Dome, Chicago Cultural Center, Illinois, EE. UU.  (© Felix Lipov/Shutterstock)",
+        "copyright": "Tiffany Dome, Chicago Cultural Center, Illinois, EE. UU.  (© Felix Lipov/Shutterstock)",
+        "markets": [
+            "es-ES"
         ]
     },
     "PinkDahlia": {
