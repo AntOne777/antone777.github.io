@@ -1,4 +1,30 @@
 {
+    "SardegnaFaro": {
+        "sort_key": "20260724_SardegnaFaro",
+        "date": "2026-07-24",
+        "url": "https://www.bing.com/th?id=OHR.SardegnaFaro_IT-IT8009785446_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.SardegnaFaro_IT-IT8009785446_1920x1080.jpg",
+        "img_id": "SardegnaFaro",
+        "title": "Un unico luogo, un unico scopo",
+        "description": "Il Faro Mangiabarche, Sant'Antioco, Sulcis, Sardegna (© Francesco Riccardo Iacomino/Getty Images)",
+        "copyright": "Il Faro Mangiabarche, Sant'Antioco, Sulcis, Sardegna (© Francesco Riccardo Iacomino/Getty Images)",
+        "markets": [
+            "it-IT"
+        ]
+    },
+    "PrideBerlin": {
+        "sort_key": "20260724_PrideBerlin",
+        "date": "2026-07-24",
+        "url": "https://www.bing.com/th?id=OHR.PrideBerlin_DE-DE3369611592_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.PrideBerlin_DE-DE3369611592_1920x1080.jpg",
+        "img_id": "PrideBerlin",
+        "title": "Im Zeichen des Regenbogens",
+        "description": "Fernsehturm am Alexanderplatz mit Regenbogen, Berlin (© fhm/Getty Images)",
+        "copyright": "Fernsehturm am Alexanderplatz mit Regenbogen, Berlin (© fhm/Getty Images)",
+        "markets": [
+            "de-DE"
+        ]
+    },
     "GaliciaBeach": {
         "sort_key": "20260724_GaliciaBeach",
         "date": "2026-07-24",
@@ -10,7 +36,9 @@
         "copyright": "カテドラル・ビーチ, スペイン (© Tui De Roy/Amazing Aerial Agency/Abobe Stock)",
         "markets": [
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "es-ES",
+            "fr-FR"
         ]
     },
     "GalapagosFlamingos": {
