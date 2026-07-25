@@ -41,7 +41,8 @@
             "fr-FR",
             "en-GB",
             "en-CA",
-            "pt-BR"
+            "pt-BR",
+            "en-US"
         ]
     },
     "GalapagosFlamingos": {
@@ -177,7 +178,14 @@
         "description": "Vista aérea de Isla Cristina en Huelva, Andalucía, España (© MEDITERRANEAN/Getty Images)",
         "copyright": "Vista aérea de Isla Cristina en Huelva, Andalucía, España (© MEDITERRANEAN/Getty Images)",
         "markets": [
-            "es-ES"
+            "es-ES",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "SoccerDay": {
