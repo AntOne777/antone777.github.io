@@ -112,7 +112,9 @@
         "description": "Tiffany Dome, Chicago Cultural Center, Illinois, EE. UU.  (© Felix Lipov/Shutterstock)",
         "copyright": "Tiffany Dome, Chicago Cultural Center, Illinois, EE. UU.  (© Felix Lipov/Shutterstock)",
         "markets": [
-            "es-ES"
+            "es-ES",
+            "zh-CN",
+            "ja-JP"
         ]
     },
     "PinkDahlia": {
