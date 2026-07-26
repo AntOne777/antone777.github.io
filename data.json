@@ -1,4 +1,30 @@
 {
+    "VerdonKayaks": {
+        "sort_key": "20260726_VerdonKayaks",
+        "date": "2026-07-26",
+        "url": "https://www.bing.com/th?id=OHR.VerdonKayaks_FR-FR6935931270_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.VerdonKayaks_FR-FR6935931270_1920x1080.jpg",
+        "img_id": "VerdonKayaks",
+        "title": "Le canyon bleu",
+        "description": "Canoë-kayaks au cœur des gorges du Verdon, Provence-Alpes-Côte d'Azur (© Joran Maaswinkel Fotografie/Getty Images)",
+        "copyright": "Canoë-kayaks au cœur des gorges du Verdon, Provence-Alpes-Côte d'Azur (© Joran Maaswinkel Fotografie/Getty Images)",
+        "markets": [
+            "fr-FR"
+        ]
+    },
+    "GaliciaSpain": {
+        "sort_key": "20260726_GaliciaSpain",
+        "date": "2026-07-26",
+        "url": "https://www.bing.com/th?id=OHR.GaliciaSpain_ES-ES2553115650_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.GaliciaSpain_ES-ES2553115650_1920x1080.jpg",
+        "img_id": "GaliciaSpain",
+        "title": "El paraíso secreto de Galicia",
+        "description": "Veleros cerca de las Islas Cíes en Galicia, España (© AndresGarciaM/Getty Images)",
+        "copyright": "Veleros cerca de las Islas Cíes en Galicia, España (© AndresGarciaM/Getty Images)",
+        "markets": [
+            "es-ES"
+        ]
+    },
     "RedMangroveSunrise": {
         "sort_key": "20260725_RedMangroveSunrise",
         "date": "2026-07-25",
@@ -71,7 +97,8 @@
             "en-GB",
             "en-CA",
             "pt-BR",
-            "en-US"
+            "en-US",
+            "it-IT"
         ]
     },
     "GalapagosFlamingos": {
@@ -114,7 +141,8 @@
         "markets": [
             "es-ES",
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "de-DE"
         ]
     },
     "PinkDahlia": {
