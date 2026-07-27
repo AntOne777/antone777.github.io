@@ -145,7 +145,8 @@
             "de-DE",
             "en-GB",
             "en-CA",
-            "pt-BR"
+            "pt-BR",
+            "en-US"
         ]
     },
     "PinkDahlia": {
@@ -695,7 +696,14 @@
         "description": "Pink wildflowers by Emerald Lake in summer, Yoho National Park, British Columbia (© Olga Matveeva/Getty Images)",
         "copyright": "Pink wildflowers by Emerald Lake in summer, Yoho National Park, British Columbia (© Olga Matveeva/Getty Images)",
         "markets": [
-            "en-CA"
+            "en-CA",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "LemonShark": {
