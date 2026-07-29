@@ -1,4 +1,17 @@
 {
+    "WildJackalFriends": {
+        "sort_key": "20260729_WildJackalFriends",
+        "date": "2026-07-29",
+        "url": "https://www.bing.com/th?id=OHR.WildJackalFriends_FR-FR7398331328_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.WildJackalFriends_FR-FR7398331328_1920x1080.jpg",
+        "img_id": "WildJackalFriends",
+        "title": "L’amitié, ça s’apprend",
+        "description": "Jeunes chacals sauvages dans le Bushveld, Afrique du Sud (© Jeff R Clow/Getty Images)",
+        "copyright": "Jeunes chacals sauvages dans le Bushveld, Afrique du Sud (© Jeff R Clow/Getty Images)",
+        "markets": [
+            "fr-FR"
+        ]
+    },
     "NavajoNation": {
         "sort_key": "20260729_NavajoNation",
         "date": "2026-07-29",
@@ -10,7 +23,22 @@
         "copyright": "モニュメント・バレー, 米国 アリゾナ州 (© Westend61/Adobe Stock)",
         "markets": [
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "es-ES",
+            "it-IT"
+        ]
+    },
+    "BearBavaria": {
+        "sort_key": "20260729_BearBavaria",
+        "date": "2026-07-29",
+        "url": "https://www.bing.com/th?id=OHR.BearBavaria_DE-DE3681217161_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.BearBavaria_DE-DE3681217161_1920x1080.jpg",
+        "img_id": "BearBavaria",
+        "title": "Wild und wachsam",
+        "description": "Braunbärenjunges auf einem Felsen, Bayern (© Raimund Linke/Getty Images)",
+        "copyright": "Braunbärenjunges auf einem Felsen, Bayern (© Raimund Linke/Getty Images)",
+        "markets": [
+            "de-DE"
         ]
     },
     "TigerFamily": {
