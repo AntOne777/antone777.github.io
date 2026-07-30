@@ -10,7 +10,22 @@
         "copyright": "鸟瞰弗吉尼亚爬山虎步道，达马斯克斯，弗吉尼亚州，美国 (© Eifel Kreutz/Getty Images)",
         "markets": [
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "de-DE",
+            "fr-FR"
+        ]
+    },
+    "IsoleEolie": {
+        "sort_key": "20260730_IsoleEolie",
+        "date": "2026-07-30",
+        "url": "https://www.bing.com/th?id=OHR.IsoleEolie_IT-IT8736401041_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.IsoleEolie_IT-IT8736401041_1920x1080.jpg",
+        "img_id": "IsoleEolie",
+        "title": "Le isole segrete della Sicilia",
+        "description": "Cielo colorato al tramonto sopra barche a vela ormeggiate, Isole Eolie, Messina, Sicilia, Italia (© Paolo Graziosi/E+/Getty Images)",
+        "copyright": "Cielo colorato al tramonto sopra barche a vela ormeggiate, Isole Eolie, Messina, Sicilia, Italia (© Paolo Graziosi/E+/Getty Images)",
+        "markets": [
+            "it-IT"
         ]
     },
     "Furada": {
@@ -24,6 +39,19 @@
         "copyright": "Pedra Furada em Jericoacoara, Ceará (© Brendan van Son/Shutterstock)",
         "markets": [
             "pt-BR"
+        ]
+    },
+    "DeltaEbro": {
+        "sort_key": "20260730_DeltaEbro",
+        "date": "2026-07-30",
+        "url": "https://www.bing.com/th?id=OHR.DeltaEbro_ES-ES3023885514_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.DeltaEbro_ES-ES3023885514_1920x1080.jpg",
+        "img_id": "DeltaEbro",
+        "title": "Un grupo muy flamenco",
+        "description": "Flamencos en el Delta del Ebro, Tarragona, España (© mafrmcfa/Getty Images)",
+        "copyright": "Flamencos en el Delta del Ebro, Tarragona, España (© mafrmcfa/Getty Images)",
+        "markets": [
+            "es-ES"
         ]
     },
     "WildJackalFriends": {
