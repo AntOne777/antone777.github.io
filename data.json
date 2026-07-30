@@ -1,4 +1,17 @@
 {
+    "Furada": {
+        "sort_key": "20260730_Furada",
+        "date": "2026-07-30",
+        "url": "https://www.bing.com/th?id=OHR.Furada_PT-BR7092103592_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.Furada_PT-BR7092103592_1920x1080.jpg",
+        "img_id": "Furada",
+        "title": "Vento com licença poética",
+        "description": "Pedra Furada em Jericoacoara, Ceará (© Brendan van Son/Shutterstock)",
+        "copyright": "Pedra Furada em Jericoacoara, Ceará (© Brendan van Son/Shutterstock)",
+        "markets": [
+            "pt-BR"
+        ]
+    },
     "WildJackalFriends": {
         "sort_key": "20260729_WildJackalFriends",
         "date": "2026-07-29",
@@ -26,7 +39,8 @@
             "zh-CN",
             "es-ES",
             "it-IT",
-            "en-GB"
+            "en-GB",
+            "en-CA"
         ]
     },
     "BearBavaria": {
