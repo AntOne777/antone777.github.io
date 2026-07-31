@@ -1,4 +1,17 @@
 {
+    "SeaStacks": {
+        "sort_key": "20260731_SeaStacks",
+        "date": "2026-07-31",
+        "url": "https://www.bing.com/th?id=OHR.SeaStacks_FR-FR4057620009_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.SeaStacks_FR-FR4057620009_1920x1080.jpg",
+        "img_id": "SeaStacks",
+        "title": "Debout face aux vagues",
+        "description": "Stacks près de Wilson Creek Beach, False Klamath Cove, Parc national et parcs d’État de Redwood, Californie, États-Unis (© benedek/Getty Images)",
+        "copyright": "Stacks près de Wilson Creek Beach, False Klamath Cove, Parc national et parcs d’État de Redwood, Californie, États-Unis (© benedek/Getty Images)",
+        "markets": [
+            "fr-FR"
+        ]
+    },
     "HirosakiNeputa2026": {
         "sort_key": "20260731_HirosakiNeputa2026",
         "date": "2026-07-31",
@@ -22,7 +35,9 @@
         "description": "大批熔岩流涌入大洋，大岛，夏威夷州，美国 (© Ken McCurdy/Getty Images)",
         "copyright": "大批熔岩流涌入大洋，大岛，夏威夷州，美国 (© Ken McCurdy/Getty Images)",
         "markets": [
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "it-IT"
         ]
     },
     "VirginiaTrail": {
@@ -429,7 +444,8 @@
             "pl-PL",
             "pt-PT",
             "ko-KR",
-            "ru-RU"
+            "ru-RU",
+            "es-ES"
         ]
     },
     "Kawagoe2026": {
