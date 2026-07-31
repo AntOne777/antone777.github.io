@@ -13,7 +13,9 @@
             "ja-JP",
             "de-DE",
             "fr-FR",
-            "en-GB"
+            "en-GB",
+            "en-CA",
+            "pt-BR"
         ]
     },
     "IsoleEolie": {
