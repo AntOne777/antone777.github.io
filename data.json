@@ -1,4 +1,17 @@
 {
+    "Maracatu": {
+        "sort_key": "20260801_Maracatu",
+        "date": "2026-08-01",
+        "url": "https://www.bing.com/th?id=OHR.Maracatu_PT-BR9312687500_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.Maracatu_PT-BR9312687500_1920x1080.jpg",
+        "img_id": "Maracatu",
+        "title": "A arte de desfilar histórias",
+        "description": "Ornamentos, cores e detalhes do Maracatu Rural, Pernambuco (© FerreiraSilva/Getty Images)",
+        "copyright": "Ornamentos, cores e detalhes do Maracatu Rural, Pernambuco (© FerreiraSilva/Getty Images)",
+        "markets": [
+            "pt-BR"
+        ]
+    },
     "SeaStacks": {
         "sort_key": "20260731_SeaStacks",
         "date": "2026-07-31",
@@ -37,7 +50,8 @@
         "markets": [
             "zh-CN",
             "de-DE",
-            "it-IT"
+            "it-IT",
+            "en-CA"
         ]
     },
     "BrightonPride2026": {
