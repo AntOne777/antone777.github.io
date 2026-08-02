@@ -1,4 +1,17 @@
 {
+    "BoatsMalta": {
+        "sort_key": "20260802_BoatsMalta",
+        "date": "2026-08-02",
+        "url": "https://www.bing.com/th?id=OHR.BoatsMalta_JA-JP6685221242_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.BoatsMalta_JA-JP6685221242_1920x1080.jpg",
+        "img_id": "BoatsMalta",
+        "title": "エメラルドの海に浮かぶ色とりどりの船",
+        "description": "マルサシュロック, マルタ (© Klubovy/Getty Images)",
+        "copyright": "マルサシュロック, マルタ (© Klubovy/Getty Images)",
+        "markets": [
+            "ja-JP"
+        ]
+    },
     "Maracatu": {
         "sort_key": "20260801_Maracatu",
         "date": "2026-08-01",
