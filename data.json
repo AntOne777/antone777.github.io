@@ -1,4 +1,17 @@
 {
+    "EDMFolkFest": {
+        "sort_key": "20260806_EDMFolkFest",
+        "date": "2026-08-06",
+        "url": "https://www.bing.com/th?id=OHR.EDMFolkFest_EN-CA4302918547_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.EDMFolkFest_EN-CA4302918547_1920x1080.jpg",
+        "img_id": "EDMFolkFest",
+        "title": "Meet me on the hill",
+        "description": "Edmonton at night, Alberta (© Tetyana Babiy/iStock/Getty Images)",
+        "copyright": "Edmonton at night, Alberta (© Tetyana Babiy/iStock/Getty Images)",
+        "markets": [
+            "en-CA"
+        ]
+    },
     "MaraCrossing": {
         "sort_key": "20260805_MaraCrossing",
         "date": "2026-08-05",
@@ -14,7 +27,8 @@
             "es-ES",
             "fr-FR",
             "it-IT",
-            "en-GB"
+            "en-GB",
+            "pt-BR"
         ]
     },
     "HiroshimaPeaceMemorial2026": {
