@@ -1,4 +1,17 @@
 {
+    "WildlifeCrossingPoland": {
+        "sort_key": "20260806_WildlifeCrossingPoland",
+        "date": "2026-08-06",
+        "url": "https://www.bing.com/th?id=OHR.WildlifeCrossingPoland_FR-FR4291809013_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.WildlifeCrossingPoland_FR-FR4291809013_1920x1080.jpg",
+        "img_id": "WildlifeCrossingPoland",
+        "title": "Tracé pour la nature",
+        "description": "Vue aérienne d’un écoduc près de Zakrzów, Pologne (© bbsferrari/Getty Images)",
+        "copyright": "Vue aérienne d’un écoduc près de Zakrzów, Pologne (© bbsferrari/Getty Images)",
+        "markets": [
+            "fr-FR"
+        ]
+    },
     "LimeKiln": {
         "sort_key": "20260806_LimeKiln",
         "date": "2026-08-06",
@@ -9,7 +22,10 @@
         "description": "ライム・キルン灯台, 米国 ワシントン州 (© Edmund Lowe Photography/Shutterstock)",
         "copyright": "ライム・キルン灯台, 米国 ワシントン州 (© Edmund Lowe Photography/Shutterstock)",
         "markets": [
-            "ja-JP"
+            "ja-JP",
+            "zh-CN",
+            "de-DE",
+            "es-ES"
         ]
     },
     "EDMFolkFest": {
@@ -23,6 +39,32 @@
         "copyright": "Edmonton at night, Alberta (© Tetyana Babiy/iStock/Getty Images)",
         "markets": [
             "en-CA"
+        ]
+    },
+    "CabilaoClowns": {
+        "sort_key": "20260806_CabilaoClowns",
+        "date": "2026-08-06",
+        "url": "https://www.bing.com/th?id=OHR.CabilaoClowns_IT-IT2689259702_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.CabilaoClowns_IT-IT2689259702_1920x1080.jpg",
+        "img_id": "CabilaoClowns",
+        "title": "Pronti per i festeggiamenti",
+        "description": "Pesci pagliaccio in un anemone di mare, isola di Cabilao, Bohol, Filippine (© Franco Banfi/Nature Picture Library)",
+        "copyright": "Pesci pagliaccio in un anemone di mare, isola di Cabilao, Bohol, Filippine (© Franco Banfi/Nature Picture Library)",
+        "markets": [
+            "it-IT"
+        ]
+    },
+    "BristolBalloonFiesta2026": {
+        "sort_key": "20260806_BristolBalloonFiesta2026",
+        "date": "2026-08-06",
+        "url": "https://www.bing.com/th?id=OHR.BristolBalloonFiesta2026_EN-GB3752871643_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.BristolBalloonFiesta2026_EN-GB3752871643_1920x1080.jpg",
+        "img_id": "BristolBalloonFiesta2026",
+        "title": "Up, up and hooray!",
+        "description": "Hot air balloons above Bristol city centre, England (© Rich Jones Photography/Moment/Getty Images)",
+        "copyright": "Hot air balloons above Bristol city centre, England (© Rich Jones Photography/Moment/Getty Images)",
+        "markets": [
+            "en-GB"
         ]
     },
     "MaraCrossing": {
