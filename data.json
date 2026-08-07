@@ -1,4 +1,23 @@
 {
+    "ColorfulCop": {
+        "sort_key": "20260807_ColorfulCop",
+        "date": "2026-08-07",
+        "url": "https://www.bing.com/th?id=OHR.ColorfulCop_ROW6097405388_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.ColorfulCop_ROW6097405388_1920x1080.jpg",
+        "img_id": "ColorfulCop",
+        "title": "Info",
+        "description": "Colourful homes line Nyhavn Canal, Copenhagen, Denmark (© emicristea/Getty Images)",
+        "copyright": "Colourful homes line Nyhavn Canal, Copenhagen, Denmark (© emicristea/Getty Images)",
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
+    },
     "WildlifeCrossingPoland": {
         "sort_key": "20260806_WildlifeCrossingPoland",
         "date": "2026-08-06",
@@ -27,7 +46,8 @@
             "de-DE",
             "es-ES",
             "en-CA",
-            "pt-BR"
+            "pt-BR",
+            "en-US"
         ]
     },
     "EDMFolkFest": {
