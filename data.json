@@ -10,7 +10,22 @@
         "copyright": "インフィニティ・ブリッジ, イングランド (© Bahadir Yeniceri/Shutterstock)",
         "markets": [
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "es-ES",
+            "it-IT"
+        ]
+    },
+    "RhineFlames": {
+        "sort_key": "20260807_RhineFlames",
+        "date": "2026-08-07",
+        "url": "https://www.bing.com/th?id=OHR.RhineFlames_DE-DE7527393403_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.RhineFlames_DE-DE7527393403_1920x1080.jpg",
+        "img_id": "RhineFlames",
+        "title": "Feuerzauber über dem Rhein",
+        "description": "Rhein in Flammen vor Schloss Stolzenfels bei Koblenz, Rheinland-Pfalz (© Jule_Berlin/Shutterstock)",
+        "copyright": "Rhein in Flammen vor Schloss Stolzenfels bei Koblenz, Rheinland-Pfalz (© Jule_Berlin/Shutterstock)",
+        "markets": [
+            "de-DE"
         ]
     },
     "ColorfulCop": {
@@ -30,6 +45,19 @@
             "pt-PT",
             "ko-KR",
             "ru-RU"
+        ]
+    },
+    "ClothesBarjols": {
+        "sort_key": "20260807_ClothesBarjols",
+        "date": "2026-08-07",
+        "url": "https://www.bing.com/th?id=OHR.ClothesBarjols_FR-FR4425384248_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.ClothesBarjols_FR-FR4425384248_1920x1080.jpg",
+        "img_id": "ClothesBarjols",
+        "title": "L’art de prendre le temps",
+        "description": "Du linge qui sèche aux fenêtres d’une maison, Barjols, Var, Provence-Alpes-Côtes d'Azur (© mammuth/Getty Images)",
+        "copyright": "Du linge qui sèche aux fenêtres d’une maison, Barjols, Var, Provence-Alpes-Côtes d'Azur (© mammuth/Getty Images)",
+        "markets": [
+            "fr-FR"
         ]
     },
     "WildlifeCrossingPoland": {
