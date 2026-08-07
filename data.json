@@ -1,4 +1,17 @@
 {
+    "StocktonInfinity": {
+        "sort_key": "20260807_StocktonInfinity",
+        "date": "2026-08-07",
+        "url": "https://www.bing.com/th?id=OHR.StocktonInfinity_JA-JP6357248728_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.StocktonInfinity_JA-JP6357248728_1920x1080.jpg",
+        "img_id": "StocktonInfinity",
+        "title": "今日は無限大の日",
+        "description": "インフィニティ・ブリッジ, イングランド (© Bahadir Yeniceri/Shutterstock)",
+        "copyright": "インフィニティ・ブリッジ, イングランド (© Bahadir Yeniceri/Shutterstock)",
+        "markets": [
+            "ja-JP"
+        ]
+    },
     "ColorfulCop": {
         "sort_key": "20260807_ColorfulCop",
         "date": "2026-08-07",
