@@ -1,4 +1,23 @@
 {
+    "ValleyDreams": {
+        "sort_key": "20260808_ValleyDreams",
+        "date": "2026-08-08",
+        "url": "https://www.bing.com/th?id=OHR.ValleyDreams_ROW6376883591_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.ValleyDreams_ROW6376883591_1920x1080.jpg",
+        "img_id": "ValleyDreams",
+        "title": "Info",
+        "description": "Hoodoos in Ah Shi Sle Pah Wilderness in San Juan County, New Mexico, United States (© Westend61/Getty Images)",
+        "copyright": "Hoodoos in Ah Shi Sle Pah Wilderness in San Juan County, New Mexico, United States (© Westend61/Getty Images)",
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
+    },
     "StocktonInfinity": {
         "sort_key": "20260807_StocktonInfinity",
         "date": "2026-08-07",
@@ -15,7 +34,8 @@
             "it-IT",
             "en-GB",
             "en-CA",
-            "pt-BR"
+            "pt-BR",
+            "en-US"
         ]
     },
     "RhineFlames": {
