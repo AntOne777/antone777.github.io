@@ -9,7 +9,23 @@
         "description": "约书亚树国家公园，加利福尼亚州，美国 (© JJ Landscapes/Getty Images)",
         "copyright": "约书亚树国家公园，加利福尼亚州，美国 (© JJ Landscapes/Getty Images)",
         "markets": [
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR"
+        ]
+    },
+    "DolomitiAgosto": {
+        "sort_key": "20260809_DolomitiAgosto",
+        "date": "2026-08-09",
+        "url": "https://www.bing.com/th?id=OHR.DolomitiAgosto_IT-IT3030401591_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.DolomitiAgosto_IT-IT3030401591_1920x1080.jpg",
+        "img_id": "DolomitiAgosto",
+        "title": "Ideale per una visita in famiglia",
+        "description": "Il Lago di Carezza nelle Dolomiti all'alba, Bolzano, Italia (© Putt Sakdhnagool/Moment/Getty Images)",
+        "copyright": "Il Lago di Carezza nelle Dolomiti all'alba, Bolzano, Italia (© Putt Sakdhnagool/Moment/Getty Images)",
+        "markets": [
+            "it-IT"
         ]
     },
     "ValleyDreams": {
