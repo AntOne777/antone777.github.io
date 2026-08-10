@@ -1,4 +1,23 @@
 {
+    "WhyteCliffP": {
+        "sort_key": "20260810_WhyteCliffP",
+        "date": "2026-08-10",
+        "url": "https://www.bing.com/th?id=OHR.WhyteCliffP_ROW6700227959_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.WhyteCliffP_ROW6700227959_1920x1080.jpg",
+        "img_id": "WhyteCliffP",
+        "title": "Info",
+        "description": "Whytecliff Park, West Vancouver, Canada (© Aolin Chen/Getty Images)",
+        "copyright": "Whytecliff Park, West Vancouver, Canada (© Aolin Chen/Getty Images)",
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
+    },
     "Golfinhos": {
         "sort_key": "20260810_Golfinhos",
         "date": "2026-08-10",
@@ -27,7 +46,8 @@
             "es-ES",
             "fr-FR",
             "en-GB",
-            "en-CA"
+            "en-CA",
+            "en-US"
         ]
     },
     "DolomitiAgosto": {
