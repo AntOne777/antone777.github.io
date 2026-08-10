@@ -31,6 +31,19 @@
             "ja-JP"
         ]
     },
+    "LloretdeMar": {
+        "sort_key": "20260810_LloretdeMar",
+        "date": "2026-08-10",
+        "url": "https://www.bing.com/th?id=OHR.LloretdeMar_ES-ES9587440947_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.LloretdeMar_ES-ES9587440947_1920x1080.jpg",
+        "img_id": "LloretdeMar",
+        "title": "Donde las rocas se transforman",
+        "description": "Camino de Ronda, Lloret de Mar, Girona, Cataluña (© MEDITERRANEAN/Getty Images)",
+        "copyright": "Camino de Ronda, Lloret de Mar, Girona, Cataluña (© MEDITERRANEAN/Getty Images)",
+        "markets": [
+            "es-ES"
+        ]
+    },
     "Golfinhos": {
         "sort_key": "20260810_Golfinhos",
         "date": "2026-08-10",
@@ -175,7 +188,10 @@
             "ko-KR",
             "ru-RU",
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "ClothesBarjols": {
