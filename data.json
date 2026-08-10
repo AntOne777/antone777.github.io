@@ -18,6 +18,19 @@
             "ru-RU"
         ]
     },
+    "MountainDay2026": {
+        "sort_key": "20260810_MountainDay2026",
+        "date": "2026-08-10",
+        "url": "https://www.bing.com/th?id=OHR.MountainDay2026_JA-JP4675980762_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.MountainDay2026_JA-JP4675980762_1920x1080.jpg",
+        "img_id": "MountainDay2026",
+        "title": "今日は山の日",
+        "description": "日本アルプス (© Sergey Alimov/Getty Images)",
+        "copyright": "日本アルプス (© Sergey Alimov/Getty Images)",
+        "markets": [
+            "ja-JP"
+        ]
+    },
     "Golfinhos": {
         "sort_key": "20260810_Golfinhos",
         "date": "2026-08-10",
