@@ -236,7 +236,8 @@
             "it-IT",
             "en-GB",
             "en-CA",
-            "en-US"
+            "en-US",
+            "es-ES"
         ]
     },
     "ClothesBarjols": {
@@ -1165,7 +1166,10 @@
         "markets": [
             "es-ES",
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "GionFestival2026": {
