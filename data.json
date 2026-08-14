@@ -1,4 +1,17 @@
 {
+    "SellinSunrise": {
+        "sort_key": "20260814_SellinSunrise",
+        "date": "2026-08-14",
+        "url": "https://www.bing.com/th?id=OHR.SellinSunrise_DE-DE6501539287_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.SellinSunrise_DE-DE6501539287_1920x1080.jpg",
+        "img_id": "SellinSunrise",
+        "title": "Im goldenen Licht der Ostsee",
+        "description": "Sonnenaufgang an der Seebrücke Sellin, Rügen, Mecklenburg-Vorpommern (© bluejayphoto/Getty Images)",
+        "copyright": "Sonnenaufgang an der Seebrücke Sellin, Rügen, Mecklenburg-Vorpommern (© bluejayphoto/Getty Images)",
+        "markets": [
+            "de-DE"
+        ]
+    },
     "Palmanova": {
         "sort_key": "20260814_Palmanova",
         "date": "2026-08-14",
@@ -16,6 +29,32 @@
             "pt-PT",
             "ko-KR",
             "ru-RU"
+        ]
+    },
+    "MalagaFairAgosto": {
+        "sort_key": "20260814_MalagaFairAgosto",
+        "date": "2026-08-14",
+        "url": "https://www.bing.com/th?id=OHR.MalagaFairAgosto_ES-ES2221508269_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.MalagaFairAgosto_ES-ES2221508269_1920x1080.jpg",
+        "img_id": "MalagaFairAgosto",
+        "title": "¡Abanico en mano y música!",
+        "description": "Vista de la Catedral y la Alcazaba de Málaga, Andalucía, España (© SeanPavonePhoto/Getty Images)",
+        "copyright": "Vista de la Catedral y la Alcazaba de Málaga, Andalucía, España (© SeanPavonePhoto/Getty Images)",
+        "markets": [
+            "es-ES"
+        ]
+    },
+    "EstateItaliana": {
+        "sort_key": "20260814_EstateItaliana",
+        "date": "2026-08-14",
+        "url": "https://www.bing.com/th?id=OHR.EstateItaliana_IT-IT7841784337_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.EstateItaliana_IT-IT7841784337_1920x1080.jpg",
+        "img_id": "EstateItaliana",
+        "title": "Momenti di convivialità e buon cibo",
+        "description": "Cala Spinosa, Capo Testa, Santa Teresa di Gallura, Sardegna, Italia (© Francesco Riccardo Iacomino/Moment/Getty Images)",
+        "copyright": "Cala Spinosa, Capo Testa, Santa Teresa di Gallura, Sardegna, Italia (© Francesco Riccardo Iacomino/Moment/Getty Images)",
+        "markets": [
+            "it-IT"
         ]
     },
     "Shimoda2026": {
@@ -194,7 +233,8 @@
             "ko-KR",
             "ru-RU",
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "fr-FR"
         ]
     },
     "JMTjibaou": {
