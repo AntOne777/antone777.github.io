@@ -1,4 +1,23 @@
 {
+    "Palmanova": {
+        "sort_key": "20260814_Palmanova",
+        "date": "2026-08-14",
+        "url": "https://www.bing.com/th?id=OHR.Palmanova_ROW7371050659_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.Palmanova_ROW7371050659_1920x1080.jpg",
+        "img_id": "Palmanova",
+        "title": "Info",
+        "description": "Aerial view of Palmanova, a fortress city in Friuli, Italy (© Riccardo Saponi/Getty Images)",
+        "copyright": "Aerial view of Palmanova, a fortress city in Friuli, Italy (© Riccardo Saponi/Getty Images)",
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
+    },
     "Shimoda2026": {
         "sort_key": "20260813_Shimoda2026",
         "date": "2026-08-13",
@@ -296,7 +315,8 @@
             "it-IT",
             "en-GB",
             "pt-BR",
-            "en-CA"
+            "en-CA",
+            "en-US"
         ]
     },
     "LimeKiln": {
