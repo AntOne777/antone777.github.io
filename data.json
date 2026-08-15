@@ -236,7 +236,8 @@
             "zh-CN",
             "fr-FR",
             "en-GB",
-            "en-CA"
+            "en-CA",
+            "en-US"
         ]
     },
     "JMTjibaou": {
@@ -285,7 +286,14 @@
             "en-GB",
             "en-CA",
             "pt-BR",
-            "en-US"
+            "en-US",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "RhineFlames": {
