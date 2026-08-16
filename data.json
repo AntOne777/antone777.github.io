@@ -17,7 +17,8 @@
             "it-IT",
             "en-GB",
             "pt-BR",
-            "en-CA"
+            "en-CA",
+            "en-US"
         ]
     },
     "SellinSunrise": {
@@ -740,7 +741,14 @@
         "description": "Pedra Furada em Jericoacoara, Ceará (© Brendan van Son/Shutterstock)",
         "copyright": "Pedra Furada em Jericoacoara, Ceará (© Brendan van Son/Shutterstock)",
         "markets": [
-            "pt-BR"
+            "pt-BR",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "DeltaEbro": {
