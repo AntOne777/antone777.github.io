@@ -417,7 +417,8 @@
             "pl-PL",
             "pt-PT",
             "ko-KR",
-            "ru-RU"
+            "ru-RU",
+            "it-IT"
         ]
     },
     "EDMFolkFest": {
@@ -445,7 +446,10 @@
         "markets": [
             "it-IT",
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR"
         ]
     },
     "BristolBalloonFiesta2026": {
