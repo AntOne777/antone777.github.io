@@ -452,7 +452,15 @@
             "fr-FR",
             "en-GB",
             "pt-BR",
-            "en-CA"
+            "en-CA",
+            "en-US",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "BristolBalloonFiesta2026": {
