@@ -174,7 +174,11 @@
             "pt-PT",
             "ko-KR",
             "ru-RU",
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "MountainDay2026": {
