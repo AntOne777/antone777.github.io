@@ -1,4 +1,17 @@
 {
+    "BrewsterXF2A": {
+        "sort_key": "20260819_BrewsterXF2A",
+        "date": "2026-08-19",
+        "url": "https://www.bing.com/th?id=OHR.BrewsterXF2A_EN-US0417477370_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.BrewsterXF2A_EN-US0417477370_1920x1080.jpg",
+        "img_id": "BrewsterXF2A",
+        "title": "Testing the future of flight",
+        "description": "NASA's Langley Research Center mounted the Navy's Brewster XF2A-1 Buffalo in the Full-Scale Tunnel, 1938, Hampton, Virginia (© NASA)",
+        "copyright": "NASA's Langley Research Center mounted the Navy's Brewster XF2A-1 Buffalo in the Full-Scale Tunnel, 1938, Hampton, Virginia (© NASA)",
+        "markets": [
+            "en-US"
+        ]
+    },
     "RossErrillyRuins": {
         "sort_key": "20260815_RossErrillyRuins",
         "date": "2026-08-15",
@@ -239,7 +252,14 @@
             "fr-FR",
             "en-GB",
             "en-CA",
-            "en-US"
+            "en-US",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "DolomitiAgosto": {
