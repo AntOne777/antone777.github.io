@@ -1,4 +1,30 @@
 {
+    "VueltaEspana": {
+        "sort_key": "20260821_VueltaEspana",
+        "date": "2026-08-21",
+        "url": "https://www.bing.com/th?id=OHR.VueltaEspana_ES-ES4697960673_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.VueltaEspana_ES-ES4697960673_1920x1080.jpg",
+        "img_id": "VueltaEspana",
+        "title": "Vuelta a casa sobre ruedas",
+        "description": "Vista general del pelotón durante la 77ª Vuelta a España 2022, Etapa 20, Navacerrada, España (© Europa Press Sports/Getty Images)",
+        "copyright": "Vista general del pelotón durante la 77ª Vuelta a España 2022, Etapa 20, Navacerrada, España (© Europa Press Sports/Getty Images)",
+        "markets": [
+            "es-ES"
+        ]
+    },
+    "NotteTaranta": {
+        "sort_key": "20260821_NotteTaranta",
+        "date": "2026-08-21",
+        "url": "https://www.bing.com/th?id=OHR.NotteTaranta_IT-IT0811899295_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.NotteTaranta_IT-IT0811899295_1920x1080.jpg",
+        "img_id": "NotteTaranta",
+        "title": "Il suono della Taranta",
+        "description": "Torre Sant'Andrea, Salento, Puglia, Italia (© Balate.Dorin/Shutterstock)",
+        "copyright": "Torre Sant'Andrea, Salento, Puglia, Italia (© Balate.Dorin/Shutterstock)",
+        "markets": [
+            "it-IT"
+        ]
+    },
     "CommonBlue": {
         "sort_key": "20260821_CommonBlue",
         "date": "2026-08-21",
@@ -10,7 +36,9 @@
         "copyright": "イカルスヒメシジミ, イングランド (© Ross Hoddinott/Nature Picture Library)",
         "markets": [
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "fr-FR"
         ]
     },
     "CanadaNE": {
