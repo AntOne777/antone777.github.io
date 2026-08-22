@@ -195,6 +195,7 @@
                     const overlay = document.createElement("div"); overlay.className = "overlay";
                     card.append(img, overlay);
                     overlay.onclick = () => openViewer(item);
+                    overlay.onmouseenter = () => { (new Image()).src = item.url; };
                     gallery.append(card);
                 });
             }).catch(() => gallery.innerHTML = "<p style='text-align:center'>Ошибка загрузки архива</p>");
