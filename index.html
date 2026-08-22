@@ -58,6 +58,7 @@
         .lightbox img { 
             max-width: 95%; max-height: 80%; object-fit: contain; 
             user-select: none; -webkit-user-drag: none; pointer-events: auto;
+            transition: opacity .3s ease;
         }
         
         .close { 
@@ -107,7 +108,7 @@
                 <path d="M 7 7 L 17 17 M 17 7 L 7 17" />
             </svg>
         </button>
-        <img id="bigImage">
+        <img id="bigImage" referrerpolicy="no-referrer">
         <div class="controls">
             <button id="download">Скачать UHD</button>
         </div>
@@ -146,8 +147,34 @@
 
         function openViewer(item) {
             current = item;
-            bigImage.src = item.url;
             viewer.classList.add("active");
+            bigImage.style.opacity = "0";
+            downloadBtn.textContent = "⏳ Загрузка...";
+            downloadBtn.classList.add("loading");
+
+            let fellBack = false;
+
+            const show = () => {
+                bigImage.style.opacity = "1";
+                downloadBtn.textContent = "Скачать UHD";
+                downloadBtn.classList.remove("loading");
+            };
+
+            bigImage.onload = show;
+            bigImage.onerror = () => {
+                if (fellBack) { downloadBtn.textContent = "Ошибка загрузки"; downloadBtn.classList.remove("loading"); return; }
+                fellBack = true;
+                bigImage.src = item.preview;
+            };
+
+            setTimeout(() => {
+                if (!fellBack && (!bigImage.complete || bigImage.naturalWidth === 0)) {
+                    fellBack = true;
+                    bigImage.src = item.preview;
+                }
+            }, 15000);
+
+            bigImage.src = item.url;
         }
 
         function closeViewer() {
@@ -163,6 +190,7 @@
                     const card = document.createElement("div"); card.className = "card";
                     const img = document.createElement("img"); 
                     img.src = item.preview; img.loading = "lazy";
+                    img.referrerPolicy = "no-referrer";
                     img.onload = () => img.classList.add("loaded");
                     const overlay = document.createElement("div"); overlay.className = "overlay";
                     card.append(img, overlay);
