@@ -10,7 +10,9 @@
         "copyright": "レッドウッド国立州立公園, 米国 カリフォルニア州 (© HadelProductions/Getty Images)",
         "markets": [
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "es-ES",
+            "it-IT"
         ]
     },
     "Lencois": {
@@ -24,6 +26,32 @@
         "copyright": "Parque Nacional dos Lençóis Maranhenses, Maranhão (© Ignacio Palacios/Getty Images)",
         "markets": [
             "pt-BR"
+        ]
+    },
+    "KitesurfersSunset": {
+        "sort_key": "20260824_KitesurfersSunset",
+        "date": "2026-08-24",
+        "url": "https://www.bing.com/th?id=OHR.KitesurfersSunset_DE-DE3980635203_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.KitesurfersSunset_DE-DE3980635203_1920x1080.jpg",
+        "img_id": "KitesurfersSunset",
+        "title": "Wellen, Wind, Weltklasse",
+        "description": "Kitesurfer bei Sonnenuntergang in Deutschland (© Jens Breuer/Getty Images)",
+        "copyright": "Kitesurfer bei Sonnenuntergang in Deutschland (© Jens Breuer/Getty Images)",
+        "markets": [
+            "de-DE"
+        ]
+    },
+    "GlenanSummer": {
+        "sort_key": "20260824_GlenanSummer",
+        "date": "2026-08-24",
+        "url": "https://www.bing.com/th?id=OHR.GlenanSummer_FR-FR4786744371_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.GlenanSummer_FR-FR4786744371_1920x1080.jpg",
+        "img_id": "GlenanSummer",
+        "title": "Sable blanc et lagons bretons",
+        "description": "Plage de sable blanc sur l’archipel des Glénan, Bretagne (© HadelProductions/Getty Images)",
+        "copyright": "Plage de sable blanc sur l’archipel des Glénan, Bretagne (© HadelProductions/Getty Images)",
+        "markets": [
+            "fr-FR"
         ]
     },
     "BKBridge": {
