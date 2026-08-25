@@ -1,4 +1,17 @@
 {
+    "TomatinaBunol": {
+        "sort_key": "20260825_TomatinaBunol",
+        "date": "2026-08-25",
+        "url": "https://www.bing.com/th?id=OHR.TomatinaBunol_ES-ES8709376731_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.TomatinaBunol_ES-ES8709376731_1920x1080.jpg",
+        "img_id": "TomatinaBunol",
+        "title": "¡Huele a verano y gazpacho!",
+        "description": "Parroquia San Pedro Apóstol, Buñol, España (© Venemama/Getty Images)",
+        "copyright": "Parroquia San Pedro Apóstol, Buñol, España (© Venemama/Getty Images)",
+        "markets": [
+            "es-ES"
+        ]
+    },
     "PurplePuffin": {
         "sort_key": "20260825_PurplePuffin",
         "date": "2026-08-25",
@@ -23,7 +36,10 @@
         "copyright": "オーロラ, アイスランド (© Cavan Images/Alamy)",
         "markets": [
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "SantaCatarina": {
