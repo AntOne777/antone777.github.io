@@ -15,7 +15,17 @@
             "es-ES",
             "fr-FR",
             "it-IT",
-            "en-GB"
+            "en-GB",
+            "en-US",
+            "en-AU",
+            "en-CA",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-BR",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "TomatinaBunol": {
