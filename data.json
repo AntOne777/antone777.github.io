@@ -1,4 +1,17 @@
 {
+    "OmagariFireworks2026": {
+        "sort_key": "20260828_OmagariFireworks2026",
+        "date": "2026-08-28",
+        "url": "https://www.bing.com/th?id=OHR.OmagariFireworks2026_JA-JP0416831919_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.OmagariFireworks2026_JA-JP0416831919_1920x1080.jpg",
+        "img_id": "OmagariFireworks2026",
+        "title": "今日は大曲の花火の開催日",
+        "description": "全国花火競技大会, 秋田県, 大仙市 (© Toru Hanai/Getty Images)",
+        "copyright": "全国花火競技大会, 秋田県, 大仙市 (© Toru Hanai/Getty Images)",
+        "markets": [
+            "ja-JP"
+        ]
+    },
     "MichelSunset": {
         "sort_key": "20260827_MichelSunset",
         "date": "2026-08-27",
@@ -121,7 +134,8 @@
         "description": "Aerial view of surfers, Santa Catarina, Brazil (© Wonderful Nature/Shutterstock)",
         "copyright": "Aerial view of surfers, Santa Catarina, Brazil (© Wonderful Nature/Shutterstock)",
         "markets": [
-            "en-GB"
+            "en-GB",
+            "zh-CN"
         ]
     },
     "RedwoodPark": {
