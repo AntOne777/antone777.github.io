@@ -12,6 +12,19 @@
             "ja-JP"
         ]
     },
+    "NottingHillCarnival2026": {
+        "sort_key": "20260828_NottingHillCarnival2026",
+        "date": "2026-08-28",
+        "url": "https://www.bing.com/th?id=OHR.NottingHillCarnival2026_EN-GB1828107135_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.NottingHillCarnival2026_EN-GB1828107135_1920x1080.jpg",
+        "img_id": "NottingHillCarnival2026",
+        "title": "A city painted in rhythm",
+        "description": "Notting Hill Carnival, London (© Sebastian Remme/Alamy Live News)",
+        "copyright": "Notting Hill Carnival, London (© Sebastian Remme/Alamy Live News)",
+        "markets": [
+            "en-GB"
+        ]
+    },
     "MichelSunset": {
         "sort_key": "20260827_MichelSunset",
         "date": "2026-08-27",
@@ -135,7 +148,11 @@
         "copyright": "Aerial view of surfers, Santa Catarina, Brazil (© Wonderful Nature/Shutterstock)",
         "markets": [
             "en-GB",
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "RedwoodPark": {
