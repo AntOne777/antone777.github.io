@@ -152,7 +152,10 @@
             "de-DE",
             "es-ES",
             "fr-FR",
-            "it-IT"
+            "it-IT",
+            "en-US",
+            "en-CA",
+            "pt-BR"
         ]
     },
     "RedwoodPark": {
@@ -656,7 +659,14 @@
         "description": "Camino de Ronda, Lloret de Mar, Girona, Cataluña (© MEDITERRANEAN/Getty Images)",
         "copyright": "Camino de Ronda, Lloret de Mar, Girona, Cataluña (© MEDITERRANEAN/Getty Images)",
         "markets": [
-            "es-ES"
+            "es-ES",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "Golfinhos": {
