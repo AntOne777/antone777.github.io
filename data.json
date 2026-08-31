@@ -1,4 +1,18 @@
 {
+    "HorseHairShroom": {
+        "sort_key": "20260831_HorseHairShroom",
+        "date": "2026-08-31",
+        "url": "https://www.bing.com/th?id=OHR.HorseHairShroom_ZH-CN2241458451_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.HorseHairShroom_ZH-CN2241458451_1920x1080.jpg",
+        "img_id": "HorseHairShroom",
+        "title": "脚下的世界",
+        "description": "马鬃小皮伞，白俄罗斯 (© Máté/Nature Picture Library)",
+        "copyright": "马鬃小皮伞，白俄罗斯 (© Máté/Nature Picture Library)",
+        "markets": [
+            "zh-CN",
+            "ja-JP"
+        ]
+    },
     "SamarkandCeiling": {
         "sort_key": "20260830_SamarkandCeiling",
         "date": "2026-08-30",
