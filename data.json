@@ -16,7 +16,9 @@
             "fr-FR",
             "it-IT",
             "en-GB",
-            "pt-BR"
+            "pt-BR",
+            "en-US",
+            "en-CA"
         ]
     },
     "YellowShark": {
@@ -532,7 +534,14 @@
         "description": "Sonnenaufgang an der Seebrücke Sellin, Rügen, Mecklenburg-Vorpommern (© bluejayphoto/Getty Images)",
         "copyright": "Sonnenaufgang an der Seebrücke Sellin, Rügen, Mecklenburg-Vorpommern (© bluejayphoto/Getty Images)",
         "markets": [
-            "de-DE"
+            "de-DE",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "Palmanova": {
