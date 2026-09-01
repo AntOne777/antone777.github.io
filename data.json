@@ -1,4 +1,18 @@
 {
+    "SuffolkHuts": {
+        "sort_key": "20260901_SuffolkHuts",
+        "date": "2026-09-01",
+        "url": "https://www.bing.com/th?id=OHR.SuffolkHuts_ZH-CN2463818981_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.SuffolkHuts_ZH-CN2463818981_1920x1080.jpg",
+        "img_id": "SuffolkHuts",
+        "title": "海岸边的缤纷色彩",
+        "description": "传统海滩小屋，索思沃尔德，萨福克遗产海岸，英格兰 (© stevendocwra/Getty Images)",
+        "copyright": "传统海滩小屋，索思沃尔德，萨福克遗产海岸，英格兰 (© stevendocwra/Getty Images)",
+        "markets": [
+            "zh-CN",
+            "ja-JP"
+        ]
+    },
     "HorseHairShroom": {
         "sort_key": "20260831_HorseHairShroom",
         "date": "2026-08-31",
