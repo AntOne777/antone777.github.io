@@ -1,4 +1,17 @@
 {
+    "FrankfurtRomerberg": {
+        "sort_key": "20260902_FrankfurtRomerberg",
+        "date": "2026-09-02",
+        "url": "https://www.bing.com/th?id=OHR.FrankfurtRomerberg_DE-DE6749197183_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.FrankfurtRomerberg_DE-DE6749197183_1920x1080.jpg",
+        "img_id": "FrankfurtRomerberg",
+        "title": "Frankfurts historische Mitte",
+        "description": "Römerberg, historischer Altstadtplatz in Frankfurt am Main (© f11photo/Getty Images)",
+        "copyright": "Römerberg, historischer Altstadtplatz in Frankfurt am Main (© f11photo/Getty Images)",
+        "markets": [
+            "de-DE"
+        ]
+    },
     "AZWilderness": {
         "sort_key": "20260902_AZWilderness",
         "date": "2026-09-02",
@@ -10,7 +23,11 @@
         "copyright": "郊狼丘，朱红悬崖国家纪念区，亚利桑那州，美国 (© James Hager/Getty Images)",
         "markets": [
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "en-GB"
         ]
     },
     "SuffolkHuts": {
