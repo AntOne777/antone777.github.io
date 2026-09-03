@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Личный архив Bing Wallpaper UHD">
-    <meta name="theme-color" content="#121212">
+    <meta name="theme-color" content="#1c1d21">
     <title>Горизонт | Bing Archive</title>
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -19,7 +19,7 @@
 
         body {
             margin: 0; padding: 20px;
-            background: radial-gradient(circle at center, #222222 0%, #0d0d0d 100%);
+            background: radial-gradient(circle at center, #2a2d32 0%, #141517 100%);
             min-height: 100vh; color: white;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
@@ -37,9 +37,9 @@
 
         .card {
             position: relative; overflow: hidden; border: 0; padding: 0; width: 100%;
-            border-radius: 8px; background: #1e1e1e; cursor: pointer;
+            border-radius: 8px; background: #22252a; cursor: pointer;
             transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: transform; box-shadow: none; letter-spacing: normal;
+            will-change: transform; box-shadow: 0 4px 20px rgba(0,0,0,0.25); letter-spacing: normal;
             text-transform: none; font: inherit;
         }
 
@@ -57,7 +57,7 @@
         .card img.loaded { opacity: 1; }
 
         .lightbox {
-            position: fixed; inset: 0; display: none; background: rgba(0,0,0,.95);
+            position: fixed; inset: 0; display: none; background: rgba(15, 16, 18, 0.95);
             justify-content: center; align-items: center; flex-direction: column; z-index: 1000;
         }
 
@@ -81,6 +81,7 @@
         .close:focus-visible {
             background: rgba(255,255,255,0.15);
             border-color: rgba(255,255,255,0.5);
+            outline: none;
         }
 
         .close svg {
@@ -106,6 +107,7 @@
             border-color: rgba(255,255,255,0.5);
             transform: translateY(-2px);
             box-shadow: 0 12px 40px rgba(0,120,212,0.35);
+            outline: none;
         }
 
         button:active { transform: scale(0.98); }
