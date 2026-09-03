@@ -8,7 +8,6 @@
     <title>Горизонт | Bing Archive</title>
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Добавляй мета-теги для красоты ссылки здесь: -->
     <meta property="og:title" content="Горизонт | Bing Wallpaper Archive">
     <meta property="og:description" content="Коллекция лучших обоев Bing в формате UHD.">
     <meta property="og:type" content="website">
@@ -17,100 +16,104 @@
 
     <style>
         * { box-sizing: border-box; }
-        
-        body { 
-            margin: 0; padding: 20px; 
+
+        body {
+            margin: 0; padding: 20px;
             background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
-            min-height: 100vh; color: white; 
+            min-height: 100vh; color: white;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
-        h1 { 
-            text-align: center; margin: 60px 0; font-weight: 200; 
+        h1 {
+            text-align: center; margin: 60px 0; font-weight: 200;
             letter-spacing: .5em; text-transform: uppercase; font-size: 32px;
         }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-        
-        .card { 
-            position: relative; overflow: hidden; border-radius: 8px; 
-            background: #1e1e1e; cursor: pointer; 
+
+        .card {
+            position: relative; overflow: hidden; border: 0; padding: 0; width: 100%;
+            border-radius: 8px; background: #1e1e1e; cursor: pointer;
             transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             will-change: transform;
         }
 
-        .card:hover { transform: scale(1.02); }
+        .card:hover, .card:focus-visible { transform: scale(1.02); outline: 2px solid #4ca8ff; outline-offset: 3px; }
 
-        .card img { 
-            width: 100%; height: 220px; object-fit: cover; 
-            opacity: 0; transition: opacity 0.5s ease; display: block; 
+        .card img {
+            width: 100%; height: 220px; object-fit: cover;
+            opacity: 0; transition: opacity 0.5s ease; display: block;
         }
         .card img.loaded { opacity: 1; }
-        
-        .overlay { position: absolute; inset: 0; z-index: 10; }
-        
-        .lightbox { 
-            position: fixed; inset: 0; display: none; background: rgba(0,0,0,.95); 
+
+        .lightbox {
+            position: fixed; inset: 0; display: none; background: rgba(0,0,0,.95);
             justify-content: center; align-items: center; flex-direction: column; z-index: 1000;
         }
         .lightbox.active { display: flex; }
-        
-        .lightbox img { 
-            max-width: 95%; max-height: 80%; object-fit: contain; 
+
+        .lightbox img {
+            max-width: 95%; max-height: 80%; object-fit: contain;
             user-select: none; -webkit-user-drag: none; pointer-events: auto;
             transition: opacity .3s ease;
         }
-        
-        .close { 
-            position: absolute; right: 35px; top: 35px; width: 50px; height: 50px; 
+
+        .close {
+            position: absolute; right: 35px; top: 35px; width: 50px; height: 50px;
             background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25);
-            border-radius: 50%; cursor: pointer; display: flex; 
-            justify-content: center; align-items: center; backdrop-filter: blur(12px); 
+            border-radius: 50%; cursor: pointer; display: flex;
+            justify-content: center; align-items: center; backdrop-filter: blur(12px);
             transition: all 0.3s ease; padding: 0; margin: 0;
         }
 
-        .close:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.5); }
+        .close:hover, .close:focus-visible { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.5); }
 
         .close svg {
             width: 20px; height: 20px; stroke: white;
             stroke-width: 2; fill: none;
-            stroke-linecap: round; stroke-linejoin: round;
-            display: block;
+            stroke-linecap: round; stroke-linejoin: round; display: block;
         }
 
         .controls { margin-top: 20px; }
-        
-        button { 
+
+        button {
             background: rgba(255,255,255,0.08); color: white; border: 1px solid rgba(255,255,255,0.25);
             padding: 14px 34px; border-radius: 50px; cursor: pointer; font-size: 14px;
             font-weight: 200; letter-spacing: 0.5em; text-transform: uppercase;
             backdrop-filter: blur(12px); transition: all 0.35s ease;
             box-shadow: 0 8px 30px rgba(0,0,0,0.4);
         }
-        
-        button:hover { 
+
+        button:hover, button:focus-visible {
             background: rgba(0,120,212,0.85); border-color: rgba(255,255,255,0.5);
             transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,120,212,0.35);
         }
-        
+
         button:active { transform: scale(0.98); }
         button.loading { opacity: 0.7; pointer-events: none; }
+        .status { text-align: center; color: #c7c7c7; }
+
+        @media (max-width: 600px) {
+            body { padding: 14px; }
+            h1 { margin: 34px 0; font-size: 24px; letter-spacing: .35em; }
+            .grid { grid-template-columns: 1fr; }
+            .close { top: 16px; right: 16px; }
+        }
     </style>
 </head>
 <body>
-
     <h1>Горизонт</h1>
-    <div class="grid" id="gallery"></div>
+    <main class="grid" id="gallery" aria-live="polite"></main>
 
-    <div class="lightbox" id="viewer">
-        <button class="close" id="close">
-            <svg viewBox="0 0 24 24" shape-rendering="crispEdges">
+    <div class="lightbox" id="viewer" role="dialog" aria-modal="true" aria-label="Просмотр обоев">
+        <button class="close" id="close" type="button" aria-label="Закрыть просмотр">
+            <svg viewBox="0 0 24 24" aria-hidden="true" shape-rendering="crispEdges">
                 <path d="M 7 7 L 17 17 M 17 7 L 7 17" />
             </svg>
         </button>
-        <img id="bigImage" referrerpolicy="no-referrer">
+        <img id="bigImage" alt="" referrerpolicy="no-referrer">
         <div class="controls">
-            <button id="download">Скачать UHD</button>
+            <button id="download" type="button">Скачать UHD</button>
         </div>
     </div>
 
@@ -119,91 +122,71 @@
         const viewer = document.getElementById("viewer");
         const bigImage = document.getElementById("bigImage");
         const downloadBtn = document.getElementById("download");
+        const closeBtn = document.getElementById("close");
 
         let current = null;
         let blobURL = null;
+        let fallbackTimer = null;
+        let loadToken = 0;
+        let previouslyFocused = null;
 
-        document.addEventListener("contextmenu", e => { if (e.target === bigImage) e.preventDefault(); });
+        function setDownloadState(label, isLoading = false) {
+            downloadBtn.textContent = label;
+            downloadBtn.classList.toggle("loading", isLoading);
+        }
+
+        function releaseBlobURL() {
+            if (blobURL) URL.revokeObjectURL(blobURL);
+            blobURL = null;
+        }
+
+        function openOriginal(item) {
+            // CORS cannot be bypassed in browser JavaScript. This fallback still gives
+            // the visitor access to the original file when the server blocks fetch().
+            window.open(item.url, "_blank", "noopener,noreferrer");
+        }
 
         async function download(item) {
-            if (!item || !item.url) return;
+            if (!item?.url) return;
+
+            setDownloadState("⏳ Загрузка...", true);
             try {
-                downloadBtn.textContent = "⏳ Загрузка...";
-                downloadBtn.classList.add("loading");
-                const response = await fetch(item.url);
-                if (!response.ok) throw new Error();
+                const response = await fetch(item.url, { referrerPolicy: "no-referrer" });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
                 const blob = await response.blob();
-                if (blobURL) URL.revokeObjectURL(blobURL);
+                releaseBlobURL();
                 blobURL = URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href = blobURL;
-                a.download = `${item.img_id || "BING_IMAGE"}.jpg`;
-                document.body.appendChild(a); a.click(); a.remove();
-            } catch { alert("Ошибка загрузки"); } finally {
-                downloadBtn.textContent = "Скачать UHD";
+
+                const link = document.createElement("a");
+                link.href = blobURL;
+                link.download = `${item.img_id || "BING_IMAGE"}.jpg`;
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                setDownloadState("Скачать UHD");
+            } catch {
+                setDownloadState("Открываю оригинал...");
+                openOriginal(item);
+                window.setTimeout(() => setDownloadState("Скачать UHD"), 1200);
+            } finally {
                 downloadBtn.classList.remove("loading");
             }
         }
 
         function openViewer(item) {
-            current = item;
-            viewer.classList.add("active");
-            bigImage.style.opacity = "0";
-            downloadBtn.textContent = "⏳ Загрузка...";
-            downloadBtn.classList.add("loading");
+            if (!item?.url && !item?.preview) return;
 
-            let fellBack = false;
+            current = item;
+            previouslyFocused = document.activeElement;
+            viewer.classList.add("active");
+            bigImage.alt = item.title || item.copyright || "Обои Bing";
+            bigImage.style.opacity = "0";
+            setDownloadState("⏳ Загрузка...", true);
+            closeBtn.focus();
+
+            const token = ++loadToken;
+            let usedPreview = false;
+            window.clearTimeout(fallbackTimer);
 
             const show = () => {
-                bigImage.style.opacity = "1";
-                downloadBtn.textContent = "Скачать UHD";
-                downloadBtn.classList.remove("loading");
-            };
-
-            bigImage.onload = show;
-            bigImage.onerror = () => {
-                if (fellBack) { downloadBtn.textContent = "Ошибка загрузки"; downloadBtn.classList.remove("loading"); return; }
-                fellBack = true;
-                bigImage.src = item.preview;
-            };
-
-            setTimeout(() => {
-                if (!fellBack && (!bigImage.complete || bigImage.naturalWidth === 0)) {
-                    fellBack = true;
-                    bigImage.src = item.preview;
-                }
-            }, 15000);
-
-            bigImage.src = item.url;
-        }
-
-        function closeViewer() {
-            viewer.classList.remove("active");
-            bigImage.src = "";
-            current = null;
-        }
-
-        fetch("data.json?" + Date.now())
-            .then(r => r.json())
-            .then(data => {
-                Object.values(data).sort((a,b) => b.sort_key.localeCompare(a.sort_key)).forEach(item => {
-                    const card = document.createElement("div"); card.className = "card";
-                    const img = document.createElement("img"); 
-                    img.src = item.preview; img.loading = "lazy";
-                    img.referrerPolicy = "no-referrer";
-                    img.onload = () => img.classList.add("loaded");
-                    const overlay = document.createElement("div"); overlay.className = "overlay";
-                    card.append(img, overlay);
-                    overlay.onclick = () => openViewer(item);
-                    overlay.onmouseenter = () => { (new Image()).src = item.url; };
-                    gallery.append(card);
-                });
-            }).catch(() => gallery.innerHTML = "<p style='text-align:center'>Ошибка загрузки архива</p>");
-
-        downloadBtn.onclick = () => download(current);
-        document.getElementById("close").onclick = closeViewer;
-        viewer.onclick = e => { if (e.target === viewer) closeViewer(); };
-        document.onkeydown = e => { if (e.key === "Escape") closeViewer(); };
-    </script>
-</body>
-</html>
