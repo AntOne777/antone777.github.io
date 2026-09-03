@@ -1,97 +1,113 @@
-import requests
 import json
 import os
 
+import requests
 
 MARKETS = [
-    'en-US', 'en-AU', 'en-CA', 'zh-CN', 'de-DE', 'es-ES',
-    'fr-FR', 'it-IT', 'ja-JP', 'en-NZ', 'en-GB', 'nl-NL',
-    'pl-PL', 'pt-BR', 'pt-PT', 'ko-KR', 'ru-RU'
+    "en-US", "en-AU", "en-CA", "zh-CN", "de-DE", "es-ES",
+    "fr-FR", "it-IT", "ja-JP", "en-NZ", "en-GB", "nl-NL",
+    "pl-PL", "pt-BR", "pt-PT", "ko-KR", "ru-RU",
 ]
+
+DATA_FILE = "data.json"
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 Chrome/127.0.0.0 Safari/537.36"
+    )
+}
+
+
+def load_database():
+    if not os.path.exists(DATA_FILE):
+        return {}
+
+    try:
+        with open(DATA_FILE, "r", encoding="utf-8") as file:
+            data = json.load(file)
+            return data if isinstance(data, dict) else {}
+    except (json.JSONDecodeError, OSError):
+        return {}
 
 
 def fetch_wallpapers():
-    # Загружаем базу
-    db = {}
+    db = load_database()
 
-    if os.path.exists('data.json'):
-        with open('data.json', 'r', encoding='utf-8') as f:
-            try:
-                db = json.load(f)
-            except:
-                db = {}
-
-    headers = {
-        'User-Agent': (
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-            'Chrome/127.0.0.0 Safari/537.36'
-        )
-    }
-
-    for mkt in MARKETS:
+    for market in MARKETS:
         try:
-            url = (
-                f"https://www.bing.com/HPImageArchive.aspx?"
-                f"format=js&idx=0&n=5&mkt={mkt}"
+            api_url = (
+                "https://www.bing.com/HPImageArchive.aspx"
+                f"?format=js&idx=0&n=5&mkt={market}"
             )
 
-            r = requests.get(url, headers=headers, timeout=15)
+            response = requests.get(
+                api_url,
+                headers=HEADERS,
+                timeout=15,
+            )
+            response.raise_for_status()
 
-            if r.status_code == 200:
-                for img in r.json().get('images', []):
-                    urlbase = img.get('urlbase', '')
+            for image in response.json().get("images", []):
+                urlbase = image.get("urlbase", "")
+                date = image.get("startdate", "")
 
-                    raw_id = (
-                        urlbase.split('?id=OHR.')[-1]
-                        if '?id=OHR.' in urlbase
-                        else urlbase.split('/')[-1]
-                    )
+                if not urlbase or len(date) != 8:
+                    continue
 
-                    clean_id = raw_id.split('_')[0]
-                    date = img.get('startdate')
-                    copyright_text = img.get('copyright', '')
+                raw_id = (
+                    urlbase.split("?id=OHR.", 1)[-1]
+                    if "?id=OHR." in urlbase
+                    else urlbase.rsplit("/", 1)[-1]
+                )
+                clean_id = raw_id.split("_", 1)[0]
 
-                    if clean_id not in db:
-                        db[clean_id] = {
-                            "sort_key": f"{date}_{clean_id}",
-                            "date": f"{date[:4]}-{date[4:6]}-{date[6:]}",
-                            "url": f"https://www.bing.com{urlbase}_UHD.jpg",
-                            "preview": f"https://www.bing.com{urlbase}_1920x1080.jpg",
-                            "img_id": clean_id,
-                            "title": img.get('title', clean_id),
-                            "description": copyright_text,  # Авто-добавление описания
-                            "copyright": copyright_text,
-                            "markets": [mkt]
-                        }
-                    else:
-                        # Обновляем, если описание было пустым
-                        if not db[clean_id].get("description"):
-                            db[clean_id]["description"] = copyright_text
+                if not clean_id:
+                    continue
 
-                        if mkt not in db[clean_id]["markets"]:
-                            db[clean_id]["markets"].append(mkt)
+                copyright_text = image.get("copyright", "")
+                entry = db.setdefault(
+                    clean_id,
+                    {
+                        "sort_key": f"{date}_{clean_id}",
+                        "date": f"{date[:4]}-{date[4:6]}-{date[6:]}",
+                        "url": f"https://www.bing.com{urlbase}_UHD.jpg",
+                        "preview": f"https://www.bing.com{urlbase}_1920x1080.jpg",
+                        "img_id": clean_id,
+                        "title": image.get("title") or clean_id,
+                        "description": copyright_text,
+                        "copyright": copyright_text,
+                        "markets": [],
+                    },
+                )
 
-        except Exception as e:
-            print(f"Ошибка {mkt}: {e}")
+                entry.setdefault("markets", [])
 
-    # Сортировка: новые сверху
+                if not entry.get("description"):
+                    entry["description"] = copyright_text
+
+                if not entry.get("copyright"):
+                    entry["copyright"] = copyright_text
+
+                if market not in entry["markets"]:
+                    entry["markets"].append(market)
+
+        except requests.RequestException as error:
+            print(f"Ошибка запроса для {market}: {error}")
+        except (ValueError, KeyError) as error:
+            print(f"Ошибка обработки данных для {market}: {error}")
+
     sorted_db = dict(
         sorted(
             db.items(),
-            key=lambda i: i[1]["sort_key"],
-            reverse=True
+            key=lambda item: item[1].get("sort_key", ""),
+            reverse=True,
         )
     )
 
-    with open('data.json', 'w', encoding='utf-8') as f:
-        json.dump(
-            sorted_db,
-            f,
-            ensure_ascii=False,
-            indent=4
-        )
+    with open(DATA_FILE, "w", encoding="utf-8") as file:
+        json.dump(sorted_db, file, ensure_ascii=False, indent=4)
 
-    print(f"Архив обновлен. Всего уникальных записей: {len(sorted_db)}")
+    print(f"Архив обновлён. Всего уникальных записей: {len(sorted_db)}")
 
 
 if __name__ == "__main__":
