@@ -29,27 +29,39 @@
             letter-spacing: .5em; text-transform: uppercase; font-size: 32px;
         }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
 
         .card {
             position: relative; overflow: hidden; border: 0; padding: 0; width: 100%;
             border-radius: 8px; background: #1e1e1e; cursor: pointer;
             transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: transform;
+            will-change: transform; box-shadow: none; letter-spacing: normal;
+            text-transform: none; font: inherit;
         }
 
-        .card:hover, .card:focus-visible { transform: scale(1.02); outline: 2px solid #4ca8ff; outline-offset: 3px; }
+        .card:hover,
+        .card:focus-visible {
+            transform: scale(1.02);
+            outline: 2px solid #4ca8ff;
+            outline-offset: 3px;
+        }
 
         .card img {
             width: 100%; height: 220px; object-fit: cover;
             opacity: 0; transition: opacity 0.5s ease; display: block;
         }
+
         .card img.loaded { opacity: 1; }
 
         .lightbox {
             position: fixed; inset: 0; display: none; background: rgba(0,0,0,.95);
             justify-content: center; align-items: center; flex-direction: column; z-index: 1000;
         }
+
         .lightbox.active { display: flex; }
 
         .lightbox img {
@@ -66,7 +78,11 @@
             transition: all 0.3s ease; padding: 0; margin: 0;
         }
 
-        .close:hover, .close:focus-visible { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.5); }
+        .close:hover,
+        .close:focus-visible {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.5);
+        }
 
         .close svg {
             width: 20px; height: 20px; stroke: white;
@@ -77,16 +93,20 @@
         .controls { margin-top: 20px; }
 
         button {
-            background: rgba(255,255,255,0.08); color: white; border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.08); color: white;
+            border: 1px solid rgba(255,255,255,0.25);
             padding: 14px 34px; border-radius: 50px; cursor: pointer; font-size: 14px;
             font-weight: 200; letter-spacing: 0.5em; text-transform: uppercase;
             backdrop-filter: blur(12px); transition: all 0.35s ease;
             box-shadow: 0 8px 30px rgba(0,0,0,0.4);
         }
 
-        button:hover, button:focus-visible {
-            background: rgba(0,120,212,0.85); border-color: rgba(255,255,255,0.5);
-            transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,120,212,0.35);
+        button:not(.card):hover,
+        button:not(.card):focus-visible {
+            background: rgba(0,120,212,0.85);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0,120,212,0.35);
         }
 
         button:active { transform: scale(0.98); }
@@ -111,7 +131,9 @@
                 <path d="M 7 7 L 17 17 M 17 7 L 7 17" />
             </svg>
         </button>
+
         <img id="bigImage" alt="" referrerpolicy="no-referrer">
+
         <div class="controls">
             <button id="download" type="button">Скачать UHD</button>
         </div>
@@ -126,3 +148,195 @@
 
         let current = null;
         let blobURL = null;
+        let fallbackTimer = null;
+        let loadToken = 0;
+        let previouslyFocused = null;
+        let downloadFallbackItem = null;
+
+        function setDownloadState(label, isLoading = false) {
+            downloadBtn.textContent = label;
+            downloadBtn.classList.toggle("loading", isLoading);
+        }
+
+        function releaseBlobURL() {
+            if (blobURL) URL.revokeObjectURL(blobURL);
+            blobURL = null;
+        }
+
+        async function download(item) {
+            if (!item?.url) return;
+
+            downloadFallbackItem = null;
+            setDownloadState("⏳ Загрузка...", true);
+
+            try {
+                const response = await fetch(item.url, {
+                    referrerPolicy: "no-referrer"
+                });
+
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                const blob = await response.blob();
+                releaseBlobURL();
+                blobURL = URL.createObjectURL(blob);
+
+                const link = document.createElement("a");
+                link.href = blobURL;
+                link.download = `${item.img_id || "BING_IMAGE"}.jpg`;
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+
+                setDownloadState("Скачать UHD");
+            } catch {
+                downloadFallbackItem = item;
+                setDownloadState("Открыть UHD");
+            } finally {
+                downloadBtn.classList.remove("loading");
+            }
+        }
+
+        function openViewer(item) {
+            if (!item?.url && !item?.preview) return;
+
+            current = item;
+            downloadFallbackItem = null;
+            previouslyFocused = document.activeElement;
+            viewer.classList.add("active");
+
+            bigImage.alt = item.title || item.copyright || "Обои Bing";
+            bigImage.style.opacity = "0";
+            setDownloadState("⏳ Загрузка...", true);
+            closeBtn.focus();
+
+            const token = ++loadToken;
+            let usedPreview = false;
+            window.clearTimeout(fallbackTimer);
+
+            const show = () => {
+                if (token !== loadToken) return;
+
+                window.clearTimeout(fallbackTimer);
+                bigImage.style.opacity = "1";
+                setDownloadState("Скачать UHD");
+            };
+
+            const showPreview = () => {
+                if (token !== loadToken || usedPreview || !item.preview) {
+                    if (token === loadToken) setDownloadState("Ошибка загрузки");
+                    return;
+                }
+
+                usedPreview = true;
+                bigImage.src = item.preview;
+            };
+
+            bigImage.onload = show;
+            bigImage.onerror = showPreview;
+            bigImage.src = item.url || item.preview;
+
+            fallbackTimer = window.setTimeout(() => {
+                if (token === loadToken && (!bigImage.complete || bigImage.naturalWidth === 0)) {
+                    showPreview();
+                }
+            }, 15000);
+        }
+
+        function closeViewer() {
+            if (!viewer.classList.contains("active")) return;
+
+            ++loadToken;
+            window.clearTimeout(fallbackTimer);
+            viewer.classList.remove("active");
+            bigImage.removeAttribute("src");
+            bigImage.style.opacity = "0";
+
+            current = null;
+            downloadFallbackItem = null;
+            setDownloadState("Скачать UHD");
+            previouslyFocused?.focus?.();
+        }
+
+        function sortByNewest(a, b) {
+            return String(b.sort_key || "").localeCompare(String(a.sort_key || ""));
+        }
+
+        function renderGallery(data) {
+            const items = Array.isArray(data) ? data : Object.values(data || {});
+            const validItems = items.filter(item => item && (item.url || item.preview));
+
+            if (!validItems.length) {
+                gallery.innerHTML = '<p class="status">Архив пока пуст.</p>';
+                return;
+            }
+
+            const fragment = document.createDocumentFragment();
+
+            validItems.sort(sortByNewest).forEach(item => {
+                const card = document.createElement("button");
+                card.className = "card";
+                card.type = "button";
+                card.setAttribute(
+                    "aria-label",
+                    `Открыть: ${item.title || item.copyright || "обои Bing"}`
+                );
+
+                const img = document.createElement("img");
+                img.src = item.preview || item.url;
+                img.loading = "lazy";
+                img.decoding = "async";
+                img.referrerPolicy = "no-referrer";
+                img.alt = item.title || item.copyright || "Обои Bing";
+
+                img.onload = () => img.classList.add("loaded");
+                img.onerror = () => {
+                    img.classList.add("loaded");
+                    img.alt = "Не удалось загрузить превью";
+                };
+
+                card.append(img);
+                card.addEventListener("click", () => openViewer(item));
+
+                card.addEventListener("mouseenter", () => {
+                    if (item.url) new Image().src = item.url;
+                }, { once: true });
+
+                fragment.append(card);
+            });
+
+            gallery.replaceChildren(fragment);
+        }
+
+        fetch("data.json", { cache: "no-store" })
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return response.json();
+            })
+            .then(renderGallery)
+            .catch(() => {
+                gallery.innerHTML = '<p class="status">Ошибка загрузки архива.</p>';
+            });
+
+        downloadBtn.addEventListener("click", () => {
+            if (downloadFallbackItem?.url) {
+                window.open(downloadFallbackItem.url, "_blank", "noopener,noreferrer");
+                return;
+            }
+
+            download(current);
+        });
+
+        closeBtn.addEventListener("click", closeViewer);
+
+        viewer.addEventListener("click", event => {
+            if (event.target === viewer) closeViewer();
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") closeViewer();
+        });
+
+        window.addEventListener("beforeunload", releaseBlobURL);
+    </script>
+</body>
+</html>
