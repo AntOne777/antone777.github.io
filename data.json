@@ -1,4 +1,17 @@
 {
+    "Westerheversand": {
+        "sort_key": "20260903_Westerheversand",
+        "date": "2026-09-03",
+        "url": "https://www.bing.com/th?id=OHR.Westerheversand_JA-JP0136915036_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.Westerheversand_JA-JP0136915036_1920x1080.jpg",
+        "img_id": "Westerheversand",
+        "title": "草原の先にたたずむ灯台",
+        "description": "ヴェスターヘーファーザント灯台, ドイツ (© bluejayphoto/Getty Images)",
+        "copyright": "ヴェスターヘーファーザント灯台, ドイツ (© bluejayphoto/Getty Images)",
+        "markets": [
+            "ja-JP"
+        ]
+    },
     "FrankfurtRomerberg": {
         "sort_key": "20260902_FrankfurtRomerberg",
         "date": "2026-09-02",
