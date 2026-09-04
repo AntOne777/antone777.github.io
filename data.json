@@ -1,4 +1,17 @@
 {
+    "BambergTownhall": {
+        "sort_key": "20260904_BambergTownhall",
+        "date": "2026-09-04",
+        "url": "https://www.bing.com/th?id=OHR.BambergTownhall_PT-BR1820123013_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.BambergTownhall_PT-BR1820123013_1920x1080.jpg",
+        "img_id": "BambergTownhall",
+        "title": "O charme histórico de Bamberg",
+        "description": "Antiga Prefeitura de Bamberg, Alemanha (© SCStock/Getty Images)",
+        "copyright": "Antiga Prefeitura de Bamberg, Alemanha (© SCStock/Getty Images)",
+        "markets": [
+            "pt-BR"
+        ]
+    },
     "Westerheversand": {
         "sort_key": "20260903_Westerheversand",
         "date": "2026-09-03",
@@ -14,7 +27,8 @@
             "es-ES",
             "fr-FR",
             "it-IT",
-            "en-GB"
+            "en-GB",
+            "en-CA"
         ]
     },
     "HorizontHerten": {
