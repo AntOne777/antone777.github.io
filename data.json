@@ -10,7 +10,24 @@
         "copyright": "ヴェスターヘーファーザント灯台, ドイツ (© bluejayphoto/Getty Images)",
         "markets": [
             "ja-JP",
-            "zh-CN"
+            "zh-CN",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "en-GB"
+        ]
+    },
+    "HorizontHerten": {
+        "sort_key": "20260903_HorizontHerten",
+        "date": "2026-09-03",
+        "url": "https://www.bing.com/th?id=OHR.HorizontHerten_DE-DE6847367698_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.HorizontHerten_DE-DE6847367698_1920x1080.jpg",
+        "img_id": "HorizontHerten",
+        "title": "Bögen zum Horizont",
+        "description": "Horizontobservatorium, Halde Hoheward, Herten, Nordrhein-Westfalen (© lilly3/Getty Images)",
+        "copyright": "Horizontobservatorium, Halde Hoheward, Herten, Nordrhein-Westfalen (© lilly3/Getty Images)",
+        "markets": [
+            "de-DE"
         ]
     },
     "FrankfurtRomerberg": {
