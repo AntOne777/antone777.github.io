@@ -1,4 +1,30 @@
 {
+    "SardineBait": {
+        "sort_key": "20260904_SardineBait",
+        "date": "2026-09-04",
+        "url": "https://www.bing.com/th?id=OHR.SardineBait_EN-GB5662354179_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.SardineBait_EN-GB5662354179_1920x1080.jpg",
+        "img_id": "SardineBait",
+        "title": "Masters of the surf and shore",
+        "description": "California sea lions hunting a sardine bait ball, offshore Mexico, Pacific Ocean (© Henley Spiers/Nature Picture Library)",
+        "copyright": "California sea lions hunting a sardine bait ball, offshore Mexico, Pacific Ocean (© Henley Spiers/Nature Picture Library)",
+        "markets": [
+            "en-GB"
+        ]
+    },
+    "LillePlace": {
+        "sort_key": "20260904_LillePlace",
+        "date": "2026-09-04",
+        "url": "https://www.bing.com/th?id=OHR.LillePlace_FR-FR3992764620_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.LillePlace_FR-FR3992764620_1920x1080.jpg",
+        "img_id": "LillePlace",
+        "title": "Le rendez-vous des chineurs",
+        "description": "La Grand’Place, Lille (© Aliaksandr Antanovich/Getty Images)",
+        "copyright": "La Grand’Place, Lille (© Aliaksandr Antanovich/Getty Images)",
+        "markets": [
+            "fr-FR"
+        ]
+    },
     "GreenCrowned": {
         "sort_key": "20260904_GreenCrowned",
         "date": "2026-09-04",
@@ -10,7 +36,10 @@
         "copyright": "龙虾爪花上取食的绿顶辉蜂鸟，哥斯达黎加 (© Paul Hobson/Nature Picture Library)",
         "markets": [
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "de-DE",
+            "es-ES",
+            "it-IT"
         ]
     },
     "BambergTownhall": {
