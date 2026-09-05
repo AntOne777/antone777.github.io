@@ -1,4 +1,17 @@
 {
+    "RegataStoricaVen": {
+        "sort_key": "20260905_RegataStoricaVen",
+        "date": "2026-09-05",
+        "url": "https://www.bing.com/th?id=OHR.RegataStoricaVen_IT-IT3438860394_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.RegataStoricaVen_IT-IT3438860394_1920x1080.jpg",
+        "img_id": "RegataStoricaVen",
+        "title": "Una regata attraverso la storia",
+        "description": "Regata Storica di Venezia, Venezia, Italia (© Javen/Shutterstock)",
+        "copyright": "Regata Storica di Venezia, Venezia, Italia (© Javen/Shutterstock)",
+        "markets": [
+            "it-IT"
+        ]
+    },
     "LakeFyans": {
         "sort_key": "20260905_LakeFyans",
         "date": "2026-09-05",
@@ -10,7 +23,10 @@
         "copyright": "菲安斯湖，格兰屏国家公园，维多利亚州，澳大利亚 (© tracielouise/Getty Images)",
         "markets": [
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "de-DE",
+            "es-ES",
+            "fr-FR"
         ]
     },
     "SardineBait": {
