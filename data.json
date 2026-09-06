@@ -1,4 +1,17 @@
 {
+    "MisurinaPeak": {
+        "sort_key": "20260906_MisurinaPeak",
+        "date": "2026-09-06",
+        "url": "https://www.bing.com/th?id=OHR.MisurinaPeak_DE-DE8821401263_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.MisurinaPeak_DE-DE8821401263_1920x1080.jpg",
+        "img_id": "MisurinaPeak",
+        "title": "Ein Riff über den Wolken",
+        "description": "Cadini di Misurina, Dolomiten, Venetien, Italien (© Vithun Khamsong/Getty Images)",
+        "copyright": "Cadini di Misurina, Dolomiten, Venetien, Italien (© Vithun Khamsong/Getty Images)",
+        "markets": [
+            "de-DE"
+        ]
+    },
     "RegataStoricaVen": {
         "sort_key": "20260905_RegataStoricaVen",
         "date": "2026-09-05",
@@ -105,7 +118,11 @@
         "markets": [
             "pt-BR",
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "en-GB"
         ]
     },
     "Westerheversand": {
