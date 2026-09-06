@@ -103,7 +103,9 @@
         "description": "Antiga Prefeitura de Bamberg, Alemanha (© SCStock/Getty Images)",
         "copyright": "Antiga Prefeitura de Bamberg, Alemanha (© SCStock/Getty Images)",
         "markets": [
-            "pt-BR"
+            "pt-BR",
+            "zh-CN",
+            "ja-JP"
         ]
     },
     "Westerheversand": {
