@@ -1,4 +1,17 @@
 {
+    "IndependenceBR": {
+        "sort_key": "20260907_IndependenceBR",
+        "date": "2026-09-07",
+        "url": "https://www.bing.com/th?id=OHR.IndependenceBR_PT-BR8326749510_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.IndependenceBR_PT-BR8326749510_1920x1080.jpg",
+        "img_id": "IndependenceBR",
+        "title": "Manobras de liberdade",
+        "description": "Esquadrilha da Fumaça no desfile do Dia da Independência em Brasília, 2023 (© EVARISTO SA/Getty Images)",
+        "copyright": "Esquadrilha da Fumaça no desfile do Dia da Independência em Brasília, 2023 (© EVARISTO SA/Getty Images)",
+        "markets": [
+            "pt-BR"
+        ]
+    },
     "MisurinaPeak": {
         "sort_key": "20260906_MisurinaPeak",
         "date": "2026-09-06",
@@ -122,7 +135,8 @@
             "es-ES",
             "fr-FR",
             "it-IT",
-            "en-GB"
+            "en-GB",
+            "en-CA"
         ]
     },
     "Westerheversand": {
