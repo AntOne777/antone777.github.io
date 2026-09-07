@@ -1,4 +1,17 @@
 {
+    "RalphStackpole": {
+        "sort_key": "20260907_RalphStackpole",
+        "date": "2026-09-07",
+        "url": "https://www.bing.com/th?id=OHR.RalphStackpole_EN-US4463800234_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.RalphStackpole_EN-US4463800234_1920x1080.jpg",
+        "img_id": "RalphStackpole",
+        "title": "Labor's legacy",
+        "description": "'Industries of California' mural by Ralph Stackpole at Coit Tower, San Francisco, California (© David R. Frazier Photolibrary, Inc./Alamy)",
+        "copyright": "'Industries of California' mural by Ralph Stackpole at Coit Tower, San Francisco, California (© David R. Frazier Photolibrary, Inc./Alamy)",
+        "markets": [
+            "en-US"
+        ]
+    },
     "IndependenceBR": {
         "sort_key": "20260907_IndependenceBR",
         "date": "2026-09-07",
@@ -136,7 +149,14 @@
             "fr-FR",
             "it-IT",
             "en-GB",
-            "en-CA"
+            "en-CA",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "Westerheversand": {
