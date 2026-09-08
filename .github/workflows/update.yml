@@ -2,8 +2,6 @@ name: Bing Archive Auto-Update
 
 on:
   schedule:
-    # GitHub Actions использует UTC.
-    # Запуск каждый час на 17-й минуте.
     - cron: "17 * * * *"
 
   workflow_dispatch:
@@ -30,7 +28,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: "pip"
 
       - name: Install dependencies
         run: |
