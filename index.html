@@ -3,140 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Личный архив Bing Wallpaper UHD">
+
+    <meta
+        name="description"
+        content="Личный архив Bing Wallpaper UHD"
+    >
+
     <meta name="theme-color" content="#1c1d21">
+
     <title>Горизонт | Bing Archive</title>
+
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <meta property="og:title" content="Горизонт | Bing Wallpaper Archive">
-    <meta property="og:description" content="Коллекция лучших обоев Bing в формате UHD.">
+    <meta
+        property="og:title"
+        content="Горизонт | Bing Wallpaper Archive"
+    >
+
+    <meta
+        property="og:description"
+        content="Коллекция лучших обоев Bing в формате UHD."
+    >
+
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://antone777.github.io/">
-    <meta property="og:image" content="https://antone777.github.io/favicon.png">
+
+    <meta
+        property="og:url"
+        content="https://antone777.github.io/"
+    >
+
+    <meta
+        property="og:image"
+        content="https://antone777.github.io/favicon.png"
+    >
 
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
-            margin: 0; padding: 20px;
-            background: radial-gradient(circle at center, #2a2d32 0%, #141517 100%);
-            min-height: 100vh; color: white;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+
+            color: white;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #2a2d32 0%,
+                    #141517 100%
+                );
         }
 
         h1 {
-            text-align: center; margin: 60px 0; font-weight: 200;
-            letter-spacing: .5em; text-transform: uppercase; font-size: 32px;
+            margin: 60px 0;
+            text-align: center;
+
+            font-size: 32px;
+            font-weight: 200;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns:
+                repeat(auto-fill, minmax(320px, 1fr));
             gap: 20px;
         }
 
         .card {
-            position: relative; overflow: hidden; border: 0; padding: 0; width: 100%;
-            border-radius: 8px; background: #22252a; cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: transform; box-shadow: 0 4px 20px rgba(0,0,0,0.25); letter-spacing: normal;
-            text-transform: none; font: inherit;
+            position: relative;
+            width: 100%;
+            min-height: 220px;
+            padding: 0;
+            overflow: hidden;
+
+            border: 0;
+            border-radius: 8px;
+            background: #22252a;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+
+            cursor: pointer;
+            font: inherit;
+            letter-spacing: normal;
+            text-transform: none;
+
+            transition:
+                transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+            will-change: transform;
         }
 
         .card:hover,
         .card:focus-visible {
-            transform: scale(1.02);
             outline: none;
+            transform: scale(1.02);
         }
 
         .card img {
-            width: 100%; height: 220px; object-fit: cover;
-            opacity: 0; transition: opacity 0.5s ease; display: block;
+            display: block;
+            width: 100%;
+            height: 220px;
+
+            object-fit: cover;
+
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
 
-        .card img.loaded { opacity: 1; }
+        .card img.loaded {
+            opacity: 1;
+        }
 
         .lightbox {
-            position: fixed; inset: 0; display: none; background: rgba(15, 16, 18, 0.95);
-            justify-content: center; align-items: center; flex-direction: column; z-index: 1000;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(15, 16, 18, 0.95);
         }
 
-        .lightbox.active { display: flex; }
+        .lightbox.active {
+            display: flex;
+        }
 
         .lightbox img {
-            max-width: 95%; max-height: 80%; object-fit: contain;
-            user-select: none; -webkit-user-drag: none; pointer-events: auto;
-            transition: opacity .3s ease;
+            max-width: 95%;
+            max-height: 80%;
+
+            object-fit: contain;
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: auto;
+
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .close {
-            position: absolute; right: 35px; top: 35px; width: 50px; height: 50px;
-            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25);
-            border-radius: 50%; cursor: pointer; display: flex;
-            justify-content: center; align-items: center; backdrop-filter: blur(12px);
-            transition: all 0.3s ease; padding: 0; margin: 0;
+            position: absolute;
+            top: 35px;
+            right: 35px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 50px;
+            height: 50px;
+            margin: 0;
+            padding: 0;
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
         }
 
         .close:hover,
         .close:focus-visible {
-            background: rgba(255,255,255,0.15);
-            border-color: rgba(255,255,255,0.5);
             outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .close svg {
-            width: 20px; height: 20px; stroke: white;
-            stroke-width: 2; fill: none;
-            stroke-linecap: round; stroke-linejoin: round; display: block;
+            display: block;
+            width: 20px;
+            height: 20px;
+
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
-        .controls { margin-top: 20px; }
+        .controls {
+            margin-top: 20px;
+        }
 
         button {
-            background: rgba(255,255,255,0.08); color: white;
-            border: 1px solid rgba(255,255,255,0.25);
-            padding: 14px 34px; border-radius: 50px; cursor: pointer; font-size: 14px;
-            font-weight: 200; letter-spacing: 0.5em; text-transform: uppercase;
-            backdrop-filter: blur(12px); transition: all 0.35s ease;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            padding: 14px 34px;
+
+            color: white;
+            font-size: 14px;
+            font-weight: 200;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+
+            cursor: pointer;
+            transition: all 0.35s ease;
         }
 
         button:not(.card):hover,
         button:not(.card):focus-visible {
-            background: rgba(0,120,212,0.85);
-            border-color: rgba(255,255,255,0.5);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0,120,212,0.35);
             outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+
+            background: rgba(0, 120, 212, 0.85);
+            box-shadow: 0 12px 40px rgba(0, 120, 212, 0.35);
+
+            transform: translateY(-2px);
         }
 
-        button:active { transform: scale(0.98); }
-        button.loading { opacity: 0.7; pointer-events: none; }
-        .status { text-align: center; color: #c7c7c7; }
+        button:active {
+            transform: scale(0.98);
+        }
+
+        button.loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .status {
+            color: #c7c7c7;
+            text-align: center;
+        }
 
         @media (max-width: 600px) {
-            body { padding: 14px; }
-            h1 { margin: 34px 0; font-size: 24px; letter-spacing: .35em; }
-            .grid { grid-template-columns: 1fr; }
-            .close { top: 16px; right: 16px; }
+            body {
+                padding: 14px;
+            }
+
+            h1 {
+                margin: 34px 0;
+                font-size: 24px;
+                letter-spacing: 0.35em;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .close {
+                top: 16px;
+                right: 16px;
+            }
+
+            .controls {
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .controls button {
+                width: 100%;
+                letter-spacing: 0.25em;
+            }
         }
     </style>
 </head>
+
 <body>
     <h1>Горизонт</h1>
-    <main class="grid" id="gallery" aria-live="polite"></main>
 
-    <div class="lightbox" id="viewer" role="dialog" aria-modal="true" aria-label="Просмотр обоев">
-        <button class="close" id="close" type="button" aria-label="Закрыть просмотр">
-            <svg viewBox="0 0 24 24" aria-hidden="true" shape-rendering="crispEdges">
-                <path d="M 7 7 L 17 17 M 17 7 L 7 17" />
+    <main
+        class="grid"
+        id="gallery"
+        aria-live="polite"
+    ></main>
+
+    <div
+        class="lightbox"
+        id="viewer"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Просмотр обоев"
+    >
+        <button
+            class="close"
+            id="close"
+            type="button"
+            aria-label="Закрыть просмотр"
+        >
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                shape-rendering="crispEdges"
+            >
+                <path d="M 7 7 L 17 17 M 17 7 L 7 17"></path>
             </svg>
         </button>
 
-        <img id="bigImage" alt="" referrerpolicy="no-referrer">
+        <img
+            id="bigImage"
+            alt=""
+            referrerpolicy="no-referrer"
+        >
 
         <div class="controls">
-            <button id="download" type="button">Скачать UHD</button>
+            <button
+                id="download"
+                type="button"
+            >
+                Скачать UHD
+            </button>
         </div>
     </div>
 
@@ -153,6 +339,7 @@
         let loadToken = 0;
         let previouslyFocused = null;
         let downloadFallbackItem = null;
+        let downloadController = null;
 
         function setDownloadState(label, isLoading = false) {
             downloadBtn.textContent = label;
@@ -160,71 +347,119 @@
         }
 
         function releaseBlobURL() {
-            if (blobURL) URL.revokeObjectURL(blobURL);
-            blobURL = null;
+            if (blobURL) {
+                URL.revokeObjectURL(blobURL);
+                blobURL = null;
+            }
+        }
+
+        function cancelDownload() {
+            if (downloadController) {
+                downloadController.abort();
+                downloadController = null;
+            }
         }
 
         async function download(item) {
-            if (!item?.url) return;
+            if (!item?.url) {
+                return;
+            }
+
+            cancelDownload();
+
+            const controller = new AbortController();
+            downloadController = controller;
 
             downloadFallbackItem = null;
-            setDownloadState("⏳ Загрузка...", true);
+            setDownloadState("Загрузка...", true);
 
             try {
                 const response = await fetch(item.url, {
-                    referrerPolicy: "no-referrer"
+                    referrerPolicy: "no-referrer",
+                    signal: controller.signal
                 });
 
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
 
                 const blob = await response.blob();
+
                 releaseBlobURL();
                 blobURL = URL.createObjectURL(blob);
 
                 const link = document.createElement("a");
+
                 link.href = blobURL;
                 link.download = `${item.img_id || "BING_IMAGE"}.jpg`;
+
                 document.body.appendChild(link);
                 link.click();
                 link.remove();
 
                 setDownloadState("Скачать UHD");
-            } catch {
+            } catch (error) {
+                if (error.name === "AbortError") {
+                    return;
+                }
+
                 downloadFallbackItem = item;
                 setDownloadState("Открыть UHD");
             } finally {
+                if (downloadController === controller) {
+                    downloadController = null;
+                }
+
                 downloadBtn.classList.remove("loading");
             }
         }
 
         function openViewer(item) {
-            if (!item?.url && !item?.preview) return;
+            if (!item?.url && !item?.preview) {
+                return;
+            }
 
             current = item;
             downloadFallbackItem = null;
-            previouslyFocused = document.activeElement;
-            viewer.classList.add("active");
 
-            bigImage.alt = item.title || item.copyright || "Обои Bing";
+            previouslyFocused = document.activeElement;
+
+            viewer.classList.add("active");
+            document.body.style.overflow = "hidden";
+
+            bigImage.alt =
+                item.title ||
+                item.copyright ||
+                "Обои Bing";
+
             bigImage.style.opacity = "0";
-            setDownloadState("⏳ Загрузка...", true);
+
+            setDownloadState("Загрузка...", true);
             closeBtn.focus();
 
             const token = ++loadToken;
             let usedPreview = false;
+
             window.clearTimeout(fallbackTimer);
 
-            const show = () => {
-                if (token !== loadToken) return;
+            const showImage = () => {
+                if (token !== loadToken) {
+                    return;
+                }
 
                 window.clearTimeout(fallbackTimer);
+
                 bigImage.style.opacity = "1";
                 setDownloadState("Скачать UHD");
             };
 
             const showPreview = () => {
-                if (token !== loadToken || usedPreview || !item.preview) {
-                    if (token === loadToken) setDownloadState("Ошибка загрузки");
+                if (token !== loadToken) {
+                    return;
+                }
+
+                if (usedPreview || !item.preview) {
+                    setDownloadState("Ошибка загрузки");
                     return;
                 }
 
@@ -232,75 +467,114 @@
                 bigImage.src = item.preview;
             };
 
-            bigImage.onload = show;
+            bigImage.onload = showImage;
             bigImage.onerror = showPreview;
             bigImage.src = item.url || item.preview;
 
             fallbackTimer = window.setTimeout(() => {
-                if (token === loadToken && (!bigImage.complete || bigImage.naturalWidth === 0)) {
+                if (
+                    token === loadToken &&
+                    (
+                        !bigImage.complete ||
+                        bigImage.naturalWidth === 0
+                    )
+                ) {
                     showPreview();
                 }
             }, 15000);
         }
 
         function closeViewer() {
-            if (!viewer.classList.contains("active")) return;
+            if (!viewer.classList.contains("active")) {
+                return;
+            }
 
             ++loadToken;
+
             window.clearTimeout(fallbackTimer);
+            cancelDownload();
+            releaseBlobURL();
+
             viewer.classList.remove("active");
+            document.body.style.overflow = "";
+
             bigImage.removeAttribute("src");
             bigImage.style.opacity = "0";
 
             current = null;
             downloadFallbackItem = null;
+
             setDownloadState("Скачать UHD");
+
             previouslyFocused?.focus?.();
         }
 
         function sortByNewest(a, b) {
-            return String(b.sort_key || "").localeCompare(String(a.sort_key || ""));
+            return String(b.sort_key || "")
+                .localeCompare(String(a.sort_key || ""));
         }
 
         function renderGallery(data) {
-            const items = Array.isArray(data) ? data : Object.values(data || {});
-            const validItems = items.filter(item => item && (item.url || item.preview));
+            const items = Array.isArray(data)
+                ? data
+                : Object.values(data || {});
+
+            const validItems = items
+                .filter(item => {
+                    return item && (item.url || item.preview);
+                })
+                .sort(sortByNewest);
 
             if (!validItems.length) {
-                gallery.innerHTML = '<p class="status">Архив пока пуст.</p>';
+                gallery.innerHTML =
+                    '<p class="status">Архив пока пуст.</p>';
+
                 return;
             }
 
             const fragment = document.createDocumentFragment();
 
-            validItems.sort(sortByNewest).forEach(item => {
+            validItems.forEach(item => {
                 const card = document.createElement("button");
+
                 card.className = "card";
                 card.type = "button";
+
                 card.setAttribute(
                     "aria-label",
-                    `Открыть: ${item.title || item.copyright || "обои Bing"}`
+                    `Открыть: ${
+                        item.title ||
+                        item.copyright ||
+                        "обои Bing"
+                    }`
                 );
 
                 const img = document.createElement("img");
+
                 img.src = item.preview || item.url;
-                img.loading = "eager";
+                img.loading = "lazy";
                 img.decoding = "async";
                 img.referrerPolicy = "no-referrer";
-                img.alt = item.title || item.copyright || "Обои Bing";
 
-                img.onload = () => img.classList.add("loaded");
+                img.alt =
+                    item.title ||
+                    item.copyright ||
+                    "Обои Bing";
+
+                img.onload = () => {
+                    img.classList.add("loaded");
+                };
+
                 img.onerror = () => {
                     img.classList.add("loaded");
                     img.alt = "Не удалось загрузить превью";
                 };
 
                 card.append(img);
-                card.addEventListener("click", () => openViewer(item));
 
-                card.addEventListener("mouseenter", () => {
-                    if (item.url) new Image().src = item.url;
-                }, { once: true });
+                card.addEventListener("click", () => {
+                    openViewer(item);
+                });
 
                 fragment.append(card);
             });
@@ -308,19 +582,40 @@
             gallery.replaceChildren(fragment);
         }
 
-        fetch("data.json", { cache: "no-store" })
-            .then(response => {
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                return response.json();
-            })
-            .then(renderGallery)
-            .catch(() => {
-                gallery.innerHTML = '<p class="status">Ошибка загрузки архива.</p>';
-            });
+        async function loadGallery() {
+            try {
+                const response = await fetch("data.json", {
+                    cache: "no-cache"
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const data = await response.json();
+                renderGallery(data);
+            } catch (error) {
+                console.error(
+                    "Не удалось загрузить архив:",
+                    error
+                );
+
+                gallery.innerHTML = `
+                    <p class="status">
+                        Ошибка загрузки архива.
+                    </p>
+                `;
+            }
+        }
 
         downloadBtn.addEventListener("click", () => {
             if (downloadFallbackItem?.url) {
-                window.open(downloadFallbackItem.url, "_blank", "noopener,noreferrer");
+                window.open(
+                    downloadFallbackItem.url,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
                 return;
             }
 
@@ -330,14 +625,23 @@
         closeBtn.addEventListener("click", closeViewer);
 
         viewer.addEventListener("click", event => {
-            if (event.target === viewer) closeViewer();
+            if (event.target === viewer) {
+                closeViewer();
+            }
         });
 
         document.addEventListener("keydown", event => {
-            if (event.key === "Escape") closeViewer();
+            if (event.key === "Escape") {
+                closeViewer();
+            }
         });
 
-        window.addEventListener("beforeunload", releaseBlobURL);
+        window.addEventListener("beforeunload", () => {
+            cancelDownload();
+            releaseBlobURL();
+        });
+
+        loadGallery();
     </script>
 </body>
 </html>
