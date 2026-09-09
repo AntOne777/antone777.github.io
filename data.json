@@ -16,7 +16,8 @@
             "it-IT",
             "en-GB",
             "en-CA",
-            "pt-BR"
+            "pt-BR",
+            "en-US"
         ]
     },
     "ChungYang2026": {
@@ -540,7 +541,14 @@
         "description": "Atlantic puffin holding a wild iris in his beak in Elliston, Newfoundland (© mlorenzphotography/Getty Images)",
         "copyright": "Atlantic puffin holding a wild iris in his beak in Elliston, Newfoundland (© mlorenzphotography/Getty Images)",
         "markets": [
-            "en-CA"
+            "en-CA",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "AurorasIceland": {
