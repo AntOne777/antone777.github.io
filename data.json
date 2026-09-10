@@ -1,4 +1,17 @@
 {
+    "TIFFRoy": {
+        "sort_key": "20260910_TIFFRoy",
+        "date": "2026-09-10",
+        "url": "https://www.bing.com/th?id=OHR.TIFFRoy_EN-CA6717935809_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.TIFFRoy_EN-CA6717935809_1920x1080.jpg",
+        "img_id": "TIFFRoy",
+        "title": "Plot twist pending",
+        "description": "The Roy Thomson Hall, Toronto, Ontario (© eskystudio/Shutterstock)",
+        "copyright": "The Roy Thomson Hall, Toronto, Ontario (© eskystudio/Shutterstock)",
+        "markets": [
+            "en-CA"
+        ]
+    },
     "Olvera": {
         "sort_key": "20260909_Olvera",
         "date": "2026-09-09",
@@ -15,7 +28,8 @@
             "es-ES",
             "fr-FR",
             "it-IT",
-            "en-GB"
+            "en-GB",
+            "pt-BR"
         ]
     },
     "GabitKeni": {
