@@ -12,6 +12,19 @@
             "en-CA"
         ]
     },
+    "FrenchRivieraVillage": {
+        "sort_key": "20260910_FrenchRivieraVillage",
+        "date": "2026-09-10",
+        "url": "https://www.bing.com/th?id=OHR.FrenchRivieraVillage_ZH-CN2888811422_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.FrenchRivieraVillage_ZH-CN2888811422_1920x1080.jpg",
+        "img_id": "FrenchRivieraVillage",
+        "title": "地中海风情尽显",
+        "description": "滨海自由城，法国里维埃拉，法国 (© StockByM/Getty Images)",
+        "copyright": "滨海自由城，法国里维埃拉，法国 (© StockByM/Getty Images)",
+        "markets": [
+            "zh-CN"
+        ]
+    },
     "Olvera": {
         "sort_key": "20260909_Olvera",
         "date": "2026-09-09",
@@ -58,7 +71,8 @@
             "en-GB",
             "en-CA",
             "pt-BR",
-            "en-US"
+            "en-US",
+            "ja-JP"
         ]
     },
     "ChungYang2026": {
