@@ -270,7 +270,9 @@
         "description": "California sea lions hunting a sardine bait ball, offshore Mexico, Pacific Ocean (© Henley Spiers/Nature Picture Library)",
         "copyright": "California sea lions hunting a sardine bait ball, offshore Mexico, Pacific Ocean (© Henley Spiers/Nature Picture Library)",
         "markets": [
-            "en-GB"
+            "en-GB",
+            "zh-CN",
+            "ja-JP"
         ]
     },
     "LillePlace": {
