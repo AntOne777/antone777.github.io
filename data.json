@@ -12,6 +12,19 @@
             "pt-BR"
         ]
     },
+    "Flight93": {
+        "sort_key": "20260911_Flight93",
+        "date": "2026-09-11",
+        "url": "https://www.bing.com/th?id=OHR.Flight93_EN-US5966783443_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.Flight93_EN-US5966783443_1920x1080.jpg",
+        "img_id": "Flight93",
+        "title": "A legacy of heroism",
+        "description": "The Flight 93 National Memorial Visitor Center near Shanksville, Pennsylvania (© Maurice Savage/Alamy)",
+        "copyright": "The Flight 93 National Memorial Visitor Center near Shanksville, Pennsylvania (© Maurice Savage/Alamy)",
+        "markets": [
+            "en-US"
+        ]
+    },
     "TIFFRoy": {
         "sort_key": "20260910_TIFFRoy",
         "date": "2026-09-10",
@@ -40,7 +53,14 @@
             "es-ES",
             "fr-FR",
             "en-GB",
-            "en-CA"
+            "en-CA",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "Castelmezzano": {
