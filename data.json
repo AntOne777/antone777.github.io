@@ -1,4 +1,17 @@
 {
+    "RedMacaws": {
+        "sort_key": "20260911_RedMacaws",
+        "date": "2026-09-11",
+        "url": "https://www.bing.com/th?id=OHR.RedMacaws_PT-BR5164998297_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.RedMacaws_PT-BR5164998297_1920x1080.jpg",
+        "img_id": "RedMacaws",
+        "title": "Uma chegada anunciada",
+        "description": "Araras-vermelhas, América do Sul (© markes51/Getty Images)",
+        "copyright": "Araras-vermelhas, América do Sul (© markes51/Getty Images)",
+        "markets": [
+            "pt-BR"
+        ]
+    },
     "TIFFRoy": {
         "sort_key": "20260910_TIFFRoy",
         "date": "2026-09-10",
@@ -26,7 +39,8 @@
             "de-DE",
             "es-ES",
             "fr-FR",
-            "en-GB"
+            "en-GB",
+            "en-CA"
         ]
     },
     "Castelmezzano": {
