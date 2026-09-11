@@ -22,7 +22,24 @@
         "description": "滨海自由城，法国里维埃拉，法国 (© StockByM/Getty Images)",
         "copyright": "滨海自由城，法国里维埃拉，法国 (© StockByM/Getty Images)",
         "markets": [
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "en-GB"
+        ]
+    },
+    "Castelmezzano": {
+        "sort_key": "20260910_Castelmezzano",
+        "date": "2026-09-10",
+        "url": "https://www.bing.com/th?id=OHR.Castelmezzano_IT-IT4140249349_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.Castelmezzano_IT-IT4140249349_1920x1080.jpg",
+        "img_id": "Castelmezzano",
+        "title": "La bellezza dei villaggi",
+        "description": "Castelmezzano, provincia di Potenza in Basilicata, Italia (© Sean Pavone/Getty Images)",
+        "copyright": "Castelmezzano, provincia di Potenza in Basilicata, Italia (© Sean Pavone/Getty Images)",
+        "markets": [
+            "it-IT"
         ]
     },
     "Olvera": {
