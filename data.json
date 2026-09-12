@@ -1,4 +1,17 @@
 {
+    "LaVueltaEnd": {
+        "sort_key": "20260912_LaVueltaEnd",
+        "date": "2026-09-12",
+        "url": "https://www.bing.com/th?id=OHR.LaVueltaEnd_ES-ES2544902517_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.LaVueltaEnd_ES-ES2544902517_1920x1080.jpg",
+        "img_id": "LaVueltaEnd",
+        "title": "La meta está en el sur",
+        "description": "Vista general del pelotón durante la 77ª Vuelta a España 2022, Etapa 21, Palacio de Cibeles, Madrid, España (© Europa Press Sports/Getty Images)",
+        "copyright": "Vista general del pelotón durante la 77ª Vuelta a España 2022, Etapa 21, Palacio de Cibeles, Madrid, España (© Europa Press Sports/Getty Images)",
+        "markets": [
+            "es-ES"
+        ]
+    },
     "RedMacaws": {
         "sort_key": "20260911_RedMacaws",
         "date": "2026-09-11",
@@ -231,7 +244,9 @@
         "markets": [
             "de-DE",
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "RegataStoricaVen": {
@@ -368,7 +383,8 @@
             "pl-PL",
             "pt-PT",
             "ko-KR",
-            "ru-RU"
+            "ru-RU",
+            "de-DE"
         ]
     },
     "Westerheversand": {
