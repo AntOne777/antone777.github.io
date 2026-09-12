@@ -12,6 +12,19 @@
             "pt-BR"
         ]
     },
+    "LastNightOfTheProms2026": {
+        "sort_key": "20260911_LastNightOfTheProms2026",
+        "date": "2026-09-11",
+        "url": "https://www.bing.com/th?id=OHR.LastNightOfTheProms2026_EN-GB7492486139_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.LastNightOfTheProms2026_EN-GB7492486139_1920x1080.jpg",
+        "img_id": "LastNightOfTheProms2026",
+        "title": "A finale worth singing about",
+        "description": "Interior of the Royal Albert Hall, London (© William Barton/Shutterstock)",
+        "copyright": "Interior of the Royal Albert Hall, London (© William Barton/Shutterstock)",
+        "markets": [
+            "en-GB"
+        ]
+    },
     "Flight93": {
         "sort_key": "20260911_Flight93",
         "date": "2026-09-11",
@@ -272,7 +285,11 @@
         "markets": [
             "en-GB",
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "LillePlace": {
