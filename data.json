@@ -229,7 +229,9 @@
         "description": "Cadini di Misurina, Dolomiten, Venetien, Italien (© Vithun Khamsong/Getty Images)",
         "copyright": "Cadini di Misurina, Dolomiten, Venetien, Italien (© Vithun Khamsong/Getty Images)",
         "markets": [
-            "de-DE"
+            "de-DE",
+            "zh-CN",
+            "ja-JP"
         ]
     },
     "RegataStoricaVen": {
