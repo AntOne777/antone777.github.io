@@ -9,7 +9,11 @@
         "description": "红绿金刚鹦鹉 (© markes51/Getty Images)",
         "copyright": "红绿金刚鹦鹉 (© markes51/Getty Images)",
         "markets": [
-            "zh-CN"
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "KochiaChina": {
