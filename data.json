@@ -1,4 +1,17 @@
 {
+    "RedMacawsFlight": {
+        "sort_key": "20260914_RedMacawsFlight",
+        "date": "2026-09-14",
+        "url": "https://www.bing.com/th?id=OHR.RedMacawsFlight_ZH-CN5045822113_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.RedMacawsFlight_ZH-CN5045822113_1920x1080.jpg",
+        "img_id": "RedMacawsFlight",
+        "title": "最炫者生存",
+        "description": "红绿金刚鹦鹉 (© markes51/Getty Images)",
+        "copyright": "红绿金刚鹦鹉 (© markes51/Getty Images)",
+        "markets": [
+            "zh-CN"
+        ]
+    },
     "KochiaChina": {
         "sort_key": "20260913_KochiaChina",
         "date": "2026-09-13",
@@ -24,7 +37,8 @@
             "pl-PL",
             "pt-PT",
             "ko-KR",
-            "ru-RU"
+            "ru-RU",
+            "ja-JP"
         ]
     },
     "Cosmos2026": {
