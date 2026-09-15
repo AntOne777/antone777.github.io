@@ -1,4 +1,17 @@
 {
+    "FortUnion": {
+        "sort_key": "20260915_FortUnion",
+        "date": "2026-09-15",
+        "url": "https://www.bing.com/th?id=OHR.FortUnion_EN-US5138724452_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.FortUnion_EN-US5138724452_1920x1080.jpg",
+        "img_id": "FortUnion",
+        "title": "A crossroad of cultures",
+        "description": "Fort Union National Monument, New Mexico (© zrfphoto/Getty Images)",
+        "copyright": "Fort Union National Monument, New Mexico (© zrfphoto/Getty Images)",
+        "markets": [
+            "en-US"
+        ]
+    },
     "RedMacawsFlight": {
         "sort_key": "20260914_RedMacawsFlight",
         "date": "2026-09-14",
@@ -14,7 +27,15 @@
             "es-ES",
             "fr-FR",
             "it-IT",
-            "en-GB"
+            "en-GB",
+            "en-AU",
+            "en-CA",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "KochiaChina": {
@@ -146,7 +167,8 @@
             "pl-PL",
             "pt-PT",
             "ko-KR",
-            "ru-RU"
+            "ru-RU",
+            "pt-BR"
         ]
     },
     "Castelmezzano": {
