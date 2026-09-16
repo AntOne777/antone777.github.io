@@ -357,6 +357,7 @@
             if (event.key !== 'Tab') return;
             const focusable = Array.from(viewer.querySelectorAll(FOCUSABLE_SELECTOR))
                 .filter(el => !el.hidden && el.offsetParent !== null);
+            
             if (!focusable.length) return;
             const first = focusable[0];
             const last = focusable[focusable.length - 1];
