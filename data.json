@@ -15,7 +15,8 @@
             "es-ES",
             "fr-FR",
             "it-IT",
-            "en-GB"
+            "en-GB",
+            "pt-BR"
         ]
     },
     "IcyCubs": {
@@ -257,7 +258,8 @@
             "pl-PL",
             "pt-PT",
             "ko-KR",
-            "ru-RU"
+            "ru-RU",
+            "en-CA"
         ]
     },
     "GabitKeni": {
