@@ -1,4 +1,30 @@
 {
+    "OktoberfestMunich": {
+        "sort_key": "20260918_OktoberfestMunich",
+        "date": "2026-09-18",
+        "url": "https://www.bing.com/th?id=OHR.OktoberfestMunich_DE-DE1236844623_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.OktoberfestMunich_DE-DE1236844623_1920x1080.jpg",
+        "img_id": "OktoberfestMunich",
+        "title": "O’zapft is!",
+        "description": "Oktoberfest München, Bayern (© FooTToo/Getty Images)",
+        "copyright": "Oktoberfest München, Bayern (© FooTToo/Getty Images)",
+        "markets": [
+            "de-DE"
+        ]
+    },
+    "BorgoMarinari": {
+        "sort_key": "20260918_BorgoMarinari",
+        "date": "2026-09-18",
+        "url": "https://www.bing.com/th?id=OHR.BorgoMarinari_IT-IT7423218886_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.BorgoMarinari_IT-IT7423218886_1920x1080.jpg",
+        "img_id": "BorgoMarinari",
+        "title": "Porta fortuna, San Gennà",
+        "description": "A Borgo Marinari, sul Golfo di Napoli, Campania, Italia (© Siegfried Schnepf/Getty Images)",
+        "copyright": "A Borgo Marinari, sul Golfo di Napoli, Campania, Italia (© Siegfried Schnepf/Getty Images)",
+        "markets": [
+            "it-IT"
+        ]
+    },
     "AlphornBavaria": {
         "sort_key": "20260918_AlphornBavaria",
         "date": "2026-09-18",
@@ -10,7 +36,10 @@
         "copyright": "阿尔卑斯长号演奏者，巴伐利亚州，德国 (© U. J. Alexander/Shutterstock)",
         "markets": [
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "es-ES",
+            "fr-FR",
+            "en-GB"
         ]
     },
     "WinnatsPassPeak": {
