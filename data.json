@@ -41,7 +41,8 @@
             "fr-FR",
             "en-GB",
             "en-CA",
-            "pt-BR"
+            "pt-BR",
+            "en-US"
         ]
     },
     "WinnatsPassPeak": {
@@ -1025,7 +1026,14 @@
         "description": "Parque Nacional dos Lençóis Maranhenses, Maranhão (© Ignacio Palacios/Getty Images)",
         "copyright": "Parque Nacional dos Lençóis Maranhenses, Maranhão (© Ignacio Palacios/Getty Images)",
         "markets": [
-            "pt-BR"
+            "pt-BR",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "KitesurfersSunset": {
