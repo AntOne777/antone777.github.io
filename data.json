@@ -1,4 +1,18 @@
 {
+    "ParisSunset": {
+        "sort_key": "20260919_ParisSunset",
+        "date": "2026-09-19",
+        "url": "https://www.bing.com/th?id=OHR.ParisSunset_ZH-CN6050686638_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.ParisSunset_ZH-CN6050686638_1920x1080.jpg",
+        "img_id": "ParisSunset",
+        "title": "终获巴黎青睐的铁塔",
+        "description": "日落时分的埃菲尔铁塔，巴黎，法国 (© Alexander Spatari/Getty Images)",
+        "copyright": "日落时分的埃菲尔铁塔，巴黎，法国 (© Alexander Spatari/Getty Images)",
+        "markets": [
+            "zh-CN",
+            "ja-JP"
+        ]
+    },
     "OktoberfestMunich": {
         "sort_key": "20260918_OktoberfestMunich",
         "date": "2026-09-18",
