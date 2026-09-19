@@ -10,7 +10,23 @@
         "copyright": "日落时分的埃菲尔铁塔，巴黎，法国 (© Alexander Spatari/Getty Images)",
         "markets": [
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "de-DE",
+            "es-ES",
+            "en-GB"
+        ]
+    },
+    "CastelnaudPatrimoine": {
+        "sort_key": "20260919_CastelnaudPatrimoine",
+        "date": "2026-09-19",
+        "url": "https://www.bing.com/th?id=OHR.CastelnaudPatrimoine_FR-FR4352072727_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.CastelnaudPatrimoine_FR-FR4352072727_1920x1080.jpg",
+        "img_id": "CastelnaudPatrimoine",
+        "title": "Lumière sur un héritage commun",
+        "description": "Château de Castelnaud, Castelnaud-la-Chapelle, Nouvelle-Aquitaine (© garethkirklandphotogrphy/Getty Images)",
+        "copyright": "Château de Castelnaud, Castelnaud-la-Chapelle, Nouvelle-Aquitaine (© garethkirklandphotogrphy/Getty Images)",
+        "markets": [
+            "fr-FR"
         ]
     },
     "OktoberfestMunich": {
@@ -56,7 +72,8 @@
             "en-GB",
             "en-CA",
             "pt-BR",
-            "en-US"
+            "en-US",
+            "it-IT"
         ]
     },
     "WinnatsPassPeak": {
