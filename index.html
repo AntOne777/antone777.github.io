@@ -279,7 +279,6 @@
         <p class="status">Для работы архива необходим JavaScript.</p>
     </noscript>
 
-    <!-- Использование нативного модального окна <dialog> -->
     <dialog class="lightbox" id="viewer" aria-label="Просмотр обоев">
         <button class="close" id="close" type="button" aria-label="Закрыть просмотр">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -394,9 +393,11 @@
             downloadFallbackItem = null;
             previouslyFocused = document.activeElement;
 
-            // Нативный метод вызова модального окна
-            viewer.showModal();
-            document.body.style.overflow = 'hidden';
+            // Исправление: вызываем showModal только если диалог закрыт (предотвращает InvalidStateError)
+            if (!viewer.open) {
+                viewer.showModal();
+                document.body.style.overflow = 'hidden';
+            }
 
             prevBtn.hidden = index <= 0;
             nextBtn.hidden = index >= galleryItems.length - 1;
@@ -404,7 +405,11 @@
             bigImage.alt = getImageAlt(item);
             bigImage.style.opacity = '0';
             setDownloadState('Загрузка...', true);
-            closeBtn.focus();
+            
+            // Сбрасываем фокус на крестик, только если мы не листаем кнопками клавиатуры/экрана
+            if (document.activeElement !== nextBtn && document.activeElement !== prevBtn) {
+                closeBtn.focus();
+            }
 
             const token = ++loadToken;
             let usedPreview = false;
@@ -501,7 +506,7 @@
 
         async function loadGallery() {
             try {
-                // Убран принудительный no-cache для оптимизации трафика
+                // Оптимизация кэширования для ускорения загрузки
                 const response = await fetch('data.json');
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
@@ -534,8 +539,7 @@
             if (event.target === viewer) closeViewer();
         });
 
-        // Вся логика очистки теперь привязана к нативному событию закрытия диалога
-        // (Срабатывает как при клике на крестик, так и при нажатии Esc)
+        // Очистка при закрытии нативного диалога
         viewer.addEventListener('close', () => {
             ++loadToken;
             window.clearTimeout(fallbackTimer);
@@ -554,7 +558,7 @@
             previouslyFocused?.focus?.();
         });
 
-        // Глобальные горячие клавиши (Escape теперь обрабатывается браузером автоматически)
+        // Глобальные горячие клавиши
         document.addEventListener('keydown', event => {
             if (!viewer.open) return;
             if (event.key === 'ArrowLeft') navigate(-1);
