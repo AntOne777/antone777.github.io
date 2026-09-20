@@ -1,4 +1,23 @@
 {
+    "ParisSunset_ROW1775373883": {
+        "sort_key": "20260920_ParisSunset_ROW1775373883",
+        "date": "2026-09-20",
+        "url": "https://www.bing.com/th?id=OHR.ParisSunset_ROW1775373883_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.ParisSunset_ROW1775373883_1920x1080.jpg",
+        "img_id": "ParisSunset_ROW1775373883",
+        "title": "Info",
+        "description": "Eiffel Tower at sunset, Paris, France (© Alexander Spatari/Getty Images)",
+        "copyright": "Eiffel Tower at sunset, Paris, France (© Alexander Spatari/Getty Images)",
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
+    },
     "GroomingOtter": {
         "sort_key": "20260920_GroomingOtter",
         "date": "2026-09-20",
@@ -40,6 +59,25 @@
             "ru-RU"
         ]
     },
+    "Lencois_ROW1554257872": {
+        "sort_key": "20260919_Lencois_ROW1554257872",
+        "date": "2026-09-19",
+        "url": "https://www.bing.com/th?id=OHR.Lencois_ROW1554257872_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.Lencois_ROW1554257872_1920x1080.jpg",
+        "img_id": "Lencois_ROW1554257872",
+        "title": "Info",
+        "description": "Lençóis Maranhenses National Park, Brazil (© Ignacio Palacios/Getty Images)",
+        "copyright": "Lençóis Maranhenses National Park, Brazil (© Ignacio Palacios/Getty Images)",
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
+    },
     "CastelnaudPatrimoine": {
         "sort_key": "20260919_CastelnaudPatrimoine",
         "date": "2026-09-19",
@@ -51,6 +89,25 @@
         "copyright": "Château de Castelnaud, Castelnaud-la-Chapelle, Nouvelle-Aquitaine (© garethkirklandphotogrphy/Getty Images)",
         "markets": [
             "fr-FR"
+        ]
+    },
+    "WinnatsPassPeak_ROW1327716506": {
+        "sort_key": "20260918_WinnatsPassPeak_ROW1327716506",
+        "date": "2026-09-18",
+        "url": "https://www.bing.com/th?id=OHR.WinnatsPassPeak_ROW1327716506_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.WinnatsPassPeak_ROW1327716506_1920x1080.jpg",
+        "img_id": "WinnatsPassPeak_ROW1327716506",
+        "title": "Info",
+        "description": "Winnats Pass, Peak District National Park, England (© Daniel_Kay/Getty Images)",
+        "copyright": "Winnats Pass, Peak District National Park, England (© Daniel_Kay/Getty Images)",
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "OktoberfestMunich": {
@@ -128,6 +185,25 @@
             "ru-RU"
         ]
     },
+    "Santenay_ROW6963784310": {
+        "sort_key": "20260917_Santenay_ROW6963784310",
+        "date": "2026-09-17",
+        "url": "https://www.bing.com/th?id=OHR.Santenay_ROW6963784310_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.Santenay_ROW6963784310_1920x1080.jpg",
+        "img_id": "Santenay_ROW6963784310",
+        "title": "Info",
+        "description": "Sorine windmill and vineyards, Santenay wine region, Côte de Beaune, Burgundy, France (© Marco Bottigelli/Getty Images)",
+        "copyright": "Sorine windmill and vineyards, Santenay wine region, Côte de Beaune, Burgundy, France (© Marco Bottigelli/Getty Images)",
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
+    },
     "SanSebastian": {
         "sort_key": "20260917_SanSebastian",
         "date": "2026-09-17",
@@ -160,6 +236,25 @@
             "en-GB",
             "pt-BR",
             "en-US",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
+    },
+    "IcyCubs_ROW6681401044": {
+        "sort_key": "20260916_IcyCubs_ROW6681401044",
+        "date": "2026-09-16",
+        "url": "https://www.bing.com/th?id=OHR.IcyCubs_ROW6681401044_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.IcyCubs_ROW6681401044_1920x1080.jpg",
+        "img_id": "IcyCubs_ROW6681401044",
+        "title": "Info",
+        "description": "Polar bear cubs playing in Svalbard, Norway (© Danny Green/Nature Picture Library)",
+        "copyright": "Polar bear cubs playing in Svalbard, Norway (© Danny Green/Nature Picture Library)",
+        "markets": [
             "en-AU",
             "en-NZ",
             "nl-NL",
