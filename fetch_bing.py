@@ -29,7 +29,9 @@ HEADERS = {
 }
 
 REQUEST_TIMEOUT = 30
-_MARKET_SUFFIX = re.compile(r"_[A-Z]{2}(?:-[A-Z]{2})?\d+$", re.IGNORECASE)
+
+# ИСПРАВЛЕНИЕ: Теперь захватывает и 2-буквенные (EN-US), и 3-буквенные (ROW) суффиксы с любым числом цифр
+_MARKET_SUFFIX = re.compile(r"_(?:[A-Z]{2,3}(?:-[A-Z]{2,3})?)\d*$", re.IGNORECASE)
 
 
 def fetch_json_with_retry(api_url, params, headers, max_retries=3):
@@ -44,7 +46,6 @@ def fetch_json_with_retry(api_url, params, headers, max_retries=3):
             with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as response:
                 body = response.read()
                 
-                # Мягкая проверка на gzip
                 encoding = (response.info().get("Content-Encoding") or "").lower()
                 if "gzip" in encoding:
                     body = gzip.decompress(body)
@@ -52,7 +53,6 @@ def fetch_json_with_retry(api_url, params, headers, max_retries=3):
                 return json.loads(body.decode("utf-8"))
                 
         except urllib.error.HTTPError as error:
-            # Обязательно освобождаем сокет при ошибке ответа сервера
             error.close()
             if error.code in retry_status_codes and attempt < max_retries:
                 time.sleep(1 * (2 ** attempt))
@@ -73,10 +73,7 @@ def load_database():
     try:
         with DATA_FILE.open("r", encoding="utf-8") as file:
             data = json.load(file)
-    except json.JSONDecodeError as error:
-        print(f"Ошибка: файл {DATA_FILE} содержит некорректный JSON: {error}", file=sys.stderr)
-        raise SystemExit(1) from error
-    except OSError as error:
+    except Exception as error:
         print(f"Ошибка чтения файла {DATA_FILE}: {error}", file=sys.stderr)
         raise SystemExit(1) from error
 
@@ -84,7 +81,27 @@ def load_database():
         print(f"Ошибка: файл {DATA_FILE} должен содержать JSON-объект.", file=sys.stderr)
         raise SystemExit(1)
 
-    return data
+    # АВТО-ОЧИСТКА ДУБЛИКАТОВ (Self-healing)
+    # Пересобираем базу, пропуская старые ключи через новую регулярку
+    cleaned_db = {}
+    for old_id, entry in data.items():
+        fresh_id = _MARKET_SUFFIX.sub("", entry.get("img_id", old_id))
+        
+        if fresh_id not in cleaned_db:
+            entry["img_id"] = fresh_id
+            cleaned_db[fresh_id] = entry
+        else:
+            # Если дубликат найден, просто сливаем их рынки вместе
+            for m in entry.get("markets", []):
+                if m not in cleaned_db[fresh_id]["markets"]:
+                    cleaned_db[fresh_id]["markets"].append(m)
+                    
+            # Если у текущего нет описания, а у дубликата есть - забираем
+            if not cleaned_db[fresh_id].get("description") and entry.get("description"):
+                cleaned_db[fresh_id]["description"] = entry["description"]
+                cleaned_db[fresh_id]["copyright"] = entry.get("copyright")
+
+    return cleaned_db
 
 
 def get_image_id(urlbase, start_date):
