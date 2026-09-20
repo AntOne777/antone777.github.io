@@ -1,10 +1,10 @@
 {
-    "ParisSunset_ROW1775373883": {
+    "ParisSunset": {
         "sort_key": "20260920_ParisSunset_ROW1775373883",
         "date": "2026-09-20",
         "url": "https://www.bing.com/th?id=OHR.ParisSunset_ROW1775373883_UHD.jpg",
         "preview": "https://www.bing.com/th?id=OHR.ParisSunset_ROW1775373883_1920x1080.jpg",
-        "img_id": "ParisSunset_ROW1775373883",
+        "img_id": "ParisSunset",
         "title": "Info",
         "description": "Eiffel Tower at sunset, Paris, France (© Alexander Spatari/Getty Images)",
         "copyright": "Eiffel Tower at sunset, Paris, France (© Alexander Spatari/Getty Images)",
@@ -15,7 +15,15 @@
             "pl-PL",
             "pt-PT",
             "ko-KR",
-            "ru-RU"
+            "ru-RU",
+            "zh-CN",
+            "ja-JP",
+            "de-DE",
+            "es-ES",
+            "en-GB",
+            "en-CA",
+            "pt-BR",
+            "en-US"
         ]
     },
     "GroomingOtter": {
@@ -29,42 +37,20 @@
         "copyright": "正在梳理皮毛的海獭，蒙特雷湾，加利福尼亚州，美国 (© Suzi Eszterhas/Minden Pictures)",
         "markets": [
             "zh-CN",
-            "ja-JP"
-        ]
-    },
-    "ParisSunset": {
-        "sort_key": "20260919_ParisSunset",
-        "date": "2026-09-19",
-        "url": "https://www.bing.com/th?id=OHR.ParisSunset_ZH-CN6050686638_UHD.jpg",
-        "preview": "https://www.bing.com/th?id=OHR.ParisSunset_ZH-CN6050686638_1920x1080.jpg",
-        "img_id": "ParisSunset",
-        "title": "终获巴黎青睐的铁塔",
-        "description": "日落时分的埃菲尔铁塔，巴黎，法国 (© Alexander Spatari/Getty Images)",
-        "copyright": "日落时分的埃菲尔铁塔，巴黎，法国 (© Alexander Spatari/Getty Images)",
-        "markets": [
-            "zh-CN",
             "ja-JP",
             "de-DE",
             "es-ES",
-            "en-GB",
-            "en-CA",
-            "pt-BR",
-            "en-US",
-            "en-AU",
-            "en-NZ",
-            "nl-NL",
-            "pl-PL",
-            "pt-PT",
-            "ko-KR",
-            "ru-RU"
+            "fr-FR",
+            "it-IT",
+            "en-GB"
         ]
     },
-    "Lencois_ROW1554257872": {
+    "Lencois": {
         "sort_key": "20260919_Lencois_ROW1554257872",
         "date": "2026-09-19",
         "url": "https://www.bing.com/th?id=OHR.Lencois_ROW1554257872_UHD.jpg",
         "preview": "https://www.bing.com/th?id=OHR.Lencois_ROW1554257872_1920x1080.jpg",
-        "img_id": "Lencois_ROW1554257872",
+        "img_id": "Lencois",
         "title": "Info",
         "description": "Lençóis Maranhenses National Park, Brazil (© Ignacio Palacios/Getty Images)",
         "copyright": "Lençóis Maranhenses National Park, Brazil (© Ignacio Palacios/Getty Images)",
@@ -75,7 +61,8 @@
             "pl-PL",
             "pt-PT",
             "ko-KR",
-            "ru-RU"
+            "ru-RU",
+            "pt-BR"
         ]
     },
     "CastelnaudPatrimoine": {
@@ -91,12 +78,12 @@
             "fr-FR"
         ]
     },
-    "WinnatsPassPeak_ROW1327716506": {
+    "WinnatsPassPeak": {
         "sort_key": "20260918_WinnatsPassPeak_ROW1327716506",
         "date": "2026-09-18",
         "url": "https://www.bing.com/th?id=OHR.WinnatsPassPeak_ROW1327716506_UHD.jpg",
         "preview": "https://www.bing.com/th?id=OHR.WinnatsPassPeak_ROW1327716506_1920x1080.jpg",
-        "img_id": "WinnatsPassPeak_ROW1327716506",
+        "img_id": "WinnatsPassPeak",
         "title": "Info",
         "description": "Winnats Pass, Peak District National Park, England (© Daniel_Kay/Getty Images)",
         "copyright": "Winnats Pass, Peak District National Park, England (© Daniel_Kay/Getty Images)",
@@ -107,7 +94,16 @@
             "pl-PL",
             "pt-PT",
             "ko-KR",
-            "ru-RU"
+            "ru-RU",
+            "zh-CN",
+            "ja-JP",
+            "de-DE",
+            "fr-FR",
+            "it-IT",
+            "en-GB",
+            "en-CA",
+            "pt-BR",
+            "en-US"
         ]
     },
     "OktoberfestMunich": {
@@ -157,40 +153,12 @@
             "it-IT"
         ]
     },
-    "WinnatsPassPeak": {
-        "sort_key": "20260917_WinnatsPassPeak",
-        "date": "2026-09-17",
-        "url": "https://www.bing.com/th?id=OHR.WinnatsPassPeak_ZH-CN4443458412_UHD.jpg",
-        "preview": "https://www.bing.com/th?id=OHR.WinnatsPassPeak_ZH-CN4443458412_1920x1080.jpg",
-        "img_id": "WinnatsPassPeak",
-        "title": "穿越山口腹地",
-        "description": "温纳茨山口，峰区国家公园，英格兰 (© Daniel_Kay/Getty Images)",
-        "copyright": "温纳茨山口，峰区国家公园，英格兰 (© Daniel_Kay/Getty Images)",
-        "markets": [
-            "zh-CN",
-            "ja-JP",
-            "de-DE",
-            "fr-FR",
-            "it-IT",
-            "en-GB",
-            "en-CA",
-            "pt-BR",
-            "en-US",
-            "en-AU",
-            "en-NZ",
-            "nl-NL",
-            "pl-PL",
-            "pt-PT",
-            "ko-KR",
-            "ru-RU"
-        ]
-    },
-    "Santenay_ROW6963784310": {
+    "Santenay": {
         "sort_key": "20260917_Santenay_ROW6963784310",
         "date": "2026-09-17",
         "url": "https://www.bing.com/th?id=OHR.Santenay_ROW6963784310_UHD.jpg",
         "preview": "https://www.bing.com/th?id=OHR.Santenay_ROW6963784310_1920x1080.jpg",
-        "img_id": "Santenay_ROW6963784310",
+        "img_id": "Santenay",
         "title": "Info",
         "description": "Sorine windmill and vineyards, Santenay wine region, Côte de Beaune, Burgundy, France (© Marco Bottigelli/Getty Images)",
         "copyright": "Sorine windmill and vineyards, Santenay wine region, Côte de Beaune, Burgundy, France (© Marco Bottigelli/Getty Images)",
@@ -201,7 +169,16 @@
             "pl-PL",
             "pt-PT",
             "ko-KR",
-            "ru-RU"
+            "ru-RU",
+            "zh-CN",
+            "ja-JP",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "en-GB",
+            "pt-BR",
+            "en-US"
         ]
     },
     "SanSebastian": {
@@ -217,40 +194,12 @@
             "es-ES"
         ]
     },
-    "Santenay": {
-        "sort_key": "20260916_Santenay",
-        "date": "2026-09-16",
-        "url": "https://www.bing.com/th?id=OHR.Santenay_ZH-CN5676942384_UHD.jpg",
-        "preview": "https://www.bing.com/th?id=OHR.Santenay_ZH-CN5676942384_1920x1080.jpg",
-        "img_id": "Santenay",
-        "title": "为丰收举杯",
-        "description": "桑特奈葡萄酒产区葡萄园中的索林风车，伯恩丘，勃艮第，法国 (© Marco Bottigelli/Getty Images)",
-        "copyright": "桑特奈葡萄酒产区葡萄园中的索林风车，伯恩丘，勃艮第，法国 (© Marco Bottigelli/Getty Images)",
-        "markets": [
-            "zh-CN",
-            "ja-JP",
-            "de-DE",
-            "es-ES",
-            "fr-FR",
-            "it-IT",
-            "en-GB",
-            "pt-BR",
-            "en-US",
-            "en-AU",
-            "en-NZ",
-            "nl-NL",
-            "pl-PL",
-            "pt-PT",
-            "ko-KR",
-            "ru-RU"
-        ]
-    },
-    "IcyCubs_ROW6681401044": {
+    "IcyCubs": {
         "sort_key": "20260916_IcyCubs_ROW6681401044",
         "date": "2026-09-16",
         "url": "https://www.bing.com/th?id=OHR.IcyCubs_ROW6681401044_UHD.jpg",
         "preview": "https://www.bing.com/th?id=OHR.IcyCubs_ROW6681401044_1920x1080.jpg",
-        "img_id": "IcyCubs_ROW6681401044",
+        "img_id": "IcyCubs",
         "title": "Info",
         "description": "Polar bear cubs playing in Svalbard, Norway (© Danny Green/Nature Picture Library)",
         "copyright": "Polar bear cubs playing in Svalbard, Norway (© Danny Green/Nature Picture Library)",
@@ -261,19 +210,7 @@
             "pl-PL",
             "pt-PT",
             "ko-KR",
-            "ru-RU"
-        ]
-    },
-    "IcyCubs": {
-        "sort_key": "20260915_IcyCubs",
-        "date": "2026-09-15",
-        "url": "https://www.bing.com/th?id=OHR.IcyCubs_ZH-CN5287408951_UHD.jpg",
-        "preview": "https://www.bing.com/th?id=OHR.IcyCubs_ZH-CN5287408951_1920x1080.jpg",
-        "img_id": "IcyCubs",
-        "title": "北极的新晋探索者",
-        "description": "斯瓦尔巴群岛玩耍的北极熊幼崽，挪威 (© Danny Green/Nature Picture Library)",
-        "copyright": "斯瓦尔巴群岛玩耍的北极熊幼崽，挪威 (© Danny Green/Nature Picture Library)",
-        "markets": [
+            "ru-RU",
             "zh-CN",
             "ja-JP",
             "de-DE",
@@ -283,14 +220,7 @@
             "en-GB",
             "en-CA",
             "pt-BR",
-            "en-US",
-            "en-AU",
-            "en-NZ",
-            "nl-NL",
-            "pl-PL",
-            "pt-PT",
-            "ko-KR",
-            "ru-RU"
+            "en-US"
         ]
     },
     "FortUnion": {
@@ -1157,26 +1087,6 @@
             "it-IT",
             "pt-BR",
             "en-US",
-            "en-AU",
-            "en-NZ",
-            "nl-NL",
-            "pl-PL",
-            "pt-PT",
-            "ko-KR",
-            "ru-RU"
-        ]
-    },
-    "Lencois": {
-        "sort_key": "20260824_Lencois",
-        "date": "2026-08-24",
-        "url": "https://www.bing.com/th?id=OHR.Lencois_PT-BR9491147631_UHD.jpg",
-        "preview": "https://www.bing.com/th?id=OHR.Lencois_PT-BR9491147631_1920x1080.jpg",
-        "img_id": "Lencois",
-        "title": "Nem toda miragem é uma ilusão",
-        "description": "Parque Nacional dos Lençóis Maranhenses, Maranhão (© Ignacio Palacios/Getty Images)",
-        "copyright": "Parque Nacional dos Lençóis Maranhenses, Maranhão (© Ignacio Palacios/Getty Images)",
-        "markets": [
-            "pt-BR",
             "en-AU",
             "en-NZ",
             "nl-NL",
