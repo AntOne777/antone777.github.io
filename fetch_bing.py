@@ -2,6 +2,8 @@ import json
 import os
 import sys
 import time
+import re
+import gzip
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 import urllib.request
@@ -9,23 +11,9 @@ import urllib.parse
 import urllib.error
 
 MARKETS = [
-    "en-US",
-    "en-AU",
-    "en-CA",
-    "zh-CN",
-    "de-DE",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "en-NZ",
-    "en-GB",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR",
-    "pt-PT",
-    "ko-KR",
-    "ru-RU",
+    "en-US", "en-AU", "en-CA", "zh-CN", "de-DE", "es-ES", "fr-FR",
+    "it-IT", "ja-JP", "en-NZ", "en-GB", "nl-NL", "pl-PL", "pt-BR",
+    "pt-PT", "ko-KR", "ru-RU",
 ]
 
 DATA_FILE = Path("data.json")
@@ -33,22 +21,18 @@ DATA_FILE = Path("data.json")
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 "
-        "(KHTML, like Gecko) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
         "Chrome/127.0.0.0 Safari/537.36"
     ),
     "Accept": "application/json",
+    "Accept-Encoding": "gzip",
 }
 
-# Единый таймаут для urllib в секундах
 REQUEST_TIMEOUT = 30
+_MARKET_SUFFIX = re.compile(r"_[A-Z]{2}(?:-[A-Z]{2})?\d+$", re.IGNORECASE)
 
 
 def fetch_json_with_retry(api_url, params, headers, max_retries=3):
-    """
-    Выполняет HTTP GET запрос с автоматическими повторными попытками.
-    Заменяет механизм requests.Session + HTTPAdapter + Retry.
-    """
     query_string = urllib.parse.urlencode(params)
     url = f"{api_url}?{query_string}"
     req = urllib.request.Request(url, headers=headers)
@@ -58,18 +42,24 @@ def fetch_json_with_retry(api_url, params, headers, max_retries=3):
     for attempt in range(max_retries + 1):
         try:
             with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as response:
-                body = response.read().decode("utf-8")
-                return json.loads(body)
+                body = response.read()
+                
+                # Мягкая проверка на gzip
+                encoding = (response.info().get("Content-Encoding") or "").lower()
+                if "gzip" in encoding:
+                    body = gzip.decompress(body)
+                    
+                return json.loads(body.decode("utf-8"))
                 
         except urllib.error.HTTPError as error:
-            # Если код ошибки в нашем списке и это не последняя попытка
+            # Обязательно освобождаем сокет при ошибке ответа сервера
+            error.close()
             if error.code in retry_status_codes and attempt < max_retries:
-                time.sleep(1 * (2 ** attempt))  # Экспоненциальная задержка: 1s, 2s, 4s
+                time.sleep(1 * (2 ** attempt))
                 continue
             raise
             
         except (urllib.error.URLError, TimeoutError, OSError) as error:
-            # Ошибки сети (таймауты, сбросы соединений)
             if attempt < max_retries:
                 time.sleep(1 * (2 ** attempt))
                 continue
@@ -77,83 +67,50 @@ def fetch_json_with_retry(api_url, params, headers, max_retries=3):
 
 
 def load_database():
-    """
-    Загружает существующий архив.
-
-    Если файла нет — возвращает пустой словарь.
-    Если файл повреждён — завершает работу с ошибкой,
-    чтобы случайно не перезаписать архив пустыми данными.
-    """
     if not DATA_FILE.exists():
         return {}
 
     try:
         with DATA_FILE.open("r", encoding="utf-8") as file:
             data = json.load(file)
-
     except json.JSONDecodeError as error:
-        print(
-            f"Ошибка: файл {DATA_FILE} содержит некорректный JSON: {error}",
-            file=sys.stderr,
-        )
+        print(f"Ошибка: файл {DATA_FILE} содержит некорректный JSON: {error}", file=sys.stderr)
         raise SystemExit(1) from error
-
     except OSError as error:
-        print(
-            f"Ошибка чтения файла {DATA_FILE}: {error}",
-            file=sys.stderr,
-        )
+        print(f"Ошибка чтения файла {DATA_FILE}: {error}", file=sys.stderr)
         raise SystemExit(1) from error
 
     if not isinstance(data, dict):
-        print(
-            f"Ошибка: файл {DATA_FILE} должен содержать JSON-объект.",
-            file=sys.stderr,
-        )
+        print(f"Ошибка: файл {DATA_FILE} должен содержать JSON-объект.", file=sys.stderr)
         raise SystemExit(1)
 
     return data
 
 
 def get_image_id(urlbase, start_date):
-    """
-    Формирует стабильный идентификатор изображения.
-    """
     if "?id=OHR." in urlbase:
         raw_id = urlbase.split("?id=OHR.", 1)[1]
     else:
         raw_id = urlbase.rsplit("/", 1)[-1]
 
     raw_id = raw_id.split("&", 1)[0]
-    raw_id = raw_id.split("_", 1)[0]
+    raw_id = _MARKET_SUFFIX.sub("", raw_id)
 
-    if raw_id:
-        return raw_id
-
-    return f"bing-{start_date}"
+    return raw_id or f"bing-{start_date}"
 
 
 def build_entry(image, clean_id):
-    """
-    Формирует запись изображения.
-    """
-    urlbase = image["urlbase"]
-    start_date = image["startdate"]
-    copyright_text = image.get("copyright", "").strip()
+    urlbase = image.get("urlbase") or ""
+    start_date = image.get("startdate") or ""
+    
+    copyright_text = (image.get("copyright") or "").strip()
     title = image.get("title") or clean_id
 
     return {
         "sort_key": f"{start_date}_{clean_id}",
-        "date": (
-            f"{start_date[:4]}-"
-            f"{start_date[4:6]}-"
-            f"{start_date[6:]}"
-        ),
+        "date": f"{start_date[:4]}-{start_date[4:6]}-{start_date[6:]}",
         "url": f"https://www.bing.com{urlbase}_UHD.jpg",
-        "preview": (
-            f"https://www.bing.com"
-            f"{urlbase}_1920x1080.jpg"
-        ),
+        "preview": f"https://www.bing.com{urlbase}_1920x1080.jpg",
         "img_id": clean_id,
         "title": title,
         "description": copyright_text,
@@ -163,11 +120,7 @@ def build_entry(image, clean_id):
 
 
 def update_entry(entry, image, market):
-    """
-    Дополняет существующую запись данными из другого региона.
-    """
-    copyright_text = image.get("copyright", "").strip()
-
+    copyright_text = (image.get("copyright") or "").strip()
     markets = entry.setdefault("markets", [])
 
     if market not in markets:
@@ -191,7 +144,6 @@ def fetch_wallpapers():
 
     for market in MARKETS:
         api_url = "https://www.bing.com/HPImageArchive.aspx"
-
         params = {
             "format": "js",
             "idx": 0,
@@ -216,10 +168,7 @@ def fetch_wallpapers():
                 urlbase = image.get("urlbase", "")
                 start_date = image.get("startdate", "")
 
-                if not urlbase:
-                    continue
-
-                if len(start_date) != 8 or not start_date.isdigit():
+                if not urlbase or len(start_date) != 8 or not start_date.isdigit():
                     continue
 
                 clean_id = get_image_id(urlbase, start_date)
@@ -234,24 +183,14 @@ def fetch_wallpapers():
 
             print(f"{market}: получено изображений — {len(images)}")
 
-        # Отлавливаем исключения, которые теперь бросает urllib
         except (urllib.error.URLError, TimeoutError, OSError) as error:
-            print(
-                f"Ошибка запроса для {market}: {error}",
-                file=sys.stderr,
-            )
+            print(f"Ошибка запроса для {market}: {error}", file=sys.stderr)
 
         except (ValueError, TypeError, KeyError) as error:
-            print(
-                f"Ошибка обработки данных для {market}: {error}",
-                file=sys.stderr,
-            )
+            print(f"Ошибка обработки данных для {market}: {error}", file=sys.stderr)
 
     if successful_markets == 0:
-        print(
-            "Ошибка: не удалось получить данные ни для одного рынка.",
-            file=sys.stderr,
-        )
+        print("Ошибка: не удалось получить данные ни для одного рынка.", file=sys.stderr)
         raise SystemExit(1)
 
     sorted_database = dict(
@@ -273,13 +212,7 @@ def fetch_wallpapers():
 
 
 def write_database(data):
-    """
-    Безопасно записывает data.json через временный файл.
-    """
-    DATA_FILE.parent.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
+    DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
 
     temporary_path = None
 
@@ -292,12 +225,7 @@ def write_database(data):
             suffix=".tmp",
             delete=False,
         ) as temporary_file:
-            json.dump(
-                data,
-                temporary_file,
-                ensure_ascii=False,
-                indent=4,
-            )
+            json.dump(data, temporary_file, ensure_ascii=False, indent=4)
             temporary_file.write("\n")
             temporary_path = Path(temporary_file.name)
 
@@ -307,10 +235,7 @@ def write_database(data):
         if temporary_path and temporary_path.exists():
             temporary_path.unlink(missing_ok=True)
 
-        print(
-            f"Ошибка записи файла {DATA_FILE}: {error}",
-            file=sys.stderr,
-        )
+        print(f"Ошибка записи файла {DATA_FILE}: {error}", file=sys.stderr)
         raise SystemExit(1) from error
 
 
