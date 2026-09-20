@@ -73,12 +73,17 @@
             transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        /* will-change только при наведении — не плодит GPU-слои для всех карточек */
         .card:hover { will-change: transform; }
 
-        .card:hover,
-        .card:focus-visible {
+        .card:hover {
             outline: none;
+            transform: scale(1.02);
+        }
+
+        /* Явный фокус для доступности с клавиатуры */
+        .card:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
             transform: scale(1.02);
         }
 
@@ -93,18 +98,35 @@
 
         .card img.loaded { opacity: 1; }
 
+        /* Использование нативного тега <dialog> */
         .lightbox {
             position: fixed;
             inset: 0;
             z-index: 1000;
-            display: none;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: var(--overlay);
+            /* Сброс дефолтных стилей <dialog> */
+            margin: auto;
+            border: none;
+            background: transparent;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            max-width: none;
+            max-height: none;
         }
 
-        .lightbox.active { display: flex; }
+        /* При открытии <dialog> получает атрибут open */
+        .lightbox[open] {
+            display: flex;
+        }
+
+        /* Нативный фон для диалога */
+        .lightbox::backdrop {
+            background: var(--overlay);
+            backdrop-filter: blur(5px);
+        }
 
         .lightbox img {
             max-width: 95%;
@@ -135,9 +157,15 @@
             transition: all 0.3s ease;
         }
 
-        .close:hover,
-        .close:focus-visible {
+        .close:hover {
             outline: none;
+            border-color: var(--border-hover);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .close:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
             border-color: var(--border-hover);
             background: rgba(255, 255, 255, 0.15);
         }
@@ -153,7 +181,6 @@
             stroke-linejoin: round;
         }
 
-        /* Явный класс для кнопок навигации — вместо button:not(.card) */
         .nav-btn {
             position: absolute;
             top: 50%;
@@ -177,16 +204,21 @@
         .nav-btn.prev { left: 35px; }
         .nav-btn.next { right: 35px; }
 
-        .nav-btn:hover,
-        .nav-btn:focus-visible {
+        .nav-btn:hover {
             outline: none;
+            border-color: var(--border-hover);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-btn:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
             border-color: var(--border-hover);
             background: rgba(255, 255, 255, 0.15);
         }
 
         .controls { margin-top: 20px; }
 
-        /* Явный класс для action-кнопок — вместо button:not(.card) */
         .action-btn {
             padding: 14px 34px;
             color: var(--text);
@@ -203,8 +235,7 @@
             transition: all 0.35s ease;
         }
 
-        .action-btn:hover,
-        .action-btn:focus-visible {
+        .action-btn:hover {
             outline: none;
             border-color: var(--border-hover);
             background: var(--accent);
@@ -212,14 +243,18 @@
             transform: translateY(-2px);
         }
 
-        .action-btn:active { transform: scale(0.98); }
-
-        .action-btn.loading { opacity: 0.7; pointer-events: none; }
-
-        .status {
-            color: var(--text-muted);
-            text-align: center;
+        .action-btn:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-color: var(--border-hover);
+            background: var(--accent);
+            box-shadow: 0 12px 40px rgba(0, 120, 212, 0.35);
+            transform: translateY(-2px);
         }
+
+        .action-btn:active { transform: scale(0.98); }
+        .action-btn.loading { opacity: 0.7; pointer-events: none; }
+        .status { color: var(--text-muted); text-align: center; }
 
         @media (max-width: 600px) {
             body { padding: 14px; }
@@ -240,19 +275,18 @@
 
     <main class="grid" id="gallery" aria-live="polite" aria-busy="true"></main>
 
-    <!-- Фолбэк для пользователей без JS -->
     <noscript>
         <p class="status">Для работы архива необходим JavaScript.</p>
     </noscript>
 
-    <div class="lightbox" id="viewer" role="dialog" aria-modal="true" aria-label="Просмотр обоев">
+    <!-- Использование нативного модального окна <dialog> -->
+    <dialog class="lightbox" id="viewer" aria-label="Просмотр обоев">
         <button class="close" id="close" type="button" aria-label="Закрыть просмотр">
-            <svg viewBox="0 0 24 24" aria-hidden="true" shape-rendering="crispEdges">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M 7 7 L 17 17 M 17 7 L 7 17"></path>
             </svg>
         </button>
 
-        <!-- Кнопки навигации между изображениями -->
         <button class="nav-btn prev" id="prev" type="button" aria-label="Предыдущее изображение">&lsaquo;</button>
         <button class="nav-btn next" id="next" type="button" aria-label="Следующее изображение">&rsaquo;</button>
 
@@ -261,7 +295,7 @@
         <div class="controls">
             <button class="action-btn" id="download" type="button">Скачать UHD</button>
         </div>
-    </div>
+    </dialog>
 
     <script>
         'use strict';
@@ -274,12 +308,10 @@
         const prevBtn = document.getElementById('prev');
         const nextBtn = document.getElementById('next');
 
-        // Константы — магические числа вынесены для читаемости
         const FALLBACK_TIMEOUT = 5000;
-        const FOCUSABLE_SELECTOR = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
         // Состояние
-        let galleryItems = [];      // Сохраняем список для навигации
+        let galleryItems = [];
         let currentIndex = -1;
         let blobURL = null;
         let fallbackTimer = null;
@@ -307,7 +339,6 @@
             }
         }
 
-        // Переименовано: download → downloadImage — не конфликтует с DOM-атрибутом
         async function downloadImage(item) {
             if (!item?.url) return;
 
@@ -351,26 +382,6 @@
             }
         }
 
-        // Focus trap — удерживает Tab внутри модального окна
-        // Требование aria-modal="true"
-        function handleTrapFocus(event) {
-            if (event.key !== 'Tab') return;
-            const focusable = Array.from(viewer.querySelectorAll(FOCUSABLE_SELECTOR))
-                .filter(el => !el.hidden && el.offsetParent !== null);
-            
-            if (!focusable.length) return;
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
-            if (event.shiftKey && document.activeElement === first) {
-                event.preventDefault();
-                last.focus();
-            } else if (!event.shiftKey && document.activeElement === last) {
-                event.preventDefault();
-                first.focus();
-            }
-        }
-
-        // DRY — единая функция для alt-текста
         function getImageAlt(item) {
             return item.title || item.copyright || 'Обои Bing';
         }
@@ -383,10 +394,10 @@
             downloadFallbackItem = null;
             previouslyFocused = document.activeElement;
 
-            viewer.classList.add('active');
+            // Нативный метод вызова модального окна
+            viewer.showModal();
             document.body.style.overflow = 'hidden';
 
-            // Скрываем кнопки навигации на границах списка
             prevBtn.hidden = index <= 0;
             nextBtn.hidden = index >= galleryItems.length - 1;
 
@@ -417,15 +428,10 @@
                 bigImage.src = item.preview;
             };
 
-            // onload/onerror через свойства — перезаписываются при каждом
-            // openViewer, старые замыкания утилизируются GC. Токен защищает
-            // от срабатывания устаревших обработчиков.
             bigImage.onload = showImage;
             bigImage.onerror = showPreview;
             bigImage.src = item.url || item.preview;
 
-            // Сокращено с 15с до 5с — UHD-изображения грузятся дольше,
-            // но 5 секунд уже дают понять, что нужен fallback
             fallbackTimer = window.setTimeout(() => {
                 if (token === loadToken && (!bigImage.complete || bigImage.naturalWidth === 0)) {
                     showPreview();
@@ -434,27 +440,11 @@
         }
 
         function closeViewer() {
-            if (!viewer.classList.contains('active')) return;
-
-            ++loadToken;
-            window.clearTimeout(fallbackTimer);
-            cancelDownload();
-            releaseBlobURL();
-
-            viewer.classList.remove('active');
-            document.body.style.overflow = '';
-
-            bigImage.removeAttribute('src');
-            bigImage.style.opacity = '0';
-
-            currentIndex = -1;
-            downloadFallbackItem = null;
-            setDownloadState('Скачать UHD');
-
-            previouslyFocused?.focus?.();
+            if (viewer.open) {
+                viewer.close();
+            }
         }
 
-        // Навигация между изображениями внутри лайтбокса
         function navigate(direction) {
             const next = currentIndex + direction;
             if (next < 0 || next >= galleryItems.length) return;
@@ -471,7 +461,6 @@
                 .filter(item => item && (item.url || item.preview))
                 .sort(sortByNewest);
 
-            // Сохраняем для навигации и скачивания
             galleryItems = validItems;
             gallery.setAttribute('aria-busy', 'false');
 
@@ -495,7 +484,6 @@
                 img.referrerPolicy = 'no-referrer';
                 img.alt = getImageAlt(item);
 
-                // { once: true } — автo-очистка, обработчик не нужен после загрузки
                 img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
                 img.addEventListener('error', () => {
                     img.classList.add('loaded');
@@ -503,8 +491,6 @@
                 }, { once: true });
 
                 card.append(img);
-
-                // Передаём индекс вместо объекта — навигация работает по позиции
                 card.addEventListener('click', () => openViewer(index));
 
                 fragment.append(card);
@@ -515,7 +501,8 @@
 
         async function loadGallery() {
             try {
-                const response = await fetch('data.json', { cache: 'no-cache' });
+                // Убран принудительный no-cache для оптимизации трафика
+                const response = await fetch('data.json');
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
                 renderGallery(data);
@@ -542,17 +529,34 @@
         prevBtn.addEventListener('click', () => navigate(-1));
         nextBtn.addEventListener('click', () => navigate(1));
 
+        // Закрытие по клику на фон
         viewer.addEventListener('click', event => {
             if (event.target === viewer) closeViewer();
         });
 
-        // Focus trap внутри диалога
-        viewer.addEventListener('keydown', handleTrapFocus);
+        // Вся логика очистки теперь привязана к нативному событию закрытия диалога
+        // (Срабатывает как при клике на крестик, так и при нажатии Esc)
+        viewer.addEventListener('close', () => {
+            ++loadToken;
+            window.clearTimeout(fallbackTimer);
+            cancelDownload();
+            releaseBlobURL();
 
-        // Глобальные горячие клавиши (только при открытом лайтбоксе)
+            document.body.style.overflow = '';
+
+            bigImage.removeAttribute('src');
+            bigImage.style.opacity = '0';
+
+            currentIndex = -1;
+            downloadFallbackItem = null;
+            setDownloadState('Скачать UHD');
+
+            previouslyFocused?.focus?.();
+        });
+
+        // Глобальные горячие клавиши (Escape теперь обрабатывается браузером автоматически)
         document.addEventListener('keydown', event => {
-            if (!viewer.classList.contains('active')) return;
-            if (event.key === 'Escape') closeViewer();
+            if (!viewer.open) return;
             if (event.key === 'ArrowLeft') navigate(-1);
             if (event.key === 'ArrowRight') navigate(1);
         });
