@@ -1,13 +1,12 @@
 import json
 import os
 import sys
+import time
 from pathlib import Path
 from tempfile import NamedTemporaryFile
-
-import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
-
+import urllib.request
+import urllib.parse
+import urllib.error
 
 MARKETS = [
     "en-US",
@@ -41,36 +40,40 @@ HEADERS = {
     "Accept": "application/json",
 }
 
-REQUEST_TIMEOUT = (10, 30)
+# Единый таймаут для urllib в секундах
+REQUEST_TIMEOUT = 30
 
 
-def create_session():
+def fetch_json_with_retry(api_url, params, headers, max_retries=3):
     """
-    Создаёт HTTP-сессию с автоматическими повторными попытками.
+    Выполняет HTTP GET запрос с автоматическими повторными попытками.
+    Заменяет механизм requests.Session + HTTPAdapter + Retry.
     """
-    retry = Retry(
-        total=3,
-        connect=3,
-        read=3,
-        status=3,
-        backoff_factor=1,
-        status_forcelist=(429, 500, 502, 503, 504),
-        allowed_methods=frozenset(["GET"]),
-        raise_on_status=False,
-    )
-
-    adapter = HTTPAdapter(
-        max_retries=retry,
-        pool_connections=10,
-        pool_maxsize=10,
-    )
-
-    session = requests.Session()
-    session.headers.update(HEADERS)
-    session.mount("https://", adapter)
-    session.mount("http://", adapter)
-
-    return session
+    query_string = urllib.parse.urlencode(params)
+    url = f"{api_url}?{query_string}"
+    req = urllib.request.Request(url, headers=headers)
+    
+    retry_status_codes = {429, 500, 502, 503, 504}
+    
+    for attempt in range(max_retries + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as response:
+                body = response.read().decode("utf-8")
+                return json.loads(body)
+                
+        except urllib.error.HTTPError as error:
+            # Если код ошибки в нашем списке и это не последняя попытка
+            if error.code in retry_status_codes and attempt < max_retries:
+                time.sleep(1 * (2 ** attempt))  # Экспоненциальная задержка: 1s, 2s, 4s
+                continue
+            raise
+            
+        except (urllib.error.URLError, TimeoutError, OSError) as error:
+            # Ошибки сети (таймауты, сбросы соединений)
+            if attempt < max_retries:
+                time.sleep(1 * (2 ** attempt))
+                continue
+            raise
 
 
 def load_database():
@@ -186,86 +189,63 @@ def fetch_wallpapers():
     successful_markets = 0
     received_images = 0
 
-    with create_session() as session:
-        for market in MARKETS:
-            api_url = "https://www.bing.com/HPImageArchive.aspx"
+    for market in MARKETS:
+        api_url = "https://www.bing.com/HPImageArchive.aspx"
 
-            params = {
-                "format": "js",
-                "idx": 0,
-                "n": 5,
-                "mkt": market,
-            }
+        params = {
+            "format": "js",
+            "idx": 0,
+            "n": 5,
+            "mkt": market,
+        }
 
-            try:
-                response = session.get(
-                    api_url,
-                    params=params,
-                    timeout=REQUEST_TIMEOUT,
-                )
+        try:
+            payload = fetch_json_with_retry(api_url, params, HEADERS)
+            images = payload.get("images", [])
 
-                response.raise_for_status()
+            if not isinstance(images, list):
+                raise ValueError("Поле images имеет неправильный формат")
 
-                payload = response.json()
-                images = payload.get("images", [])
+            successful_markets += 1
+            received_images += len(images)
 
-                if not isinstance(images, list):
-                    raise ValueError(
-                        "Поле images имеет неправильный формат"
-                    )
+            for image in images:
+                if not isinstance(image, dict):
+                    continue
 
-                successful_markets += 1
-                received_images += len(images)
+                urlbase = image.get("urlbase", "")
+                start_date = image.get("startdate", "")
 
-                for image in images:
-                    if not isinstance(image, dict):
-                        continue
+                if not urlbase:
+                    continue
 
-                    urlbase = image.get("urlbase", "")
-                    start_date = image.get("startdate", "")
+                if len(start_date) != 8 or not start_date.isdigit():
+                    continue
 
-                    if not urlbase:
-                        continue
+                clean_id = get_image_id(urlbase, start_date)
 
-                    if len(start_date) != 8 or not start_date.isdigit():
-                        continue
+                if not clean_id:
+                    continue
 
-                    clean_id = get_image_id(
-                        urlbase,
-                        start_date,
-                    )
+                if clean_id not in database:
+                    database[clean_id] = build_entry(image, clean_id)
 
-                    if not clean_id:
-                        continue
+                update_entry(database[clean_id], image, market)
 
-                    if clean_id not in database:
-                        database[clean_id] = build_entry(
-                            image,
-                            clean_id,
-                        )
+            print(f"{market}: получено изображений — {len(images)}")
 
-                    update_entry(
-                        database[clean_id],
-                        image,
-                        market,
-                    )
+        # Отлавливаем исключения, которые теперь бросает urllib
+        except (urllib.error.URLError, TimeoutError, OSError) as error:
+            print(
+                f"Ошибка запроса для {market}: {error}",
+                file=sys.stderr,
+            )
 
-                print(
-                    f"{market}: получено изображений — "
-                    f"{len(images)}"
-                )
-
-            except requests.RequestException as error:
-                print(
-                    f"Ошибка запроса для {market}: {error}",
-                    file=sys.stderr,
-                )
-
-            except (ValueError, TypeError, KeyError) as error:
-                print(
-                    f"Ошибка обработки данных для {market}: {error}",
-                    file=sys.stderr,
-                )
+        except (ValueError, TypeError, KeyError) as error:
+            print(
+                f"Ошибка обработки данных для {market}: {error}",
+                file=sys.stderr,
+            )
 
     if successful_markets == 0:
         print(
@@ -277,9 +257,7 @@ def fetch_wallpapers():
     sorted_database = dict(
         sorted(
             database.items(),
-            key=lambda item: str(
-                item[1].get("sort_key", "")
-            ),
+            key=lambda item: str(item[1].get("sort_key", "")),
             reverse=True,
         )
     )
