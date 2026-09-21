@@ -464,6 +464,12 @@
             const items = Array.isArray(data) ? data : Object.values(data || {});
             const validItems = items
                 .filter(item => item && (item.url || item.preview))
+                // Подменяем ссылки на лету, чтобы "Сохранить как..." видело оригинальное имя файла
+                .map(item => ({
+                    ...item,
+                    url: item.url ? item.url.replace('/th?id=', '/th/id/') : '',
+                    preview: item.preview ? item.preview.replace('/th?id=', '/th/id/') : ''
+                }))
                 .sort(sortByNewest);
 
             galleryItems = validItems;
