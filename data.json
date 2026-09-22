@@ -1,4 +1,30 @@
 {
+    "Japan7Flower2026": {
+        "sort_key": "20260922_Japan7Flower2026",
+        "date": "2026-09-22",
+        "url": "https://www.bing.com/th?id=OHR.Japan7Flower2026_JA-JP7430731593_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.Japan7Flower2026_JA-JP7430731593_1920x1080.jpg",
+        "img_id": "Japan7Flower2026",
+        "title": "今日は秋分の日",
+        "description": "秋の七草のナデシコ (© igaguri_1/Getty Images)",
+        "copyright": "秋の七草のナデシコ (© igaguri_1/Getty Images)",
+        "markets": [
+            "ja-JP"
+        ]
+    },
+    "AutumnEquinoxY26": {
+        "sort_key": "20260922_AutumnEquinoxY26",
+        "date": "2026-09-22",
+        "url": "https://www.bing.com/th?id=OHR.AutumnEquinoxY26_ZH-CN7957453091_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.AutumnEquinoxY26_ZH-CN7957453091_1920x1080.jpg",
+        "img_id": "AutumnEquinoxY26",
+        "title": "金秋平分，地坛染黄",
+        "description": "地坛公园秋日美景，北京，中国 (© by Wei/Adobestock)",
+        "copyright": "地坛公园秋日美景，北京，中国 (© by Wei/Adobestock)",
+        "markets": [
+            "zh-CN"
+        ]
+    },
     "TolkienWeek": {
         "sort_key": "20260921_TolkienWeek",
         "date": "2026-09-21",
