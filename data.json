@@ -1,4 +1,20 @@
 {
+    "TolkienWeek": {
+        "sort_key": "20260921_TolkienWeek",
+        "date": "2026-09-21",
+        "url": "https://www.bing.com/th?id=OHR.TolkienWeek_DE-DE1744424672_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.TolkienWeek_DE-DE1744424672_1920x1080.jpg",
+        "img_id": "TolkienWeek",
+        "title": "Willkommen in Hobbiton",
+        "description": "Hobbit-Haus am Filmset von Hobbiton, Matamata, Neuseeland (© djr-photography/Shutterstock)",
+        "copyright": "Hobbit-Haus am Filmset von Hobbiton, Matamata, Neuseeland (© djr-photography/Shutterstock)",
+        "markets": [
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT"
+        ]
+    },
     "FallAspens": {
         "sort_key": "20260921_FallAspens",
         "date": "2026-09-21",
@@ -10,7 +26,22 @@
         "copyright": "瓜兹曼山口附近的秋日山杨林，犹他州，美国 (© Danita Delimont/Shutterstock)",
         "markets": [
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "en-CA",
+            "pt-BR"
+        ]
+    },
+    "ElGolfo": {
+        "sort_key": "20260921_ElGolfo",
+        "date": "2026-09-21",
+        "url": "https://www.bing.com/th?id=OHR.ElGolfo_EN-GB9192637782_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.ElGolfo_EN-GB9192637782_1920x1080.jpg",
+        "img_id": "ElGolfo",
+        "title": "Ash meets splash",
+        "description": "Aerial view of black lava beach, El Golfo, Lanzarote, Canary Islands, Spain (© Westend61/Adobe Stock)",
+        "copyright": "Aerial view of black lava beach, El Golfo, Lanzarote, Canary Islands, Spain (© Westend61/Adobe Stock)",
+        "markets": [
+            "en-GB"
         ]
     },
     "ParisSunset": {
