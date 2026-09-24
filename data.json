@@ -1,4 +1,23 @@
 {
+    "CastelmezzanoItaly": {
+        "sort_key": "20260924_CastelmezzanoItaly",
+        "date": "2026-09-24",
+        "url": "https://www.bing.com/th?id=OHR.CastelmezzanoItaly_ROW3044667748_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.CastelmezzanoItaly_ROW3044667748_1920x1080.jpg",
+        "img_id": "CastelmezzanoItaly",
+        "title": "Info",
+        "description": "Castelmezzano, Basilicata, Italy (© Sean Pavone/Getty Images)",
+        "copyright": "Castelmezzano, Basilicata, Italy (© Sean Pavone/Getty Images)",
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
+    },
     "SpringTree": {
         "sort_key": "20260923_SpringTree",
         "date": "2026-09-23",
@@ -135,7 +154,8 @@
             "en-CA",
             "de-DE",
             "fr-FR",
-            "it-IT"
+            "it-IT",
+            "en-US"
         ]
     },
     "ParisSunset": {
