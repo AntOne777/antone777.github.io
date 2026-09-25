@@ -1,4 +1,23 @@
 {
+    "JogFalls2026": {
+        "sort_key": "20260925_JogFalls2026",
+        "date": "2026-09-25",
+        "url": "https://www.bing.com/th?id=OHR.JogFalls2026_ROW3282923682_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.JogFalls2026_ROW3282923682_1920x1080.jpg",
+        "img_id": "JogFalls2026",
+        "title": "Info",
+        "description": "Jog Falls, Sharavathi River, Karnataka, India (© Amith Nag Photography/Getty Images)",
+        "copyright": "Jog Falls, Sharavathi River, Karnataka, India (© Amith Nag Photography/Getty Images)",
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
+    },
     "MidAutumn2026": {
         "sort_key": "20260924_MidAutumn2026",
         "date": "2026-09-24",
@@ -17,7 +36,8 @@
             "fr-FR",
             "it-IT",
             "en-GB",
-            "pt-BR"
+            "pt-BR",
+            "en-US"
         ]
     },
     "CastelmezzanoItaly": {
