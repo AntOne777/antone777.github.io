@@ -1,4 +1,17 @@
 {
+    "YokohamaBayBridge": {
+        "sort_key": "20260926_YokohamaBayBridge",
+        "date": "2026-09-26",
+        "url": "https://www.bing.com/th?id=OHR.YokohamaBayBridge_JA-JP8812921625_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.YokohamaBayBridge_JA-JP8812921625_1920x1080.jpg",
+        "img_id": "YokohamaBayBridge",
+        "title": "今日は横浜ベイブリッジ開通日",
+        "description": "横浜ベイブリッジ, 神奈川県 横浜市 (© Yuga Kurita/Getty Images)",
+        "copyright": "横浜ベイブリッジ, 神奈川県 横浜市 (© Yuga Kurita/Getty Images)",
+        "markets": [
+            "ja-JP"
+        ]
+    },
     "NiagaraOnt": {
         "sort_key": "20260926_NiagaraOnt",
         "date": "2026-09-26",
@@ -10,6 +23,19 @@
         "copyright": "Horseshoe Falls illuminated at night in Niagara Falls, Ontario (© Jianmei Wang/E+/Getty Images)",
         "markets": [
             "en-CA"
+        ]
+    },
+    "DecoCrab": {
+        "sort_key": "20260926_DecoCrab",
+        "date": "2026-09-26",
+        "url": "https://www.bing.com/th?id=OHR.DecoCrab_ZH-CN0973306994_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.DecoCrab_ZH-CN0973306994_1920x1080.jpg",
+        "img_id": "DecoCrab",
+        "title": "深海夜花园",
+        "description": "海笔上的装饰蟹，科莫多国家公园，印度尼西亚 (© Alex Mustard/Nature Picture Library)",
+        "copyright": "海笔上的装饰蟹，科莫多国家公园，印度尼西亚 (© Alex Mustard/Nature Picture Library)",
+        "markets": [
+            "zh-CN"
         ]
     },
     "StarnbergerseeAutumn": {
