@@ -1,4 +1,30 @@
 {
+    "NiagaraOnt": {
+        "sort_key": "20260926_NiagaraOnt",
+        "date": "2026-09-26",
+        "url": "https://www.bing.com/th?id=OHR.NiagaraOnt_EN-CA8662967301_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.NiagaraOnt_EN-CA8662967301_1920x1080.jpg",
+        "img_id": "NiagaraOnt",
+        "title": "Niagara's afterparty look",
+        "description": "Horseshoe Falls illuminated at night in Niagara Falls, Ontario (© Jianmei Wang/E+/Getty Images)",
+        "copyright": "Horseshoe Falls illuminated at night in Niagara Falls, Ontario (© Jianmei Wang/E+/Getty Images)",
+        "markets": [
+            "en-CA"
+        ]
+    },
+    "StarnbergerseeAutumn": {
+        "sort_key": "20260925_StarnbergerseeAutumn",
+        "date": "2026-09-25",
+        "url": "https://www.bing.com/th?id=OHR.StarnbergerseeAutumn_DE-DE3476819754_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.StarnbergerseeAutumn_DE-DE3476819754_1920x1080.jpg",
+        "img_id": "StarnbergerseeAutumn",
+        "title": "Ein ruhiger Augenblick",
+        "description": "Luftaufnahme des Starnberger Sees im Herbst, Bayern (© Mystockimages/Getty Images)",
+        "copyright": "Luftaufnahme des Starnberger Sees im Herbst, Bayern (© Mystockimages/Getty Images)",
+        "markets": [
+            "de-DE"
+        ]
+    },
     "JogFalls2026": {
         "sort_key": "20260925_JogFalls2026",
         "date": "2026-09-25",
@@ -18,6 +44,19 @@
             "ru-RU"
         ]
     },
+    "BoriesPoppies": {
+        "sort_key": "20260925_BoriesPoppies",
+        "date": "2026-09-25",
+        "url": "https://www.bing.com/th?id=OHR.BoriesPoppies_FR-FR9955316118_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.BoriesPoppies_FR-FR9955316118_1920x1080.jpg",
+        "img_id": "BoriesPoppies",
+        "title": "Le savoir-faire provençal",
+        "description": "Village des Bories, Gordes, Provence-Alpes-Côte d’Azur (© AGUILAR PATRICE/Alamy)",
+        "copyright": "Village des Bories, Gordes, Provence-Alpes-Côte d’Azur (© AGUILAR PATRICE/Alamy)",
+        "markets": [
+            "fr-FR"
+        ]
+    },
     "BearsEars": {
         "sort_key": "20260925_BearsEars",
         "date": "2026-09-25",
@@ -29,7 +68,10 @@
         "copyright": "熊耳国家纪念区附近的雪松台地和骡子角，犹他州，美国 (© Jeff Clay/Tandem Stills + Motion)",
         "markets": [
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "es-ES",
+            "it-IT",
+            "en-GB"
         ]
     },
     "MidAutumn2026": {
@@ -210,7 +252,8 @@
             "de-DE",
             "fr-FR",
             "it-IT",
-            "en-US"
+            "en-US",
+            "pt-BR"
         ]
     },
     "ParisSunset": {
