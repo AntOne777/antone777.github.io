@@ -1,4 +1,23 @@
 {
+    "NeckarVineyards": {
+        "sort_key": "20260927_NeckarVineyards",
+        "date": "2026-09-27",
+        "url": "https://www.bing.com/th?id=OHR.NeckarVineyards_ROW5359254474_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.NeckarVineyards_ROW5359254474_1920x1080.jpg",
+        "img_id": "NeckarVineyards",
+        "title": "Info",
+        "description": "Sunset over the vineyards of Steinhaldenfeld, Neckar valley, Stuttgart, Germany (© Cyril Gosselin/Getty Images)",
+        "copyright": "Sunset over the vineyards of Steinhaldenfeld, Neckar valley, Stuttgart, Germany (© Cyril Gosselin/Getty Images)",
+        "markets": [
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
+        ]
+    },
     "YokohamaBayBridge": {
         "sort_key": "20260926_YokohamaBayBridge",
         "date": "2026-09-26",
@@ -42,7 +61,8 @@
             "fr-FR",
             "it-IT",
             "en-GB",
-            "pt-BR"
+            "pt-BR",
+            "en-US"
         ]
     },
     "StarnbergerseeAutumn": {
