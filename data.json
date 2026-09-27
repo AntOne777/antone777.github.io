@@ -35,7 +35,14 @@
         "description": "海笔上的装饰蟹，科莫多国家公园，印度尼西亚 (© Alex Mustard/Nature Picture Library)",
         "copyright": "海笔上的装饰蟹，科莫多国家公园，印度尼西亚 (© Alex Mustard/Nature Picture Library)",
         "markets": [
-            "zh-CN"
+            "zh-CN",
+            "en-CA",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "en-GB",
+            "pt-BR"
         ]
     },
     "StarnbergerseeAutumn": {
