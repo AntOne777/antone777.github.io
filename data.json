@@ -10,7 +10,10 @@
         "copyright": "雄性文须雀，诺福克郡，英格兰 (© Andrew Sproule/Shutterstock)",
         "markets": [
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "es-ES",
+            "fr-FR",
+            "it-IT"
         ]
     },
     "KasilofRiver": {
@@ -550,7 +553,8 @@
             "en-CA",
             "pt-BR",
             "en-US",
-            "it-IT"
+            "it-IT",
+            "de-DE"
         ]
     },
     "Santenay": {
