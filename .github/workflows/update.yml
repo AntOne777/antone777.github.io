@@ -2,7 +2,7 @@ name: Bing Archive Auto-Update
 
 on:
   schedule:
-    - cron: "17 */6 * * *"   # Запуск каждые 6 часов (Bing обновляется раз в сутки)
+    - cron: "17 */2 * * *"   # Запуск каждые 2 часа (Bing обновляется раз в сутки)
   workflow_dispatch:
 
 permissions:
