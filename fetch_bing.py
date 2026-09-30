@@ -30,7 +30,8 @@ HEADERS = {
 
 REQUEST_TIMEOUT = 30
 
-# ИСПРАВЛЕНИЕ: Теперь захватывает и 2-буквенные (EN-US), и 3-буквенные (ROW) суффиксы с любым числом цифр
+# Суффиксы рынка вида _EN-US498027384 / _ROW1987384 вырезаются из ID,
+# поэтому одна картинка из разных стран = одна запись.
 _MARKET_SUFFIX = re.compile(r"_(?:[A-Z]{2,3}(?:-[A-Z]{2,3})?)\d*$", re.IGNORECASE)
 
 
@@ -38,27 +39,27 @@ def fetch_json_with_retry(api_url, params, headers, max_retries=3):
     query_string = urllib.parse.urlencode(params)
     url = f"{api_url}?{query_string}"
     req = urllib.request.Request(url, headers=headers)
-    
+
     retry_status_codes = {429, 500, 502, 503, 504}
-    
+
     for attempt in range(max_retries + 1):
         try:
             with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as response:
                 body = response.read()
-                
+
                 encoding = (response.info().get("Content-Encoding") or "").lower()
                 if "gzip" in encoding:
                     body = gzip.decompress(body)
-                    
+
                 return json.loads(body.decode("utf-8"))
-                
+
         except urllib.error.HTTPError as error:
             error.close()
             if error.code in retry_status_codes and attempt < max_retries:
                 time.sleep(1 * (2 ** attempt))
                 continue
             raise
-            
+
         except (urllib.error.URLError, TimeoutError, OSError) as error:
             if attempt < max_retries:
                 time.sleep(1 * (2 ** attempt))
@@ -82,21 +83,25 @@ def load_database():
         raise SystemExit(1)
 
     # АВТО-ОЧИСТКА ДУБЛИКАТОВ (Self-healing)
-    # Пересобираем базу, пропуская старые ключи через новую регулярку
     cleaned_db = {}
     for old_id, entry in data.items():
         fresh_id = _MARKET_SUFFIX.sub("", entry.get("img_id", old_id))
-        
+
+        # Чистим sort_key от остатков суффикса рынка
+        # (20260920_ParisSunset_ROW... -> 20260920_ParisSunset).
+        # Дата в начале остаётся нетронутой — регулярка якорена на конец строки ($).
+        if entry.get("sort_key"):
+            entry["sort_key"] = _MARKET_SUFFIX.sub("", entry["sort_key"])
+
         if fresh_id not in cleaned_db:
             entry["img_id"] = fresh_id
             cleaned_db[fresh_id] = entry
         else:
-            # Если дубликат найден, просто сливаем их рынки вместе
+            # Дубликат — сливаем рынки вместе
             for m in entry.get("markets", []):
                 if m not in cleaned_db[fresh_id]["markets"]:
                     cleaned_db[fresh_id]["markets"].append(m)
-                    
-            # Если у текущего нет описания, а у дубликата есть - забираем
+
             if not cleaned_db[fresh_id].get("description") and entry.get("description"):
                 cleaned_db[fresh_id]["description"] = entry["description"]
                 cleaned_db[fresh_id]["copyright"] = entry.get("copyright")
@@ -119,7 +124,7 @@ def get_image_id(urlbase, start_date):
 def build_entry(image, clean_id):
     urlbase = image.get("urlbase") or ""
     start_date = image.get("startdate") or ""
-    
+
     copyright_text = (image.get("copyright") or "").strip()
     title = image.get("title") or clean_id
 
@@ -134,6 +139,15 @@ def build_entry(image, clean_id):
         "copyright": copyright_text,
         "markets": [],
     }
+
+
+# Предпочтительные рынки для метаданных: их текст перезаписывает CJK-версии.
+PREFERRED_MARKETS = ("en-US", "en-GB")
+_CJK = re.compile(r"[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]")
+
+
+def _is_latin(text):
+    return not _CJK.search(text or "")
 
 
 def update_entry(entry, image, market):
@@ -152,6 +166,20 @@ def update_entry(entry, image, market):
     if not entry.get("title"):
         entry["title"] = image.get("title") or entry["img_id"]
 
+    # Одна и та же картинка приходит от разных стран с РАЗНЫМИ urlbase
+    # (OHR.X_EN-US123 vs OHR.X_ROW456). Кто ответил первым — тот и «владеет»
+    # ссылкой. Если позже отвечает en-US/en-GB, а сохранён CJK-текст —
+    # перепривязываем запись к английскому варианту (заголовок, описание, URL).
+    if (market in PREFERRED_MARKETS and copyright_text
+            and not _is_latin(entry.get("description"))):
+        entry["description"] = copyright_text
+        entry["copyright"] = copyright_text
+        entry["title"] = image.get("title") or entry["title"]
+        urlbase = image.get("urlbase") or ""
+        if urlbase:
+            entry["url"] = f"https://www.bing.com{urlbase}_UHD.jpg"
+            entry["preview"] = f"https://www.bing.com{urlbase}_1920x1080.jpg"
+
 
 def fetch_wallpapers():
     database = load_database()
@@ -164,7 +192,10 @@ def fetch_wallpapers():
         params = {
             "format": "js",
             "idx": 0,
-            "n": 5,
+            # Bing отдаёт максимум 8 свежих обоев. Берём всё окно:
+            # если пропущен запуск Actions, n=5 не успеет поймать старые дни —
+            # они выпадут из выдачи и исчезнут из архива навсегда.
+            "n": 8,
             "mkt": market,
         }
 
