@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          
+
       # Шаг Install dependencies удалён! Мы сэкономили кучу времени.
 
       - name: Fetch Bing wallpapers
@@ -45,5 +45,12 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update Bing archive"
-          git push
+          NEW_COUNT=$(git diff --cached --numstat | awk '{s+=$1} END {print s+0}')
+          git commit -m "Update Bing archive (+${NEW_COUNT} lines)"
+
+          # Retry через rebase: если между checkout и push кто-то запушил вручную,
+          # обычный push упадёт с non-fast-forward и данные потеряются до следующего запуска.
+          git push -u origin HEAD || {
+            echo "Push отклонён — делаю rebase и повтор..."
+            git pull --rebase origin main && git push -u origin HEAD
+          }
