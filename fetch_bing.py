@@ -106,6 +106,8 @@ def build_entry(image, clean_id):
     start_date = image.get("startdate") or ""
     copyright_text = (image.get("copyright") or "").strip()
     title = image.get("title") or clean_id
+    if title == "Info":
+        title = clean_id
     return {
         "sort_key": f"{start_date}_{clean_id}",
         "date": f"{start_date[:4]}-{start_date[4:6]}-{start_date[6:]}",
@@ -137,14 +139,19 @@ def update_entry(entry, image, market):
         entry["description"] = copyright_text
     if not entry.get("copyright") and copyright_text:
         entry["copyright"] = copyright_text
-    if not entry.get("title"):
-        entry["title"] = image.get("title") or entry["img_id"]
-    # en-US/en-GB перепривязывают запись, если сохранён CJK-текст
+    if not entry.get("title") or entry["title"] == "Info":
+        new_title = image.get("title") or entry["img_id"]
+        if new_title != "Info":
+            entry["title"] = new_title
+    # en-US/en-GB перепривязывают запись, если сохранён CJK/Info-текст
     if (market in PREFERRED_MARKETS and copyright_text
-            and not _is_latin(entry.get("description"))):
+            and (not _is_latin(entry.get("description"))
+                 or not _is_latin(entry.get("title")))):
         entry["description"] = copyright_text
         entry["copyright"] = copyright_text
         entry["title"] = image.get("title") or entry["title"]
+    # Preferred-рынки всегда перезаписывают url/preview для консистентности
+    if market in PREFERRED_MARKETS:
         urlbase = image.get("urlbase") or ""
         if urlbase:
             entry["url"] = f"https://www.bing.com{urlbase}_UHD.jpg"
