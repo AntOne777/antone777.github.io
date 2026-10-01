@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Личный архив Bing Wallpaper UHD">
-    <meta name="theme-color" content="#1c1d21">
+    <meta name="theme-color" content="#141517">
     <title>Горизонт | Архив Bing</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <meta property="og:title" content="Горизонт | Архив Bing">
     <meta property="og:description" content="Коллекция лучших обоев Bing в формате UHD.">
     <meta property="og:url" content="https://gorizont.isvii.ru/">
     <meta property="og:image" content="https://gorizont.isvii.ru/favicon.png">
+    <meta property="og:type" content="website">
 
     <style>
         /* CSS-переменные — единая точка управления палитрой */
@@ -502,7 +503,6 @@
                 img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
                 img.addEventListener('error', () => {
                     img.classList.add('loaded');
-                    img.alt = 'Не удалось загрузить превью';
                 }, { once: true });
 
                 card.append(img);
