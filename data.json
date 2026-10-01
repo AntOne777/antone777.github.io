@@ -1,4 +1,30 @@
 {
+    "PerugiaAqueduct": {
+        "sort_key": "20261001_PerugiaAqueduct",
+        "date": "2026-10-01",
+        "url": "https://www.bing.com/th?id=OHR.PerugiaAqueduct_IT-IT7918245077_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.PerugiaAqueduct_IT-IT7918245077_1920x1080.jpg",
+        "img_id": "PerugiaAqueduct",
+        "title": "Oggi si festeggiano loro",
+        "description": "L'acquedotto medievale di Perugia, Umbria, Italia (© Marco Saracco/Getty Images)",
+        "copyright": "L'acquedotto medievale di Perugia, Umbria, Italia (© Marco Saracco/Getty Images)",
+        "markets": [
+            "it-IT"
+        ]
+    },
+    "GrizzlySwim": {
+        "sort_key": "20261001_GrizzlySwim",
+        "date": "2026-10-01",
+        "url": "https://www.bing.com/th?id=OHR.GrizzlySwim_DE-DE4187515695_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.GrizzlySwim_DE-DE4187515695_1920x1080.jpg",
+        "img_id": "GrizzlySwim",
+        "title": "Kolosse des Nordens",
+        "description": "Braunbär am Silver Salmon Creek, Lake Clark National Park and Preserve, Alaska, USA (© Danny Green/Nature Picture Library)",
+        "copyright": "Braunbär am Silver Salmon Creek, Lake Clark National Park and Preserve, Alaska, USA (© Danny Green/Nature Picture Library)",
+        "markets": [
+            "de-DE"
+        ]
+    },
     "GreenLake": {
         "sort_key": "20261001_GreenLake",
         "date": "2026-10-01",
@@ -15,15 +41,30 @@
     "ChattoogaRiver": {
         "sort_key": "20261001_ChattoogaRiver",
         "date": "2026-10-01",
-        "url": "https://www.bing.com/th?id=OHR.ChattoogaRiver_ZH-CN9453791496_UHD.jpg",
-        "preview": "https://www.bing.com/th?id=OHR.ChattoogaRiver_ZH-CN9453791496_1920x1080.jpg",
+        "url": "https://www.bing.com/th?id=OHR.ChattoogaRiver_EN-GB2495394216_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.ChattoogaRiver_EN-GB2495394216_1920x1080.jpg",
         "img_id": "ChattoogaRiver",
-        "title": "一条值得保护的河流",
-        "description": "查图加河，阿巴拉契亚山脉，北卡罗来纳州，美国 (© mtilghma/Getty Images)",
-        "copyright": "查图加河，阿巴拉契亚山脉，北卡罗来纳州，美国 (© mtilghma/Getty Images)",
+        "title": "A river worth protecting",
+        "description": "Chattooga River in the Appalachian Mountains, North Carolina, United States (© mtilghma/Getty Images)",
+        "copyright": "Chattooga River in the Appalachian Mountains, North Carolina, United States (© mtilghma/Getty Images)",
         "markets": [
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "es-ES",
+            "en-GB"
+        ]
+    },
+    "AutumnPeatBog": {
+        "sort_key": "20261001_AutumnPeatBog",
+        "date": "2026-10-01",
+        "url": "https://www.bing.com/th?id=OHR.AutumnPeatBog_FR-FR3286332172_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.AutumnPeatBog_FR-FR3286332172_1920x1080.jpg",
+        "img_id": "AutumnPeatBog",
+        "title": "L'automne en tourbière",
+        "description": "Végétation automnale multicolore sur la tourbière (© Utopia_88/Getty Images)",
+        "copyright": "Végétation automnale multicolore sur la tourbière (© Utopia_88/Getty Images)",
+        "markets": [
+            "fr-FR"
         ]
     },
     "OlmstedPoint": {
@@ -450,8 +491,8 @@
     "ElGolfo": {
         "sort_key": "20260921_ElGolfo",
         "date": "2026-09-21",
-        "url": "https://www.bing.com/th?id=OHR.ElGolfo_EN-GB9192637782_UHD.jpg",
-        "preview": "https://www.bing.com/th?id=OHR.ElGolfo_EN-GB9192637782_1920x1080.jpg",
+        "url": "https://www.bing.com/th?id=OHR.ElGolfo_EN-US9261454857_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.ElGolfo_EN-US9261454857_1920x1080.jpg",
         "img_id": "ElGolfo",
         "title": "Ash meets splash",
         "description": "Aerial view of black lava beach, El Golfo, Lanzarote, Canary Islands, Spain (© Westend61/Adobe Stock)",
