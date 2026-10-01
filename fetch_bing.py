@@ -83,7 +83,7 @@ def load_database():
             cleaned_db[fresh_id] = entry
         else:
             for m in entry.get("markets", []):
-                if m not in cleaned_db[fresh_id]["markets"]:
+                if m not in cleaned_db[fresh_id].setdefault("markets", []):
                     cleaned_db[fresh_id]["markets"].append(m)
             if not cleaned_db[fresh_id].get("description") and entry.get("description"):
                 cleaned_db[fresh_id]["description"] = entry["description"]
