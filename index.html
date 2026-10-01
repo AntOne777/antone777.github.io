@@ -203,6 +203,10 @@
         .nav-btn.prev { left: 35px; }
         .nav-btn.next { right: 35px; }
 
+        .nav-btn[hidden] {
+            display: none !important;
+        }
+
         .nav-btn:hover {
             outline: none;
             border-color: var(--border-hover);
@@ -375,8 +379,8 @@
             } finally {
                 if (downloadController === controller) {
                     downloadController = null;
+                    downloadBtn.classList.remove('loading');
                 }
-                downloadBtn.classList.remove('loading');
             }
         }
 
@@ -492,7 +496,8 @@
                 img.loading = 'lazy';
                 img.decoding = 'async';
                 img.referrerPolicy = 'no-referrer';
-                img.alt = getImageAlt(item);
+                img.alt = '';
+                img.setAttribute('aria-hidden', 'true');
 
                 img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
                 img.addEventListener('error', () => {
