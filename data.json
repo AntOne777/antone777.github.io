@@ -15,17 +15,25 @@
     "OlmstedPoint": {
         "sort_key": "20260930_OlmstedPoint",
         "date": "2026-09-30",
-        "url": "https://www.bing.com/th?id=OHR.OlmstedPoint_ZH-CN4182671075_UHD.jpg",
-        "preview": "https://www.bing.com/th?id=OHR.OlmstedPoint_ZH-CN4182671075_1920x1080.jpg",
+        "url": "https://www.bing.com/th?id=OHR.OlmstedPoint_EN-US0964858045_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.OlmstedPoint_EN-US0964858045_1920x1080.jpg",
         "img_id": "OlmstedPoint",
-        "title": "在花岗岩中读懂时间",
-        "description": "奥姆斯特德观景点的日落，优胜美地国家公园，加利福尼亚州，美国 (© Robb Hirsch/Tandem Stills + Motion)",
-        "copyright": "奥姆斯特德观景点的日落，优胜美地国家公园，加利福尼亚州，美国 (© Robb Hirsch/Tandem Stills + Motion)",
+        "title": "Reading time in granite",
+        "description": "Sunset from Olmsted Point, Yosemite National Park, California, USA (© Robb Hirsch/Tandem Stills + Motion)",
+        "copyright": "Sunset from Olmsted Point, Yosemite National Park, California, USA (© Robb Hirsch/Tandem Stills + Motion)",
         "markets": [
             "zh-CN",
             "ja-JP",
             "it-IT",
-            "en-CA"
+            "en-CA",
+            "en-US",
+            "en-AU",
+            "en-NZ",
+            "nl-NL",
+            "pl-PL",
+            "pt-PT",
+            "ko-KR",
+            "ru-RU"
         ]
     },
     "BlackHistoryMonthUK2026": {
