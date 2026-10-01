@@ -1,4 +1,17 @@
 {
+    "GreenLake": {
+        "sort_key": "20261001_GreenLake",
+        "date": "2026-10-01",
+        "url": "https://www.bing.com/th?id=OHR.GreenLake_PT-BR0948770849_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.GreenLake_PT-BR0948770849_1920x1080.jpg",
+        "img_id": "GreenLake",
+        "title": "O segredo da Lagoa Verde",
+        "description": "Vista aérea da Lagoa Verde, Angra dos Reis, Rio de Janeiro (© Avalon/Getty Images)",
+        "copyright": "Vista aérea da Lagoa Verde, Angra dos Reis, Rio de Janeiro (© Avalon/Getty Images)",
+        "markets": [
+            "pt-BR"
+        ]
+    },
     "OlmstedPoint": {
         "sort_key": "20260930_OlmstedPoint",
         "date": "2026-09-30",
@@ -11,7 +24,21 @@
         "markets": [
             "zh-CN",
             "ja-JP",
-            "it-IT"
+            "it-IT",
+            "en-CA"
+        ]
+    },
+    "BlackHistoryMonthUK2026": {
+        "sort_key": "20260930_BlackHistoryMonthUK2026",
+        "date": "2026-09-30",
+        "url": "https://www.bing.com/th?id=OHR.BlackHistoryMonthUK2026_EN-GB9938862434_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.BlackHistoryMonthUK2026_EN-GB9938862434_1920x1080.jpg",
+        "img_id": "BlackHistoryMonthUK2026",
+        "title": "A place in the picture",
+        "description": "Panorama of Parliament Square and Nelson Mandela memorial, London (© ansharphoto/Shutterstock)",
+        "copyright": "Panorama of Parliament Square and Nelson Mandela memorial, London (© ansharphoto/Shutterstock)",
+        "markets": [
+            "en-GB"
         ]
     },
     "BeardReedling": {
