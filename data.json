@@ -12,6 +12,19 @@
             "pt-BR"
         ]
     },
+    "AmmoniteFossils": {
+        "sort_key": "20261002_AmmoniteFossils",
+        "date": "2026-10-02",
+        "url": "https://www.bing.com/th?id=OHR.AmmoniteFossils_JA-JP8778940090_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.AmmoniteFossils_JA-JP8778940090_1920x1080.jpg",
+        "img_id": "AmmoniteFossils",
+        "title": "古代の海に生息していた動物の化石",
+        "description": "アンモナイトの化石 (© J Nemchinova/Getty Images)",
+        "copyright": "アンモナイトの化石 (© J Nemchinova/Getty Images)",
+        "markets": [
+            "ja-JP"
+        ]
+    },
     "PerugiaAqueduct": {
         "sort_key": "20261001_PerugiaAqueduct",
         "date": "2026-10-01",
@@ -35,7 +48,8 @@
         "description": "Braunbär am Silver Salmon Creek, Lake Clark National Park and Preserve, Alaska, USA (© Danny Green/Nature Picture Library)",
         "copyright": "Braunbär am Silver Salmon Creek, Lake Clark National Park and Preserve, Alaska, USA (© Danny Green/Nature Picture Library)",
         "markets": [
-            "de-DE"
+            "de-DE",
+            "zh-CN"
         ]
     },
     "GreenLake": {
