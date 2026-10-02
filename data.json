@@ -1,4 +1,17 @@
 {
+    "Camburiu": {
+        "sort_key": "20261002_Camburiu",
+        "date": "2026-10-02",
+        "url": "https://www.bing.com/th?id=OHR.Camburiu_PT-BR9036477210_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.Camburiu_PT-BR9036477210_1920x1080.jpg",
+        "img_id": "Camburiu",
+        "title": "Maré de tranquilidade",
+        "description": "Praia de Taquaras no Balneário Camboriú, Santa Catarina (© MaRabelo/Getty Images)",
+        "copyright": "Praia de Taquaras no Balneário Camboriú, Santa Catarina (© MaRabelo/Getty Images)",
+        "markets": [
+            "pt-BR"
+        ]
+    },
     "PerugiaAqueduct": {
         "sort_key": "20261001_PerugiaAqueduct",
         "date": "2026-10-01",
@@ -51,7 +64,8 @@
             "zh-CN",
             "ja-JP",
             "es-ES",
-            "en-GB"
+            "en-GB",
+            "en-CA"
         ]
     },
     "AutumnPeatBog": {
