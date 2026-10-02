@@ -12,6 +12,19 @@
             "pt-BR"
         ]
     },
+    "BrandenburgGateFireworks": {
+        "sort_key": "20261002_BrandenburgGateFireworks",
+        "date": "2026-10-02",
+        "url": "https://www.bing.com/th?id=OHR.BrandenburgGateFireworks_DE-DE4410403528_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.BrandenburgGateFireworks_DE-DE4410403528_1920x1080.jpg",
+        "img_id": "BrandenburgGateFireworks",
+        "title": "Ein Zeichen der Einheit",
+        "description": "Brandenburger Tor, Berlin (© almir1968/Getty Images)",
+        "copyright": "Brandenburger Tor, Berlin (© almir1968/Getty Images)",
+        "markets": [
+            "de-DE"
+        ]
+    },
     "AmmoniteFossils": {
         "sort_key": "20261002_AmmoniteFossils",
         "date": "2026-10-02",
@@ -41,15 +54,19 @@
     "GrizzlySwim": {
         "sort_key": "20261001_GrizzlySwim",
         "date": "2026-10-01",
-        "url": "https://www.bing.com/th?id=OHR.GrizzlySwim_DE-DE4187515695_UHD.jpg",
-        "preview": "https://www.bing.com/th?id=OHR.GrizzlySwim_DE-DE4187515695_1920x1080.jpg",
+        "url": "https://www.bing.com/th?id=OHR.GrizzlySwim_EN-GB2587469687_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.GrizzlySwim_EN-GB2587469687_1920x1080.jpg",
         "img_id": "GrizzlySwim",
         "title": "Kolosse des Nordens",
         "description": "Braunbär am Silver Salmon Creek, Lake Clark National Park and Preserve, Alaska, USA (© Danny Green/Nature Picture Library)",
         "copyright": "Braunbär am Silver Salmon Creek, Lake Clark National Park and Preserve, Alaska, USA (© Danny Green/Nature Picture Library)",
         "markets": [
             "de-DE",
-            "zh-CN"
+            "zh-CN",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "en-GB"
         ]
     },
     "GreenLake": {
