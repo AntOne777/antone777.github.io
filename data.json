@@ -28,18 +28,19 @@
     "ArtemisRocket": {
         "sort_key": "20261003_ArtemisRocket",
         "date": "2026-10-03",
-        "url": "https://www.bing.com/th?id=OHR.ArtemisRocket_ZH-CN1768541365_UHD.jpg",
-        "preview": "https://www.bing.com/th?id=OHR.ArtemisRocket_ZH-CN1768541365_1920x1080.jpg",
+        "url": "https://www.bing.com/th?id=OHR.ArtemisRocket_EN-GB2659306567_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.ArtemisRocket_EN-GB2659306567_1920x1080.jpg",
         "img_id": "ArtemisRocket",
-        "title": "宇宙在召唤",
-        "description": "阿尔忒弥斯1号月球火箭，39B发射台，肯尼迪航天中心，佛罗里达州，2022年6月15日 (© EVA MARIE UZCATEGUI/Getty Images)",
-        "copyright": "阿尔忒弥斯1号月球火箭，39B发射台，肯尼迪航天中心，佛罗里达州，2022年6月15日 (© EVA MARIE UZCATEGUI/Getty Images)",
+        "title": "The universe is calling",
+        "description": "Artemis I moon rocket at Launch Complex 39B, Kennedy Space Center, Florida, United States (© EVA MARIE UZCATEGUI/Getty Images)",
+        "copyright": "Artemis I moon rocket at Launch Complex 39B, Kennedy Space Center, Florida, United States (© EVA MARIE UZCATEGUI/Getty Images)",
         "markets": [
             "zh-CN",
             "ja-JP",
             "de-DE",
             "es-ES",
-            "it-IT"
+            "it-IT",
+            "en-GB"
         ]
     },
     "Camburiu": {
