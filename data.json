@@ -1,4 +1,17 @@
 {
+    "NuitBToro": {
+        "sort_key": "20261003_NuitBToro",
+        "date": "2026-10-03",
+        "url": "https://www.bing.com/th?id=OHR.NuitBToro_EN-CA6592121527_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.NuitBToro_EN-CA6592121527_1920x1080.jpg",
+        "img_id": "NuitBToro",
+        "title": "The midnight art marathon",
+        "description": "Toronto City Hall illuminated at night (© EB Adventure Photography/Shutterstock)",
+        "copyright": "Toronto City Hall illuminated at night (© EB Adventure Photography/Shutterstock)",
+        "markets": [
+            "en-CA"
+        ]
+    },
     "Camburiu": {
         "sort_key": "20261002_Camburiu",
         "date": "2026-10-02",
@@ -66,7 +79,8 @@
             "es-ES",
             "fr-FR",
             "it-IT",
-            "en-GB"
+            "en-GB",
+            "pt-BR"
         ]
     },
     "GreenLake": {
