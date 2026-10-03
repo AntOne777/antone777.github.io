@@ -12,6 +12,19 @@
             "en-CA"
         ]
     },
+    "GruesDer": {
+        "sort_key": "20261003_GruesDer",
+        "date": "2026-10-03",
+        "url": "https://www.bing.com/th?id=OHR.GruesDer_FR-FR4180166006_UHD.jpg",
+        "preview": "https://www.bing.com/th?id=OHR.GruesDer_FR-FR4180166006_1920x1080.jpg",
+        "img_id": "GruesDer",
+        "title": "L’aube des grues",
+        "description": "Grues cendrées en vol à l'aube, lac du Der, France (© Christophe Lehenaff/Getty Images)",
+        "copyright": "Grues cendrées en vol à l'aube, lac du Der, France (© Christophe Lehenaff/Getty Images)",
+        "markets": [
+            "fr-FR"
+        ]
+    },
     "ArtemisRocket": {
         "sort_key": "20261003_ArtemisRocket",
         "date": "2026-10-03",
@@ -23,7 +36,10 @@
         "copyright": "阿尔忒弥斯1号月球火箭，39B发射台，肯尼迪航天中心，佛罗里达州，2022年6月15日 (© EVA MARIE UZCATEGUI/Getty Images)",
         "markets": [
             "zh-CN",
-            "ja-JP"
+            "ja-JP",
+            "de-DE",
+            "es-ES",
+            "it-IT"
         ]
     },
     "Camburiu": {
